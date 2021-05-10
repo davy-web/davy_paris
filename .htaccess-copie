@@ -1,0 +1,18 @@
+# Empêche de voir dans les dossiers
+Options All -Indexes
+
+# SSL
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+# Retire extension PHP
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Réécriture d’URL
+RewriteRule ^(.*)=(.+)\.php ./$1.php?id=$2 [L]
+
+# Page erreur
+ErrorDocument 404 https://dating-paris.one-website.com

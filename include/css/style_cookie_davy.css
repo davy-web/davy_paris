@@ -1,0 +1,15 @@
+/* Davy CHEN - 2021 */
+
+/* cookie_davy */
+.block_cookie_davy {
+    display: block;
+    position: fixed;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.bouton_cookie_davy {
+    width: auto;
+    padding: 0px 32px;
+}

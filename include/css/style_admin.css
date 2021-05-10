@@ -1,0 +1,101 @@
+/* Davy CHEN - 2021 */
+
+/* style_admin */
+.block_admin_davy {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 8px 8px 16px rgba(59, 65, 94, 0.1), -8px -8px 16px rgba(0, 0, 0, 0.07);
+}
+.nav_icon_logo_admin_davy {
+    height: 40px;
+}
+/* sidebar */
+.sidebar_admin_davy, .header_sidebar_admin_davy {
+    width: 200px;
+    height: 100vh;
+    overflow: auto;
+}
+.main_admin_davy, .header_main_admin_davy {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+}
+.sidebar_admin_davy, .main_admin_davy {
+    margin-top: 76px;
+}
+.header_sidebar_admin_davy, .header_main_admin_davy {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background: linear-gradient(white, white, white, white, white, rgba(255, 255, 255, 0));
+    height: 76px;
+}
+
+/* accordion */
+.icon_admin {
+    max-width: 16px;
+    max-height: 16px;
+    margin: 0px 8px;
+}
+.accordion_davy, .panel_davy a {
+    cursor: pointer;
+    color: #5e6e82;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: left;
+    display: flex;
+    align-content: center;
+    padding: 8px 0px;
+    width: 100%;
+    transition: 0.4s;
+    font-weight: 500;
+    font-size: 16px;
+}
+.block_accordion_davy {
+    display: block;
+    position: relative;
+}
+.fleche_accordion_davy:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-right: 1px solid #5e6e82;
+    border-bottom: 1px solid #5e6e82;
+    transform: translateY(-50%) rotate(45deg);
+    transition: all 0.2s ease-in-out;
+    top: 50%;
+    right: 16px;
+    height: 4px;
+    width: 4px;
+}
+.fleche_accordion:after {
+    transform: translateY(-50%) rotate(225deg);
+}
+.bouton_menu_davy {
+    cursor: pointer;
+    color: #5e6e82;
+    width: 16px;
+    height: 16px;
+    margin: 0px 8px;
+}
+.accordion_davy:hover, .panel_davy a:hover {
+    color: #232e3c;
+    background: #d8e2ef;
+    border-radius: 16px;
+}
+.bouton_menu_davy:hover {
+    color: #232e3c;
+}
+.desactive_accordion {
+    display: none;
+}
+@media only screen and (max-width: 700px) {
+    .sidebar_admin_davy, .header_sidebar_admin_davy {
+        display: none;
+    }
+    .main_admin_davy, .header_main_admin_davy {
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+}

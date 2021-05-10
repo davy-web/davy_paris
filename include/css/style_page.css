@@ -1,0 +1,50 @@
+/* Davy CHEN - 2021 */
+
+/* page_davy */
+.cadre_image_page_davy {
+    position: relative;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+.image_page_davy {
+    width: 100%;
+    border-radius: 1.5vw;
+}
+.trait_rouge, .trait_2_rouge {
+    position: absolute;
+    max-width: 60%;
+    max-height: 60%;
+}
+.trait_rouge {
+    transform: translate(-2vw, -2vw);
+    top: 0;
+    left: 0;
+}
+.trait_2_rouge {
+    transform: translate(2vw, 2vw);
+    bottom: 0;
+    right: 0;
+}
+.flex_flow_davy {
+    display: flex;
+    flex-flow: row-reverse wrap;
+}
+@media only screen and (max-width: 768px) {
+    .cadre_image_page_davy {
+        margin-left: 0vw;
+        margin-right: 0vw;
+    }
+    .image_page_davy {
+        border-radius: 3.5vw;
+    }
+    .trait_rouge {
+        transform: translate(-4vw, -4vw);
+    }
+    .trait_2_rouge {
+        transform: translate(4vw, 4vw);
+    }
+    .flex_flow_davy {
+        display: flex;
+        flex-flow: wrap;
+    }
+}

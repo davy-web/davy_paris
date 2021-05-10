@@ -1,0 +1,57 @@
+/* Davy CHEN - 2021 */
+
+/* nav_mobile_davy */
+.nav_mobile_davy {
+    display: none;
+    position: fixed;
+    background-color: #2c2739;
+    bottom: 0px;
+    width: 100%;
+    height: 60px;
+    z-index: 13;
+    transition: 0.75s;
+}
+.nav_mobile_center_davy {
+    text-align: center;
+    display: flex;
+}
+.menu_mobile_davy {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    flex: 1;
+    padding: 12px 0px;
+    height: 60px;
+    transition: 0.75s;
+}
+.texte_menu_mobile_davy {
+    color: white;
+    display: inline-block;
+    transform: translate(0px, -8px);
+    text-transform: uppercase;
+    margin: 0px;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.75s;
+}
+.icon_menu_mobile_davy {
+    display: inline-block;
+    width: 24px;
+    z-index: 14;
+}
+.checkbox_mobile_davy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    z-index: 15;
+}
+@media only screen and (max-width: 700px) {
+    .nav_mobile_davy {
+        display: block;
+    }
+}

@@ -1,0 +1,111 @@
+/* Davy CHEN - 2021 */
+
+/* Slider_davy */
+.slider_davy {
+    display: block;
+    margin: 6vw auto 0 auto;
+    width: 100%;
+}
+.block_slider_davy {
+    display: flex !important;
+    transform: translate(-10%, 0%);
+    margin-top: 60px;
+}
+.gauche_slider_davy, .droite_slider_davy {
+    position: relative;
+    display: inline-block;
+}
+.gauche_slider_davy {
+    height: 40vw;
+    width: 60%;
+}
+.droite_slider_davy {
+    width: 35%;
+}
+.titre_slider_davy {
+    transform: translate(-100px, 0%);
+    margin-top: 2vw;
+}
+.bouton_slider_davy {
+    display: flex;
+    align-items: center;
+}
+.image_slider_davy {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 2.5vw;
+    opacity: 0.75;
+}
+.cadre_image_slider_davy {
+    position: relative;
+    width: 95%;
+    height: 85%;
+}
+.trait_rouge, .trait_2_rouge {
+    position: absolute;
+    max-width: 60%;
+    max-height: 60%;
+}
+.trait_rouge {
+    transform: translate(-2.5vw, -2.5vw);
+    top: 0;
+    left: 0;
+}
+.trait_2_rouge {
+    transform: translate(2.5vw, 2.5vw);
+    bottom: 0;
+    right: 0;
+}
+@media only screen and (max-width: 900px) {
+    .block_slider_davy {
+        display: block !important;
+        transform: translate(10%, 0%);
+    }
+    .gauche_slider_davy, .droite_slider_davy {
+        display: block;
+        width: 80%;
+    }
+    .gauche_slider_davy {
+        height: 50vw;
+    }
+    .titre_slider_davy {
+        transform: translate(0%, 0%);
+        margin-top: 5vw;
+    }
+    .image_slider_davy {
+        transform: translate(-50%, 0%);
+        left: 50%;
+    }
+    .cadre_image_slider_davy {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Slider_2_davy */
+.slider-nav-2 {
+    margin: calc(-5% - 30px) auto 0px auto;
+}
+.bouton_2_davy img {
+    padding: 10px;
+    border-radius: 16px;
+}
+.cadre_2_davy {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    max-height: 80vh;
+}
+
+/* Slider */
+.slick-dots li button::before {
+    font-size: 32px;
+}
+.slick-dots li.slick-active button::before {
+    color: #E00817;
+}

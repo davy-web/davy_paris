@@ -1,0 +1,126 @@
+/* Davy CHEN - 2021 */
+
+/* bouton_anim_davy */
+.bouton_anim_davy {
+    color: white;
+    background: #E00817;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 250px;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 0px;
+    border-radius: 32px;
+}
+.bouton_anim_davy span {
+    color: white;
+    display: inline-block;
+    text-transform: uppercase;
+    transform: translate(0, -20px);
+    min-width: 0.3em;
+    font-size: 14px;
+    opacity: 0;
+    transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
+}
+.bouton_anim_davy:before {
+    content: attr(data-text);
+    text-transform: uppercase;
+    position: absolute;
+    transform: translate(0px, 0px);
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: 2px;
+    opacity: 1;
+    transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
+}
+.bouton_anim_davy:hover:before, .bouton_anim_davy:focus:before {
+    transform: translate(0, 20px);
+    opacity: 0;
+}
+.bouton_anim_davy:hover span, .bouton_anim_davy:focus span {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+.bouton_anim_davy:hover span:nth-child(1), .bouton_anim_davy:focus span:nth-child(1) {
+    transition-delay: 0.025s;
+}
+.bouton_anim_davy:hover span:nth-child(2), .bouton_anim_davy:focus span:nth-child(2) {
+    transition-delay: 0.05s;
+}
+.bouton_anim_davy:hover span:nth-child(3), .bouton_anim_davy:focus span:nth-child(3) {
+    transition-delay: 0.075s;
+}
+.bouton_anim_davy:hover span:nth-child(4), .bouton_anim_davy:focus span:nth-child(4) {
+    transition-delay: 0.1s;
+}
+.bouton_anim_davy:hover span:nth-child(5), .bouton_anim_davy:focus span:nth-child(5) {
+    transition-delay: 0.125s;
+}
+.bouton_anim_davy:hover span:nth-child(6), .bouton_anim_davy:focus span:nth-child(6) {
+    transition-delay: 0.15s;
+}
+.bouton_anim_davy:hover span:nth-child(7), .bouton_anim_davy:focus span:nth-child(7) {
+    transition-delay: 0.175s;
+}
+.bouton_anim_davy:hover span:nth-child(8), .bouton_anim_davy:focus span:nth-child(8) {
+    transition-delay: 0.2s;
+}
+.bouton_anim_davy:hover span:nth-child(9), .bouton_anim_davy:focus span:nth-child(9) {
+    transition-delay: 0.225s;
+}
+.bouton_envoyer {
+    position: relative;
+}
+.bouton_submit {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.bouton_2_anim_davy {
+    color: #E00817;
+    background: white;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    border: 3px solid #E00817;
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.bouton_2_anim_davy span {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+.bouton_2_anim_davy:hover, .active_bouton_2_anim_davy {
+    color: white;
+    background: #E00817;
+}
+@media only screen and (max-width: 700px) {
+    .bouton_anim_davy {
+        width: 200px;
+        font-size: 12px;
+    }
+    .bouton_anim_davy span {
+        font-size: 12px;
+    }
+    .bouton_anim_davy:before {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+}

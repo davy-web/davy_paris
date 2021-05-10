@@ -1,0 +1,223 @@
+/* Davy CHEN - 2021 */
+
+/* general */
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    color: #2c2739;
+    margin: 0;
+}
+h1, h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.3em;
+    margin: 0;
+}
+.h1_moyen_davy, .h2_moyen_davy {
+    font-size: 32px;
+    font-weight: 700;
+}
+.h2_grand_davy {
+    font-size: 64px;
+    letter-spacing: 4px;
+}
+p, a {
+    font-size: 16px;
+}
+p {
+    line-height: 1.6em;
+}
+a {
+    color: #2c2739;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+a:hover {
+    color: #E00A18;
+}
+label {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+input, textarea, select {
+    color: #2c2739;
+    border: 1px solid #d8e2ef;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 16px;
+}
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+input::placeholder, textarea::placeholder {
+    color: #bdc6d1;
+    font-weight: 500;
+}
+input[type=submit] {
+    cursor: pointer;
+}
+input[type=file] {
+    background-color: inherit;
+    padding: 0px;
+    border-radius: 0px;
+    opacity: 0;
+}
+input[type=file] + label {
+    display: block;
+    cursor: pointer;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+option:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+hr {
+    background: #E00A18;
+    border: 0;
+    height: 4px;
+    width: 32px;
+    margin: 16px 0px 24px 0px;
+    border-radius: 32px;
+}
+hr.show {
+    animation: anime_scroll_1 0.5s linear;
+    width: 64px;
+}
+.hr_admin_davy {
+    background: #d8e2ef;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    margin: 8px 0px;
+    border-radius: 32px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #d8e2ef;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #f0f4f9;
+}
+th {
+    background-color: #e2e9f3;
+}
+.table_responsive_davy {
+    width: 100%;
+    overflow-x: auto;
+}
+.serif_davy {
+    font-family: 'DM Serif Display', serif;
+}
+.color_red_davy {
+    color: #E00817;
+}
+.color_white_davy {
+    color: white;
+}
+.color_gris_davy {
+    color: #5e6e82;
+}
+.background_blue_davy {
+    background-color: #507bbc;
+}
+.background_beige_davy {
+    background-color: #fef9fb;
+}
+.text_center_davy {
+    text-align: center;
+}
+.float_right_davy {
+    float: right;
+}
+.width_full_davy {
+    width: 100%;
+}
+.display_none_davy {
+    display: none;
+}
+.row_davy {
+    display: flex;
+}
+.col_davy {
+    width: 100%;
+    flex-grow: 1;
+}
+.block_center_davy {
+    display: block;
+    margin: 16px auto 24px auto;
+}
+.flex_center_davy {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.block_content_medium_davy {
+    width: 90%;
+    max-width: 768px;
+}
+.block_content_davy {
+    width: 90%;
+    max-width: 1320px;
+    padding: 0px 12px;
+}
+.sticky_top_davy {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+.fixed_top_davy {
+    position: fixed;
+    top: 0;
+}
+.border_radius_davy, iframe {
+    border-radius: 16px;
+}
+/* bootstrap */
+.container {
+    width: 90%;
+}
+@media only screen and (max-width: 700px) {
+    h1, h2 {
+        font-size: 32px;
+    }
+    .h2_grand_davy {
+        font-size: 42px;
+        letter-spacing: 2px;
+    }
+    .h2_color_davy {
+        font-size: 16px;
+    }
+    p, a {
+        font-size: 14px;
+    }
+    input, textarea {
+        padding: 8px 16px;
+    }
+    .input_gauche_davy {
+        padding-right: 0px;
+    }
+    .input_droite_davy {
+        padding-left: 0px;
+    }
+    .row_davy, .col_davy {
+        display: block;
+    }
+}
