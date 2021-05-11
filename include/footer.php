@@ -1,8 +1,7 @@
         <footer>
-            <div style="height: 10vh;"></div>
             <div class="background_beige_davy px-5 py-3"><p class="text_center_davy"><strong>Copyright© 2021 Dating Paris. <a href="<?= URL ?>/mentions" title="<?= URL ?>/mentions">Mentions légales.</a></strong></p></div>
         </footer>
-
+        
         <!-- cookie -->
         <?php
         if (isset($_POST['accepter_cookie'])) {

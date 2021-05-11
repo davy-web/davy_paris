@@ -99,4 +99,7 @@
         width: 100% !important;
         margin-left: 0px !important;
     }
+    .header_main_admin_davy {
+        display: none;
+    }
 }
