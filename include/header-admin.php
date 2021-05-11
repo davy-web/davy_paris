@@ -38,7 +38,11 @@ if (isset($_POST['deconnexion'])) {
                 </a>
             </div>
             <div class="header_main_admin_davy py-3 fixed_top_davy">
-                <form method="post">
+                <!-- Logo -->
+                <a href="<?= URL ?>" title="Accueil" class="logo_mobile_admin_davy">
+                    <img class="nav_icon_logo_admin_davy" src="<?= URL ?>/images/logo-dating-paris-min.png" alt="Logo">
+                </a>
+                <form method="post" class="chercher_admin_davy">
                     <input type="text" id="chercher" name="chercher" placeholder="Chercher">
                 </form>
             </div>

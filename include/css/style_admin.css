@@ -10,6 +10,9 @@
 .nav_icon_logo_admin_davy {
     height: 40px;
 }
+.logo_mobile_admin_davy {
+    display: none;
+}
 
 /* sidebar */
 .sidebar_admin_davy, .header_sidebar_admin_davy {
@@ -91,6 +94,7 @@
 .desactive_accordion {
     display: none;
 }
+
 @media only screen and (max-width: 700px) {
     .sidebar_admin_davy, .header_sidebar_admin_davy {
         display: none;
@@ -99,7 +103,10 @@
         width: 100% !important;
         margin-left: 0px !important;
     }
-    .header_main_admin_davy {
+    .chercher_admin_davy {
         display: none;
+    }
+    .logo_mobile_admin_davy {
+        display: block;
     }
 }
