@@ -2,7 +2,7 @@
         </div>
 
         <footer>
-            <div style="height: 100vh;"></div>
+            <div style="height: 128px;"></div>
         </footer>
         
         <script src="<?= URL ?>/include/js/script_accordion.js"></script>

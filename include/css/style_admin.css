@@ -96,17 +96,22 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .sidebar_admin_davy, .header_sidebar_admin_davy {
-        display: none;
-    }
     .main_admin_davy, .header_main_admin_davy {
+        position: relative;
         width: 100% !important;
         margin-left: 0px !important;
     }
-    .chercher_admin_davy {
+    .sidebar_admin_davy, .main_admin_davy {
+        margin-top: 0px;
+    }
+    .sidebar_admin_davy, .header_sidebar_admin_davy {
         display: none;
     }
     .logo_mobile_admin_davy {
         display: block;
+        margin-right: 16px;
+    }
+    #chercher {
+        width: 100%;
     }
 }
