@@ -13,6 +13,15 @@
 .logo_mobile_admin_davy {
     display: none;
 }
+.image_admin_davy {
+    height: 64px;
+    border-radius: 8px;
+}
+.icon_gestion_admin {
+    max-width: 16px;
+    max-height: 16px;
+    margin: 8px;
+}
 
 /* sidebar */
 .sidebar_admin_davy, .header_sidebar_admin_davy {
