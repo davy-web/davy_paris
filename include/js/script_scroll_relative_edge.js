@@ -13,10 +13,3 @@ function anime_scroll_relative_edge_davy(block_anime_scroll_relative_edge_davy, 
         document.body.style.setProperty(scroll_relative_edge, 1);
     }
 }
-/*
-window.addEventListener("scroll", () => {
-    if (page_id == "accueil") {
-        anime_scroll_relative_edge_davy("block_anime_scroll_relative_edge_1_davy", "--scroll_relative_edge_1", 0, -150);
-    }
-}, false);
-*/

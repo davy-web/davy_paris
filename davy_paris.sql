@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 10 mai 2021 à 00:23
+-- Généré le : lun. 10 mai 2021 à 21:36
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -194,16 +194,17 @@ CREATE TABLE `membre` (
   `prenom` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL,
-  `statut` int(5) NOT NULL
+  `statut` int(5) NOT NULL,
+  `limit_connexion` int(11) NOT NULL,
+  `limit_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`id_membre`, `nom`, `prenom`, `email`, `mdp`, `statut`) VALUES
-(1, 'Chen', 'Davy', 'eric.elric369@gmail.com', '$2y$10$twnkO/A4bE6ghdZFP4sAtuG7QPWDI6GyuYAjJoHbU6/0FhzpEDVqi', 2),
-(2, 'chendavyweb@gmail.com', 'chendavyweb@gmail.com', 'chendavyweb@gmail.com', '$2y$10$PJa9QxOUnhVHXBO0xrMgpu1Uz0Qg5uOPsquKOftJ/iKgK09nphI9u', 2);
+INSERT INTO `membre` (`id_membre`, `nom`, `prenom`, `email`, `mdp`, `statut`, `limit_connexion`, `limit_date`) VALUES
+(1, 'Chen', 'Davy', 'chendavyweb@gmail.com', '$2y$10$PJa9QxOUnhVHXBO0xrMgpu1Uz0Qg5uOPsquKOftJ/iKgK09nphI9u', 2, 0, '2021-05-10');
 
 -- --------------------------------------------------------
 
@@ -338,7 +339,7 @@ ALTER TABLE `mdpoublier`
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `produit`

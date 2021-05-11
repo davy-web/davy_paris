@@ -23,10 +23,3 @@ function anime_scroll_fixed_davy(zone_anime_scroll_fixed_davy, block_anime_scrol
         block_anime_scroll_fixed[0].style.transform = "translate(-50%, 0%)";
     }
 }
-/*
-window.addEventListener("scroll", () => {
-    if (page_id == "accueil") {
-        anime_scroll_fixed_davy("zone_anime_scroll_fixed_1_davy", "block_anime_scroll_fixed_1_davy", "--scroll_fixed_1");
-    }
-}, false);
-*/

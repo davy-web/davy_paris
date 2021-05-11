@@ -62,15 +62,15 @@ require_once("include/header.php");
             <!-- Etape -->
             <div class="block_content_medium_davy block_center_davy text_center_davy">
                 <div class="row">
-                    <div class="col-md mb-3">
+                    <div class="col mb-3">
                         <a title="Panier" class="bouton_2_anim_davy active_bouton_2_anim_davy" href="<?= URL ?>/panier"><span>1</span></a><br>
                         <p>Panier</p>
                     </div>
-                    <div class="col-md mb-3">
+                    <div class="col mb-3">
                         <a title="Coordonnées" class="bouton_2_anim_davy" href="<?= URL ?>/coordonnees"><span>2</span></a>
                         <p>Coordonnées</p>
                     </div>
-                    <div class="col-md mb-3">
+                    <div class="col mb-3">
                         <a title="Paiement" class="bouton_2_anim_davy" href="<?= URL ?>/paiement"><span>3</span></a>
                         <p>Paiement</p>
                     </div>

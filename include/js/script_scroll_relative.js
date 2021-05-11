@@ -13,14 +13,3 @@ function anime_scroll_relative_davy(block_anime_scroll_relative_davy, scroll_rel
         document.body.style.setProperty(scroll_relative, 1);
     }
 }
-/*
-window.addEventListener("scroll", () => {
-    if (page_id == "profil") {
-        anime_scroll_relative_davy("block_anime_scroll_relative_1_davy", "--scroll_relative_1");
-        anime_scroll_relative_davy("block_anime_scroll_relative_2_davy", "--scroll_relative_2");
-    }
-    if (page_id == "accueil") {
-        anime_scroll_relative_davy("block_anime_scroll_relative_1_davy", "--scroll_relative_1");
-    }
-}, false);
-*/
