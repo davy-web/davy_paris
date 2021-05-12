@@ -159,7 +159,7 @@ require_once("include/header.php");
                 </div>
             </div>
         </div>
-
+        <?php nb_visit_page($pdo_object, $article_array['titre']); ?>
 <?php
 require_once("include/footer.php");
 ?>

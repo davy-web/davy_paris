@@ -120,6 +120,12 @@
         display: block;
         margin-right: 16px;
     }
+    .container {
+        width: 100%;
+    }
+    .block_admin_davy {
+        padding: 16px;
+    }
     #chercher {
         width: 100%;
     }

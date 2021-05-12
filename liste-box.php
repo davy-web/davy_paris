@@ -148,7 +148,7 @@ require_once("include/header.php");
                                         <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
                                         <br>
                                         <strong><?= $produit_chercher_array['titre'] ?></strong><br>
-                                        Lieu touristique<br><br>
+                                        Pour 2 personnes<br><br>
                                         <strong class="prix_cadre_davy"><?= $produit_chercher_array['prix'] ?>€</strong>
                                         <a href="<?= URL ?>/box=<?= $produit_chercher_array['id_produit'] ?>" title="<?= URL ?>/box=<?= $produit_chercher_array['id_produit'] ?>"><i class="icon_cadre_davy"><img src="<?= URL ?>/images/icon-voir-min.png" class="image_cadre_icon_davy" alt="Icon voir"></i></a>
                                     </p>
@@ -173,7 +173,7 @@ require_once("include/header.php");
                                         <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
                                         <br>
                                         <strong><?= $produit_array['titre'] ?></strong><br>
-                                        Lieu touristique<br><br>
+                                        Pour 2 personnes<br><br>
                                         <strong class="prix_cadre_davy"><?= $produit_array['prix'] ?>€</strong>
                                         <a href="<?= URL ?>/box=<?= $produit_array['id_produit'] ?>" title="<?= URL ?>/box=<?= $produit_array['id_produit'] ?>"><i class="icon_cadre_davy"><img src="<?= URL ?>/images/icon-voir-min.png" class="image_cadre_icon_davy" alt="Icon voir"></i></a>
                                     </p>
@@ -196,7 +196,7 @@ require_once("include/header.php");
                     </div>
                 </div>
             </div>
-
+        <?php nb_visit_page($pdo_object, "Liste-box"); ?>
 <?php
 require_once("include/footer.php");
 ?>

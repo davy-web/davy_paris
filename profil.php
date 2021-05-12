@@ -117,6 +117,7 @@ require_once("include/header.php");
                 <?php endif; ?>
             </div>
         </div>
+        <?php nb_visit_page($pdo_object, "Profil"); ?>
 <?php
 require_once("include/footer.php");
 ?>

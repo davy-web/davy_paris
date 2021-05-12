@@ -183,6 +183,7 @@ require_once("include/header.php");
                 </div>
             </div>
         </div>
+        <?php nb_visit_page($pdo_object, "Panier"); ?>
 <?php
 require_once("include/footer.php");
 ?>
