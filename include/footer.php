@@ -43,6 +43,7 @@
         <?php endif; ?>
         
         <script src="<?= URL ?>/include/js/script_nav.js"></script>
+        <script src="<?= URL ?>/include/js/script_scroll.js"></script>
         <script src="<?= URL ?>/include/js/script_scroll_relative_content.js"></script>
     </body>
 </html>

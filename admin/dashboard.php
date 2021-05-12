@@ -5,14 +5,19 @@ require_once("../include/fonctions.php");
 // Vérifie Admin
 admin_connecte();
 
-// Nombre de visite
+// Date de visite
 $pdo_statement = $pdo_object->prepare("SELECT * FROM dashboard WHERE nom_visit_page = :nom_visit_page");
 $pdo_statement->bindValue(":nom_visit_page", "Accueil", PDO::PARAM_STR);
 $pdo_statement->execute();
+// Nombre de visite
 $pdo_statement_2 = $pdo_object->prepare("SELECT * FROM dashboard WHERE nom_visit_page = :nom_visit_page");
 $pdo_statement_2->bindValue(":nom_visit_page", "Accueil", PDO::PARAM_STR);
 $pdo_statement_2->execute();
-$total_date = $pdo_statement->rowCount();
+// Nombre max de visite
+$pdo_statement_3 = $pdo_object->prepare("SELECT MAX(nb_visit_page) FROM dashboard WHERE nom_visit_page = :nom_visit_page");
+$pdo_statement_3->bindValue(":nom_visit_page", "Accueil", PDO::PARAM_STR);
+$pdo_statement_3->execute();
+$dashboard_array_3 = $pdo_statement_3->fetch(PDO::FETCH_ASSOC);
 
 require_once("../include/header-admin.php");
 ?>
@@ -46,8 +51,8 @@ require_once("../include/header-admin.php");
                     ];
                     new Chart("graph_davy", {
                         type: "line",
-                        data: {labels: xValues, datasets: [{fill: false, lineTension: 0, backgroundColor: "rgba(0,0,255,1.0)", borderColor: "rgba(0,0,255,0.1)", data: yValues}]},
-                        options: {legend: {display: false}, scales: {yAxes: [{ticks: {min: 0, max: 30}}]}}
+                        data: {labels: xValues, datasets: [{fill: false, lineTension: 0, backgroundColor: "rgba(224, 10, 24, 1.0)", borderColor: "rgba(224, 10, 24, 0.1)", data: yValues}]},
+                        options: {legend: {display: false}, scales: {yAxes: [{ticks: {min: 0, max: <?= $dashboard_array_3['MAX(nb_visit_page)'] + 10 ?>}}]}}
                     });
                     </script>
                 </div>

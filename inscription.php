@@ -75,7 +75,7 @@ require_once("include/header.php");
                 <img class="anime_scroll_relative_content_1_2_davy anime_scroll_relative_content_1_davy" src="<?= URL ?>/images/fond-menu-2-min.png" alt="Fond menu">
                 <div class="anime_scroll_relative_content_1_1_davy anime_scroll_relative_content_1_davy container">
                     <h1>Inscription</h1>
-                    <hr class="float_right_davy">
+                    <hr class="float_right_davy anime_scroll_davy">
                 </div>
             </div>
             

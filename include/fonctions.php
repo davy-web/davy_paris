@@ -154,4 +154,32 @@ function nb_visit_page($pdo_object, $nom_visit_page) {
         $pdo_statement_2->execute();
     }
 }
+
+// Ajouter et retire Favoris
+function ajouter_retirer_favoris($pdo_object, $article_id) {
+    if (isset($_SESSION['membre']['id_membre'])) {
+        $pdo_statement_favoris = $pdo_object->prepare("SELECT * FROM favoris WHERE membre_id = :membre_id AND article_id = :article_id");
+        $pdo_statement_favoris->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+        $pdo_statement_favoris->bindValue(':article_id', $article_id, PDO::PARAM_INT);
+        $pdo_statement_favoris->execute();
+        $favoris_array = $pdo_statement_favoris->fetch(PDO::FETCH_ASSOC);
+        if (empty($favoris_array)) {
+            // ajouter
+            $pdo_statement_favoris = $pdo_object->prepare("INSERT INTO favoris (membre_id, article_id) VALUES (:membre_id, :article_id)");
+            $pdo_statement_favoris->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+            $pdo_statement_favoris->bindValue(':article_id', $article_id, PDO::PARAM_INT);
+            $pdo_statement_favoris->execute();
+        }
+        else {
+            // Supprimer
+            $pdo_statement_favoris = $pdo_object->prepare("DELETE FROM favoris WHERE membre_id = :membre_id AND article_id = :article_id");
+            $pdo_statement_favoris->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+            $pdo_statement_favoris->bindValue(':article_id', $article_id, PDO::PARAM_INT);
+            $pdo_statement_favoris->execute();
+        }
+    }
+    else {
+        return "erreur";
+    }
+}
 ?>

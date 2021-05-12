@@ -53,7 +53,7 @@ if (isset($_POST['connexion'])) {
                     }
                 }
                 else {
-                    $erreur = "<strong class='color_red_davy'>L'email ou le mot de passe n'est pas valable</strong>";
+                    $erreur = "<strong class='color_red_davy'>L'email ou le mot de passe n'est pas valable. Il vous reste  ". 10 - $membre_array['limit_connexion'] ." tentatives </strong>";
                     // Limit connexion
                     $pdo_statement_2 = $pdo_object->prepare("UPDATE membre SET limit_connexion = :limit_connexion, limit_date = :limit_date WHERE id_membre = :id_membre");
                     $pdo_statement_2->bindValue(':limit_connexion', $membre_array['limit_connexion'] + 1, PDO::PARAM_INT);
@@ -61,7 +61,7 @@ if (isset($_POST['connexion'])) {
                     $pdo_statement_2->bindValue(':limit_date', date("Y-m-d"), PDO::PARAM_STR);
                     $pdo_statement_2->execute();
                     if ($membre_array['limit_connexion'] >= 10) {
-                        $erreur = $erreur . "<br><strong class='color_red_davy'>Vous vous êtes trompés plus de 10 fois. Le compte est bloqué jusqu'à minuit</strong>";
+                        $erreur = $erreur . "<br><strong class='color_red_davy'>Le compte est bloqué jusqu'à minuit</strong>";
                     }
                 }
             }
@@ -91,7 +91,7 @@ require_once("include/header.php");
                 <img class="anime_scroll_relative_content_1_2_davy anime_scroll_relative_content_1_davy" src="<?= URL ?>/images/fond-menu-2-min.png" alt="Fond menu">
                 <div class="anime_scroll_relative_content_1_1_davy anime_scroll_relative_content_1_davy container">
                     <h1>Connexion</h1>
-                    <hr class="float_right_davy">
+                    <hr class="float_right_davy anime_scroll_davy">
                 </div>
             </div>
             

@@ -96,6 +96,10 @@ hr.show {
     animation: anime_scroll_1 0.5s linear;
     width: 64px;
 }
+@keyframes anime_scroll_1 {
+    0% {width: 32px;}
+    100% {width: 64px;}
+}
 .hr_admin_davy {
     background: #d8e2ef;
     border: 0;
@@ -135,11 +139,14 @@ th {
 .color_gris_davy {
     color: #5e6e82;
 }
-.background_blue_davy {
-    background-color: #507bbc;
-}
 .background_beige_davy {
     background-color: #fef9fb;
+}
+.background_gris_davy {
+    background-color: #5e6e82;
+}
+.background_blue_davy {
+    background-color: #507bbc;
 }
 .text_center_davy {
     text-align: center;

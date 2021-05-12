@@ -26,6 +26,27 @@ if (isset($_GET['id'])) {
     $pdo_statement_4->bindValue(':titre', $article_array['box'], PDO::PARAM_STR);
     $pdo_statement_4->execute();
     $produit_array = $pdo_statement_4->fetch(PDO::FETCH_ASSOC);
+    // Favoris
+    if (isset($_SESSION['membre'])) {
+    $pdo_statement_favoris = $pdo_object->prepare("SELECT * FROM favoris WHERE membre_id = :membre_id AND article_id = :article_id");
+    $pdo_statement_favoris->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+    $pdo_statement_favoris->bindValue(':article_id', $_GET['id'], PDO::PARAM_INT);
+    $pdo_statement_favoris->execute();
+    }
+    // Ajouter et retire Favoris
+    if (isset($_GET['favoris'])) {
+        $erreur = ajouter_retirer_favoris($pdo_object, $_GET['id']);
+        if ($erreur == "erreur") {
+            header("Location:" . URL . "/experience=" . $_GET['id'] . "&erreur");
+        }
+        else {
+            header("Location:" . URL . "/experience=" . $_GET['id']);
+        }
+    }
+    // Erreur
+    if (isset($_GET['erreur'])) {
+        $erreur = "<strong class='color_red_davy'>Veuillez vous connecter pour ajouter au favoris</strong>";
+    }
 }
 else {
     header("Location:" . URL . "/liste-experiences");
@@ -45,13 +66,14 @@ require_once("include/header.php");
                 <img class="anime_scroll_relative_content_1_2_davy anime_scroll_relative_content_1_davy" src="<?= URL ?>/images/fond-menu-2-min.png" alt="Fond menu">
                 <div class="anime_scroll_relative_content_1_1_davy anime_scroll_relative_content_1_davy container">
                     <h2><?= $article_array['categorie'] ?></h2>
-                    <hr class="float_right_davy">
+                    <hr class="float_right_davy anime_scroll_davy">
                 </div>
             </div>
             
             <!-- File d'ariane -->
             <div class="container mt-5 mb-3">
-                <a href="<?= URL ?>" title="Accueil">Accueil > </a> <a href="<?= URL ?>/liste-experiences" title="Liste expériences">Liste expériences > </a> <a href="<?= URL ?>/experience=<?= $article_array['titre'] ?>" title="<?= $article_array['titre'] ?>"><?= $article_array['titre'] ?></a>
+                <a href="<?= URL ?>" title="Accueil">Accueil > </a> <a href="<?= URL ?>/liste-experiences" title="Liste expériences">Liste expériences > </a> <a href="<?= URL ?>/experience=<?= $article_array['titre'] ?>" title="<?= $article_array['titre'] ?>"><?= $article_array['titre'] ?></a><br>
+                <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
             </div><br>
             
             <!-- Description de l'éxperience -->
@@ -68,18 +90,23 @@ require_once("include/header.php");
                         <h1 class="h2_moyen_davy"><?= $article_array['titre'] ?></h1>
                         <hr class="anime_scroll_davy">
                         <p><?= $article_array['description'] ?></p><br>
-                        <!-- bouton_anim_davy -->
-                        <a aria-label="Découvrir" class="bouton_anim_davy" data-text="Voir la box" href="<?= URL ?>/box=<?= $produit_array['id_produit'] ?>" title="Voir la box">
-                            <span>D</span>
-                            <span>é</span>
-                            <span>c</span>
-                            <span>o</span>
-                            <span>u</span>
-                            <span>v</span>
-                            <span>r</span>
-                            <span>i</span>
-                            <span>r</span>
-                        </a>
+                        <div class="flex_center_davy">
+                            <!-- bouton_anim_davy -->
+                            <a aria-label="Découvrir" class="bouton_anim_davy" data-text="Voir la box" href="<?= URL ?>/box=<?= $produit_array['id_produit'] ?>" title="Voir la box">
+                                <span>D</span>
+                                <span>é</span>
+                                <span>c</span>
+                                <span>o</span>
+                                <span>u</span>
+                                <span>v</span>
+                                <span>r</span>
+                                <span>i</span>
+                                <span>r</span>
+                            </a>
+                            <a href="<?= URL ?>/experience=<?= $article_array['id_article'] ?>&favoris" title="Ajouter au favoris">
+                                <svg viewBox="0 -28 512.00002 512" xmlns="http://www.w3.org/2000/svg" class="icon_favoris_davy <?php if (isset($_SESSION['membre']) && $pdo_statement_favoris->rowCount() > 0) {echo 'icon_favoris_active_davy';} ?>"><path fill="currentColor" d="m471.382812 44.578125c-26.503906-28.746094-62.871093-44.578125-102.410156-44.578125-29.554687 0-56.621094 9.34375-80.449218 27.769531-12.023438 9.300781-22.917969 20.679688-32.523438 33.960938-9.601562-13.277344-20.5-24.660157-32.527344-33.960938-23.824218-18.425781-50.890625-27.769531-80.445312-27.769531-39.539063 0-75.910156 15.832031-102.414063 44.578125-26.1875 28.410156-40.613281 67.222656-40.613281 109.292969 0 43.300781 16.136719 82.9375 50.78125 124.742187 30.992188 37.394531 75.535156 75.355469 127.117188 119.3125 17.613281 15.011719 37.578124 32.027344 58.308593 50.152344 5.476563 4.796875 12.503907 7.4375 19.792969 7.4375 7.285156 0 14.316406-2.640625 19.785156-7.429687 20.730469-18.128907 40.707032-35.152344 58.328125-50.171876 51.574219-43.949218 96.117188-81.90625 127.109375-119.304687 34.644532-41.800781 50.777344-81.4375 50.777344-124.742187 0-42.066407-14.425781-80.878907-40.617188-109.289063zm0 0"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,7 +143,12 @@ require_once("include/header.php");
                     <?php while ($commentaire_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC)) : ?>
                     <div class="col-md-3 mb-3 text_center_davy">
                         <p><?= $commentaire_array['message'] ?></p>
-                        <p><?= $commentaire_array['note'] ?></p>
+                        <?php for ($i = 0; $i < $commentaire_array['note']; $i++) : ?>
+                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                        <?php endfor; ?>
+                        <?php for ($i = 0; $i < (5 - $commentaire_array['note']); $i++) : ?>
+                        <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                        <?php endfor; ?>
                     </div>
                     <?php endwhile; ?>
                     <?php else : ?>
