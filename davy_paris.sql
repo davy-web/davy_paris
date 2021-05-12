@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 10 mai 2021 à 21:36
+-- Généré le : mer. 12 mai 2021 à 03:26
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -113,6 +113,28 @@ INSERT INTO `commentaire` (`id_commentaire`, `produit_id`, `membre_id`, `message
 (1, 1, 1, 'Excellent, qualité du repas et personnel très courtois', 5),
 (2, 1, 1, 'Service excellent. Personnel à notre service. Repas très bon.', 5),
 (3, 1, 1, 'Excellent accueil et dîner très bon aun service discret', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dashboard`
+--
+
+CREATE TABLE `dashboard` (
+  `id_dashboard` int(11) NOT NULL,
+  `nom_visit_page` varchar(255) NOT NULL,
+  `nb_visit_page` int(11) NOT NULL,
+  `date_visit_page` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `dashboard`
+--
+
+INSERT INTO `dashboard` (`id_dashboard`, `nom_visit_page`, `nb_visit_page`, `date_visit_page`) VALUES
+(1, 'Accueil', 3, '2021-05-12'),
+(2, 'Liste-experiences', 1, '2021-05-12'),
+(3, 'Connexion', 1, '2021-05-12');
 
 -- --------------------------------------------------------
 
@@ -254,6 +276,12 @@ ALTER TABLE `commentaire`
   ADD PRIMARY KEY (`id_commentaire`);
 
 --
+-- Index pour la table `dashboard`
+--
+ALTER TABLE `dashboard`
+  ADD PRIMARY KEY (`id_dashboard`);
+
+--
 -- Index pour la table `details_commande`
 --
 ALTER TABLE `details_commande`
@@ -310,6 +338,12 @@ ALTER TABLE `commande`
 --
 ALTER TABLE `commentaire`
   MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `dashboard`
+--
+ALTER TABLE `dashboard`
+  MODIFY `id_dashboard` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `details_commande`
