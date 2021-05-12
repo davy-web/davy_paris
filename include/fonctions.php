@@ -133,7 +133,8 @@ function nb_visit_page($pdo_object, $nom_visit_page) {
     // sauvegarder nombre de visit page
     if (!isset($_SESSION['cookie']) || (isset($_SESSION['cookie']) && $_SESSION['cookie'] == "accepter")) {
         // création dashboard
-        $pdo_statement = $pdo_object->prepare("SELECT * FROM dashboard WHERE date_visit_page = :date_visit_page");
+        $pdo_statement = $pdo_object->prepare("SELECT * FROM dashboard WHERE date_visit_page = :date_visit_page AND nom_visit_page = :nom_visit_page");
+        $pdo_statement->bindValue(':nom_visit_page', $nom_visit_page, PDO::PARAM_STR);
         $pdo_statement->bindValue(':date_visit_page', date("Y-m-d"), PDO::PARAM_STR);
         $pdo_statement->execute();
         $dashboard_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
@@ -144,8 +145,9 @@ function nb_visit_page($pdo_object, $nom_visit_page) {
         }
         else {
             // mettre à jour
-            $pdo_statement_2 = $pdo_object->prepare("UPDATE dashboard SET nb_visit_page = :nb_visit_page, date_visit_page = :date_visit_page WHERE nom_visit_page = :nom_visit_page");
-            $pdo_statement_2->bindValue(':nb_visit_page', $dashboard_array['nb_visit_page']++, PDO::PARAM_INT);
+            $pdo_statement_2 = $pdo_object->prepare("UPDATE dashboard SET nb_visit_page = :nb_visit_page WHERE date_visit_page = :date_visit_page AND nom_visit_page = :nom_visit_page");
+            $nb_visit_page = $dashboard_array['nb_visit_page'] + 1;
+            $pdo_statement_2->bindValue(':nb_visit_page', $nb_visit_page, PDO::PARAM_INT);
         }
         $pdo_statement_2->bindValue(':nom_visit_page', $nom_visit_page, PDO::PARAM_STR);
         $pdo_statement_2->bindValue(':date_visit_page', date("Y-m-d"), PDO::PARAM_STR);

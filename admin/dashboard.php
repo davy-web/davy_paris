@@ -6,7 +6,8 @@ require_once("../include/fonctions.php");
 admin_connecte();
 
 // Nombre de visite
-$pdo_statement = $pdo_object->prepare("SELECT nb_visit_page FROM dashboard");
+$pdo_statement = $pdo_object->prepare("SELECT * FROM dashboard WHERE nom_visit_page = :nom_visit_page");
+$pdo_statement->bindValue(":nom_visit_page", "Accueil", PDO::PARAM_STR);
 $pdo_statement->execute();
 $total_date = $pdo_statement->rowCount();
 
@@ -16,7 +17,7 @@ require_once("../include/header-admin.php");
                 <div class="block_admin_davy">
                     <h1 class="h1_moyen_davy">Admin</h1>
                     <hr>
-                    <!-- Nombre de visite -->
+                    <!-- Nombre de visite sur la page d'accueil -->
                     <p><strong>Nombre de visite</strong></p>
                     <canvas id="graph_davy"></canvas>
 
@@ -33,7 +34,7 @@ require_once("../include/header-admin.php");
                     ];
                     var yValues = [
                         <?php if ($pdo_statement->rowCount() > 0) : ?>
-                        <?php for ($i = 0; $i < $total_date; $i++) {echo $i . ",";} ?>
+                        <?php for ($i = 1; $i <= $total_date; $i++) {echo $i . ",";} ?>
                         <?php else : ?>
                         <?= "0" ?>
                         <?php endif; ?>
