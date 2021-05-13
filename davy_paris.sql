@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 13 mai 2021 à 04:49
+-- Généré le : jeu. 13 mai 2021 à 17:38
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -205,7 +205,7 @@ CREATE TABLE `membre` (
   `mdp` varchar(255) NOT NULL,
   `statut` int(5) NOT NULL,
   `limit_connexion` int(11) NOT NULL,
-  `limit_date` date DEFAULT NULL
+  `limit_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -318,7 +318,7 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `commentaire`
@@ -336,7 +336,7 @@ ALTER TABLE `dashboard`
 -- AUTO_INCREMENT pour la table `details_commande`
 --
 ALTER TABLE `details_commande`
-  MODIFY `id_details_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `id_details_commande` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `email`
@@ -348,7 +348,7 @@ ALTER TABLE `email`
 -- AUTO_INCREMENT pour la table `favoris`
 --
 ALTER TABLE `favoris`
-  MODIFY `id_favoris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `id_favoris` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `mdpoublier`
