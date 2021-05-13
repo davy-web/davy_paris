@@ -26,7 +26,7 @@ require_once("../include/header-admin.php");
                     <h1 class="h1_moyen_davy">Admin</h1>
                     <hr>
                     <!-- Nombre de visite sur la page d'accueil -->
-                    <p><strong>Nombre de visite</strong></p>
+                    <p><strong>Nombre de visite sur la page d'accueil</strong></p>
                     <canvas id="graph_davy"></canvas>
 
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>

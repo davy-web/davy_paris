@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 12 mai 2021 à 03:26
+-- Généré le : jeu. 13 mai 2021 à 04:49
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -84,13 +84,6 @@ CREATE TABLE `commande` (
   `etat` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `commande`
---
-
-INSERT INTO `commande` (`id_commande`, `membre_id`, `prix_total`, `date`, `etat`) VALUES
-(1, 2, 390, '2021-05-09', 'panier');
-
 -- --------------------------------------------------------
 
 --
@@ -110,8 +103,8 @@ CREATE TABLE `commentaire` (
 --
 
 INSERT INTO `commentaire` (`id_commentaire`, `produit_id`, `membre_id`, `message`, `note`) VALUES
-(1, 1, 1, 'Excellent, qualité du repas et personnel très courtois', 5),
-(2, 1, 1, 'Service excellent. Personnel à notre service. Repas très bon.', 5),
+(1, 1, 1, 'Excellent, qualité du repas et personnel très courtois', 4),
+(2, 1, 1, 'Service excellent. Personnel à notre service. Repas très bon.', 3),
 (3, 1, 1, 'Excellent accueil et dîner très bon aun service discret', 5);
 
 -- --------------------------------------------------------
@@ -132,9 +125,11 @@ CREATE TABLE `dashboard` (
 --
 
 INSERT INTO `dashboard` (`id_dashboard`, `nom_visit_page`, `nb_visit_page`, `date_visit_page`) VALUES
-(1, 'Accueil', 3, '2021-05-12'),
-(2, 'Liste-experiences', 1, '2021-05-12'),
-(3, 'Connexion', 1, '2021-05-12');
+(1, 'Accueil', 20, '2021-05-09'),
+(2, 'Accueil', 9, '2021-05-10'),
+(3, 'Accueil', 12, '2021-05-11'),
+(4, 'Accueil', 6, '2021-05-12'),
+(5, 'Accueil', 1, '2021-05-13');
 
 -- --------------------------------------------------------
 
@@ -149,14 +144,6 @@ CREATE TABLE `details_commande` (
   `quantite` int(11) NOT NULL,
   `prix` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `details_commande`
---
-
-INSERT INTO `details_commande` (`id_details_commande`, `commande_id`, `produit_id`, `quantite`, `prix`) VALUES
-(1, 1, 2, 3, 100),
-(2, 1, 3, 1, 90);
 
 -- --------------------------------------------------------
 
@@ -188,7 +175,7 @@ INSERT INTO `email` (`id_email`, `nom`, `email`, `sujet`, `message`) VALUES
 CREATE TABLE `favoris` (
   `id_favoris` int(11) NOT NULL,
   `membre_id` int(11) NOT NULL,
-  `produit_id` int(11) NOT NULL
+  `article_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -226,7 +213,7 @@ CREATE TABLE `membre` (
 --
 
 INSERT INTO `membre` (`id_membre`, `nom`, `prenom`, `email`, `mdp`, `statut`, `limit_connexion`, `limit_date`) VALUES
-(1, 'Chen', 'Davy', 'chendavyweb@gmail.com', '$2y$10$PJa9QxOUnhVHXBO0xrMgpu1Uz0Qg5uOPsquKOftJ/iKgK09nphI9u', 2, 0, '2021-05-10');
+(1, 'Chen', 'Davy', 'chendavyweb@gmail.com', '$2y$10$PJa9QxOUnhVHXBO0xrMgpu1Uz0Qg5uOPsquKOftJ/iKgK09nphI9u', 2, 0, '2021-05-12');
 
 -- --------------------------------------------------------
 
@@ -331,7 +318,7 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `commentaire`
@@ -343,13 +330,13 @@ ALTER TABLE `commentaire`
 -- AUTO_INCREMENT pour la table `dashboard`
 --
 ALTER TABLE `dashboard`
-  MODIFY `id_dashboard` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_dashboard` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `details_commande`
 --
 ALTER TABLE `details_commande`
-  MODIFY `id_details_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_details_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `email`
@@ -361,7 +348,7 @@ ALTER TABLE `email`
 -- AUTO_INCREMENT pour la table `favoris`
 --
 ALTER TABLE `favoris`
-  MODIFY `id_favoris` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_favoris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `mdpoublier`

@@ -79,11 +79,34 @@
                         <br>
                         <p class="texte_menu_mobile_davy">Panier</p>
                     </a>
-                    <a href="#" class="menu_mobile_davy" title="Menu">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon_menu_mobile_davy" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g> <path fill="currentColor" d="M467,61H165c-24.82,0-45,20.19-45,45c0,24.82,20.18,45,45,45h302c24.81,0,45-20.18,45-45C512,81.19,491.81,61,467,61z"/></g><g> <path fill="currentColor" d="M467,211H165c-24.82,0-45,20.19-45,45c0,24.82,20.18,45,45,45h302c24.81,0,45-20.18,45-45C512,231.19,491.81,211,467,211z"/></g><g> <path fill="currentColor" d="M467,361H165c-24.82,0-45,20.19-45,45c0,24.82,20.18,45,45,45h302c24.81,0,45-20.18,45-45C512,381.19,491.81,361,467,361z"/></g><g> <path fill="currentColor" d="M45,61C20.18,61,0,81.19,0,106c0,24.82,20.18,45,45,45c24.81,0,45-20.18,45-45C90,81.19,69.81,61,45,61z"/></g><g> <path fill="currentColor" d="M45,211c-24.82,0-45,20.19-45,45c0,24.82,20.18,45,45,45c24.81,0,45-20.18,45-45C90,231.19,69.81,211,45,211z"/></g><g> <path fill="currentColor" d="M45,361c-24.82,0-45,20.19-45,45c0,24.82,20.18,45,45,45c24.81,0,45-20.18,45-45C90,381.19,69.81,361,45,361z"/></g></svg>
-                        <br>
+                    <a class="menu_mobile_davy" title="Menu">
+                        <div class="block_icon_menu_mobile_burger_davy">
+                            <input id="nav_icon_menu_mobile_burger_davy" class="checkbox_pc_burger_davy" type="checkbox" name="menu_pc">
+                            <span href="#" class="nav_icon_menu_mobile_burger_davy"><span></span></span>
+                        </div><br>
                         <p class="texte_menu_mobile_davy">Menu</p>
                     </a>
+                </div>
+            </div>
+
+            <!-- nav_mobile_burger_davy -->
+            <div class="nav_mobile_burger_davy">
+                <div class="m-5">
+                    <a href="<?= URL ?>" title="À propos" class="d-inline-block width_full_davy">Accueil</a>
+                    <hr class="hr_admin_davy">
+                    <a href="<?= URL ?>/a-propos" title="À propos" class="d-inline-block width_full_davy">À propos</a>
+                    <hr class="hr_admin_davy">
+                    <a href="<?= URL ?>/liste-experiences" title="Des Idées" class="d-inline-block width_full_davy">Idées d'activités</a>
+                    <hr class="hr_admin_davy">
+                    <a href="<?= URL ?>/liste-box" title="Nox Box" class="d-inline-block width_full_davy">Nox Box</a>
+                    <hr class="hr_admin_davy">
+                    <a href="<?= URL ?>/contact" title="Contact" class="d-inline-block width_full_davy">Contact</a>
+                    <hr class="hr_admin_davy">
+                    <a href="<?= URL ?>/<?php if (isset($_SESSION['membre']) && $_SESSION['membre']['statut'] == 2) {echo 'admin/dashboard';} else {echo 'profil';} ?>" title="Profil" class="d-inline-block width_full_davy">Profil</a>
+                    <hr class="hr_admin_davy">
+                    <a href="<?= URL ?>/favoris" title="Favoris" class="d-inline-block width_full_davy">Favoris</a>
+                    <hr class="hr_admin_davy">
+                    <a href="<?= URL ?>/panier" title="Panier" class="d-inline-block width_full_davy">Panier</a>
                 </div>
             </div>
         </header>
