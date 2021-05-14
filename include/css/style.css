@@ -40,7 +40,7 @@ a {
     cursor: pointer;
     font-weight: 700;
 }
-a:hover {
+a:hover, .lien_active_davy {
     color: #E00A18;
 }
 label {

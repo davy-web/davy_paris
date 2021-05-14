@@ -100,6 +100,10 @@ require_once("include/header.php");
                     </div>
                 </div>
             </div>
+
+            <!-- script -->
+            <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
+            <script>nav_lien_active("lien_contact");</script>
         </div>
         <?php nb_visit_page($pdo_object, "Contact"); ?>
 <?php

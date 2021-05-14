@@ -47,6 +47,10 @@ require_once("include/header.php");
                     <p>Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur aut secretiora quaedam se nosse confingit.</p>
                 </div>
             </div>
+
+            <!-- script -->
+            <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
+            <script>nav_lien_active("lien_a_propos");</script>
         </div>
         <?php nb_visit_page($pdo_object, "A-propos"); ?>
 <?php

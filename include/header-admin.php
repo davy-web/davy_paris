@@ -116,25 +116,25 @@ if (isset($_POST['deconnexion'])) {
             <!-- nav_mobile_davy -->
             <div class="nav_mobile_davy">
                 <div class="nav_mobile_center_davy">
-                    <a href="<?= URL ?>/admin/gestion-experiences" class="menu_mobile_davy" title="Expériences">
+                    <a href="<?= URL ?>/admin/gestion-experiences" class="menu_mobile_davy lien_gestion_experiences" title="Expériences">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="icon_menu_mobile_davy svg-inline--fa fa-copy fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
                         <br>
-                        <p class="texte_menu_mobile_davy">Expériences</p>
+                        <p class="texte_menu_mobile_davy lien_gestion_experiences">Expériences</p>
                     </a>
-                    <a href="<?= URL ?>/admin/gestion-box" class="menu_mobile_davy" title="Box">
+                    <a href="<?= URL ?>/admin/gestion-box" class="menu_mobile_davy lien_gestion_box" title="Box">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cart-plus" class="icon_menu_mobile_davy svg-inline--fa fa-cart-plus fa-w-18 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M504.717 320H211.572l6.545 32h268.418c15.401 0 26.816 14.301 23.403 29.319l-5.517 24.276C523.112 414.668 536 433.828 536 456c0 31.202-25.519 56.444-56.824 55.994-29.823-.429-54.35-24.631-55.155-54.447-.44-16.287 6.085-31.049 16.803-41.548H231.176C241.553 426.165 248 440.326 248 456c0 31.813-26.528 57.431-58.67 55.938-28.54-1.325-51.751-24.385-53.251-52.917-1.158-22.034 10.436-41.455 28.051-51.586L93.883 64H24C10.745 64 0 53.255 0 40V24C0 10.745 10.745 0 24 0h102.529c11.401 0 21.228 8.021 23.513 19.19L159.208 64H551.99c15.401 0 26.816 14.301 23.403 29.319l-47.273 208C525.637 312.246 515.923 320 504.717 320zM408 168h-48v-40c0-8.837-7.163-16-16-16h-16c-8.837 0-16 7.163-16 16v40h-48c-8.837 0-16 7.163-16 16v16c0 8.837 7.163 16 16 16h48v40c0 8.837 7.163 16 16 16h16c8.837 0 16-7.163 16-16v-40h48c8.837 0 16-7.163 16-16v-16c0-8.837-7.163-16-16-16z"></path></svg>
                         <br>
-                        <p class="texte_menu_mobile_davy">Box</p>
+                        <p class="texte_menu_mobile_davy lien_gestion_box">Box</p>
                     </a>
-                    <a href="<?= URL ?>/admin/commande" class="menu_mobile_davy" title="Commande">
+                    <a href="<?= URL ?>/admin/commande" class="menu_mobile_davy lien_commande" title="Commande">
                         <svg version="1.1" id="Calque_1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon_menu_mobile_davy" x="0px" y="0px" viewBox="0 0 576 512" style="enable-background:new 0 0 576 512;" xml:space="preserve"><path fill="currentColor" d="M504.7,320H211.6l6.5,32h268.4c15.4,0,26.8,14.3,23.4,29.3l-5.5,24.3c18.7,9.1,31.6,28.2,31.6,50.4 c0,31.2-25.5,56.4-56.8,56c-29.8-0.4-54.4-24.6-55.2-54.4c-0.4-16.3,6.1-31,16.8-41.5H231.2c10.4,10.2,16.8,24.3,16.8,40 c0,31.8-26.5,57.4-58.7,55.9c-28.5-1.3-51.8-24.4-53.3-52.9c-1.2-22,10.4-41.5,28.1-51.6L93.9,64H24C10.7,64,0,53.3,0,40V24 C0,10.7,10.7,0,24,0h102.5c11.4,0,21.2,8,23.5,19.2l9.2,44.8H552c15.4,0,26.8,14.3,23.4,29.3l-47.3,208 C525.6,312.2,515.9,320,504.7,320z"/></svg>
                         <br>
-                        <p class="texte_menu_mobile_davy">Commande</p>
+                        <p class="texte_menu_mobile_davy lien_commande">Commande</p>
                     </a>
-                    <a href="<?= URL ?>/admin/mail" class="menu_mobile_davy" title="Mail">
+                    <a href="<?= URL ?>/admin/mail" class="menu_mobile_davy lien_mail" title="Mail">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open" class="icon_menu_mobile_davy svg-inline--fa fa-envelope-open fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V200.724a48 48 0 0 1 18.387-37.776c24.913-19.529 45.501-35.365 164.2-121.511C199.412 29.17 232.797-.347 256 .003c23.198-.354 56.596 29.172 73.413 41.433 118.687 86.137 139.303 101.995 164.2 121.512A48 48 0 0 1 512 200.724V464zm-65.666-196.605c-2.563-3.728-7.7-4.595-11.339-1.907-22.845 16.873-55.462 40.705-105.582 77.079-16.825 12.266-50.21 41.781-73.413 41.43-23.211.344-56.559-29.143-73.413-41.43-50.114-36.37-82.734-60.204-105.582-77.079-3.639-2.688-8.776-1.821-11.339 1.907l-9.072 13.196a7.998 7.998 0 0 0 1.839 10.967c22.887 16.899 55.454 40.69 105.303 76.868 20.274 14.781 56.524 47.813 92.264 47.573 35.724.242 71.961-32.771 92.263-47.573 49.85-36.179 82.418-59.97 105.303-76.868a7.998 7.998 0 0 0 1.839-10.967l-9.071-13.196z"></path></svg>
                         <br>
-                        <p class="texte_menu_mobile_davy">Mail</p>
+                        <p class="texte_menu_mobile_davy lien_mail">Mail</p>
                     </a>
                     <a class="menu_mobile_davy" title="Menu">
                         <div class="block_icon_menu_mobile_burger_davy">
@@ -151,21 +151,21 @@ if (isset($_POST['deconnexion'])) {
                 <div class="m-5">
                     <a href="<?= URL ?>" title="À propos" class="d-inline-block width_full_davy">Accueil</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/dashboard" title="Dashboard" class="d-inline-block width_full_davy">Dashboard</a>
+                    <a href="<?= URL ?>/admin/dashboard" title="Dashboard" class="d-inline-block width_full_davy lien_dashboard">Dashboard</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/gestion-experiences" title="Gestion expériences" class="d-inline-block width_full_davy">Gestion expériences</a>
+                    <a href="<?= URL ?>/admin/gestion-experiences" title="Gestion expériences" class="d-inline-block width_full_davy lien_gestion_experiences">Gestion expériences</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/ajouter-experience" title="Ajouter expérience" class="d-inline-block width_full_davy">Ajouter expérience</a>
+                    <a href="<?= URL ?>/admin/ajouter-experience" title="Ajouter expérience" class="d-inline-block width_full_davy lien_ajouter_experience">Ajouter expérience</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/gestion-box" title="Gestion Box" class="d-inline-block width_full_davy">Gestion Box</a>
+                    <a href="<?= URL ?>/admin/gestion-box" title="Gestion Box" class="d-inline-block width_full_davy lien_gestion_box">Gestion Box</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/ajouter-box" title="Ajouter Box" class="d-inline-block width_full_davy">Ajouter Box</a>
+                    <a href="<?= URL ?>/admin/ajouter-box" title="Ajouter Box" class="d-inline-block width_full_davy lien_ajouter_box">Ajouter Box</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/commande" title="Commande" class="d-inline-block width_full_davy">Commande</a>
+                    <a href="<?= URL ?>/admin/commande" title="Commande" class="d-inline-block width_full_davy lien_commande">Commande</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/mail" title="Mail" class="d-inline-block width_full_davy">Mail</a>
+                    <a href="<?= URL ?>/admin/mail" title="Mail" class="d-inline-block width_full_davy lien_mail">Mail</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/gestion-comptes" title="Comptes" class="d-inline-block width_full_davy">Comptes</a>
+                    <a href="<?= URL ?>/admin/gestion-comptes" title="Comptes" class="d-inline-block width_full_davy lien_gestion_comptes">Comptes</a>
                 </div>
             </div>
             <div class="main_admin_davy">

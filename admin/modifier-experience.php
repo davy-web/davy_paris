@@ -151,6 +151,10 @@ require_once("../include/header-admin.php");
                             <input type="submit" id="modifier" name="modifier" value="Modifier" class="bouton_submit">
                         </a><br>
                     </form>
+
+                    <!-- script -->
+                    <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
+                    <script>nav_lien_active("lien_modifier_experience");</script>
                 </div>
 <?php
 require_once("../include/footer-admin.php");

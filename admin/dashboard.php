@@ -55,6 +55,10 @@ require_once("../include/header-admin.php");
                         options: {legend: {display: false}, scales: {yAxes: [{ticks: {min: 0, max: <?= $dashboard_array_3['MAX(nb_visit_page)'] + 10 ?>}}]}}
                     });
                     </script>
+
+                    <!-- script -->
+                    <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
+                    <script>nav_lien_active("lien_dashboard");</script>
                 </div>
 <?php
 require_once("../include/footer-admin.php");

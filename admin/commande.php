@@ -66,6 +66,10 @@ require_once("../include/header-admin.php");
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- script -->
+                    <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
+                    <script>nav_lien_active("lien_commande");</script>
                 </div>
 <?php
 require_once("../include/footer-admin.php");

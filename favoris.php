@@ -73,6 +73,10 @@ require_once("include/header.php");
                     <?php endif; ?>
                 </div>
             </div>
+
+            <!-- script -->
+            <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
+            <script>nav_lien_active("lien_favoris");</script>
         </div>
         <?php nb_visit_page($pdo_object, "Favoris"); ?>
 <?php
