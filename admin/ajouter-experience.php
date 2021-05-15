@@ -94,7 +94,7 @@ require_once("../include/header-admin.php");
                             </div>
                             <div class="col-md-4">
                                 <label for="photo"><strong>Photo</strong></label><br>
-                                <input type="file" id="photo" name="photo" placeholder="Photo" class="width_full_davy">
+                                <input type="file" accept="image/*" id="photo" name="photo" placeholder="Photo" class="width_full_davy">
                                 <label for="photo"><img src="<?= URL ?>/images/icon-file.svg" alt="icon" class="icon_admin"> Choisir un fichier...</label>
                             </div>
                         </div>

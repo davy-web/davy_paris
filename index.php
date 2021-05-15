@@ -137,14 +137,25 @@ require_once("include/header.php");
                 </a>
             </div><br>
             
-            <!-- Photos -->
+            <!-- Photos d'activités -->
             <div class="my-5">
                 <div class="slider slider-for-2">
                     <?php $i = 0; ?>
                     <?php while ($article_photo_array = $pdo_statement_3->fetch(PDO::FETCH_ASSOC)) : ?>
                     <?php $tableau_3[$i] = $article_photo_array['photo']; ?>
                     <div class="cadre_2_davy">
-                        <img src="<?= URL ?>/images/<?= $article_photo_array['photo'] ?>" class="width_full_davy" alt="Louvre">
+                        <img src="<?= URL ?>/images/<?= $article_photo_array['photo'] ?>" class="image_slider_2_davy width_full_davy" alt="<?= $article_photo_array['photo'] ?>">
+                        <div class="texte_slider_2_davy">
+                            <p class="paragraphe_slider_2_davy color_red_davy"><strong><?= $article_photo_array['categorie'] ?></strong></p>
+                            <h2 class="titre_slider_2_davy h2_grand_davy"><?= $article_photo_array['titre'] ?></h2>
+                            <!-- bouton_anim_davy -->
+                            <a aria-label="Voir" class="bouton_anim_davy mt-3" data-text="En savoir plus" href="<?= URL ?>/experience=<?= $article_photo_array['id_article'] ?>" title="Voir">
+                                <span>V</span>
+                                <span>o</span>
+                                <span>i</span>
+                                <span>r</span>
+                            </a>
+                        </div>
                     </div>
                     <?php $i++; ?>
                     <?php endwhile; ?>
@@ -152,7 +163,7 @@ require_once("include/header.php");
                 <div class="slider slider-nav-2 block_content_medium_davy">
                     <?php for ($i = 0; $i < 5; $i++) : ?>
                     <div class="bouton_2_davy">
-                        <img src="<?= URL ?>/images/<?= $tableau_3[$i] ?>" class="width_full_davy" alt="Louvre">
+                        <img src="<?= URL ?>/images/<?= $tableau_3[$i] ?>" class="width_full_davy" alt="<?= $tableau_3[$i] ?>">
                     </div>
                     <?php endfor; ?>
                 </div>
