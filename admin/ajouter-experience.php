@@ -119,7 +119,6 @@ require_once("../include/header-admin.php");
                                     <?php endwhile; ?>
                                     <?php endif; ?>
                                 </select><br><br>
-                                <!--input type="text" id="box" name="box" placeholder="Box" class="width_full_davy"><br><br-->
                                 <label for="adresse"><strong>Adresse</strong></label><br>
                                 <input type="text" id="adresse" name="adresse" placeholder="Adresse" class="width_full_davy"><br><br>
                             </div>

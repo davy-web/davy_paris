@@ -162,6 +162,8 @@ require_once("include/header.php");
             <script src="<?= URL ?>/include/js/script_jquery.min.js"></script>
             <script src="<?= URL ?>/include/js/script_slick.min.js"></script>
             <script src="<?= URL ?>/include/js/script_slider.js"></script>
+            <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
+            <script>nav_lien_active("lien_accueil");</script>
         </div>
         <?php nb_visit_page($pdo_object, "Accueil"); ?>
 <?php

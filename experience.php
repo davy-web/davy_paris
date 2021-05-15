@@ -13,9 +13,20 @@ if (isset($_GET['id'])) {
         header("Location:" . URL . "/liste-experiences");
     }
     // Commentaires
-    $pdo_statement_2 = $pdo_object->prepare("SELECT * FROM commentaire WHERE produit_id = :produit_id");
+    $pdo_statement_2 = $pdo_object->prepare("SELECT * FROM commentaire WHERE produit_id = :produit_id ORDER BY RAND() LIMIT 4");
     $pdo_statement_2->bindValue(':produit_id', $_GET['id'], PDO::PARAM_INT);
     $pdo_statement_2->execute();
+    if (isset($_POST['ajouter'])) {
+        if (isset($_SESSION['membre']['id_membre'])) {
+            $pdo_statement = $pdo_object->prepare("INSERT INTO commentaire (produit_id, membre_id, message, note) VALUES (:produit_id, :membre_id, :message, :note)");
+            $pdo_statement->bindValue(':produit_id', $_GET['id'], PDO::PARAM_INT);
+            $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+            $pdo_statement->bindValue(':message', $_POST['message'], PDO::PARAM_STR);
+            $pdo_statement->bindValue(':note', $_POST['note'], PDO::PARAM_INT);
+            $pdo_statement->execute();
+            header("Location:" . URL . "/experience=" . $_GET['id']);
+        }
+    }
     // Articles similaires
     $pdo_statement_3 = $pdo_object->prepare("SELECT * FROM article WHERE box = :box AND id_article != :id_article ORDER BY RAND() LIMIT 4");
     $pdo_statement_3->bindValue(':box', $article_array['box'], PDO::PARAM_STR);
@@ -158,6 +169,35 @@ require_once("include/header.php");
                     <?php endif; ?>
                 </div>
             </div>
+            <?php if (isset($_SESSION['membre'])) : ?>
+            <div class="container mt-5 mb-3">
+                <div class="row">
+                    <form method="post">
+                        <label for="message"><strong>Écrire un commentaire</strong></label><br>
+                        <textarea id="message" tabindex="5" rows="9" name="message" placeholder="Votre commentaire" class="width_full_davy"></textarea><br><br>
+                        <select id="note" name="note" class="mb-3">
+                            <option value="4">Note sur 5</option>
+                            <option value="1">1 / 5</option>
+                            <option value="2">2 / 5</option>
+                            <option value="3">3 / 5</option>
+                            <option value="4">4 / 5</option>
+                            <option value="5">5 / 5</option>
+                        </select>
+                        <!-- bouton_anim_davy -->
+                        <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer" data-text="Ajouter" title="Ajouter">
+                            <span>V</span>
+                            <span>a</span>
+                            <span>l</span>
+                            <span>i</span>
+                            <span>d</span>
+                            <span>e</span>
+                            <span>r</span>
+                            <input type="submit" id="ajouter" name="ajouter" value="Ajouter" class="bouton_submit">
+                        </a><br>
+                    </form>
+                </div>
+            </div>
+            <?php endif; ?>
             
             <!-- Vous aimerez aussi -->
             <div class="container mt-5 mb-3">

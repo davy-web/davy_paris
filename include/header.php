@@ -92,21 +92,21 @@
             <!-- nav_mobile_burger_davy -->
             <div class="nav_mobile_burger_davy">
                 <div class="m-5">
-                    <a href="<?= URL ?>" title="À propos" class="d-inline-block width_full_davy">Accueil</a>
+                    <a href="<?= URL ?>" title="À propos" class="d-inline-block width_full_davy lien_accueil">Accueil</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/a-propos" title="À propos" class="d-inline-block width_full_davy">À propos</a>
+                    <a href="<?= URL ?>/a-propos" title="À propos" class="d-inline-block width_full_davy lien_a_propos">À propos</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/liste-experiences" title="Des Idées" class="d-inline-block width_full_davy">Idées d'activités</a>
+                    <a href="<?= URL ?>/liste-experiences" title="Des Idées" class="d-inline-block width_full_davy lien_liste_experiences">Idées d'activités</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/liste-box" title="Nox Box" class="d-inline-block width_full_davy">Nox Box</a>
+                    <a href="<?= URL ?>/liste-box" title="Nox Box" class="d-inline-block width_full_davy lien_liste_box">Nox Box</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/contact" title="Contact" class="d-inline-block width_full_davy">Contact</a>
+                    <a href="<?= URL ?>/contact" title="Contact" class="d-inline-block width_full_davy lien_contact">Contact</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/<?php if (isset($_SESSION['membre']) && $_SESSION['membre']['statut'] == 2) {echo 'admin/dashboard';} else {echo 'profil';} ?>" title="Profil" class="d-inline-block width_full_davy">Profil</a>
+                    <a href="<?= URL ?>/<?php if (isset($_SESSION['membre']) && $_SESSION['membre']['statut'] == 2) {echo 'admin/dashboard';} else {echo 'profil';} ?>" title="Profil" class="d-inline-block width_full_davy lien_profil">Profil</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/favoris" title="Favoris" class="d-inline-block width_full_davy">Favoris</a>
+                    <a href="<?= URL ?>/favoris" title="Favoris" class="d-inline-block width_full_davy lien_favoris">Favoris</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/panier" title="Panier" class="d-inline-block width_full_davy">Panier</a>
+                    <a href="<?= URL ?>/panier" title="Panier" class="d-inline-block width_full_davy lien_panier">Panier</a>
                 </div>
             </div>
         </header>
