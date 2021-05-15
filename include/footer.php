@@ -46,5 +46,6 @@
         <script src="<?= URL ?>/include/js/script_nav_mobile_burger.js"></script>
         <script src="<?= URL ?>/include/js/script_scroll.js"></script>
         <script src="<?= URL ?>/include/js/script_scroll_relative_content.js"></script>
+        <script src="<?= URL ?>/include/js/script_ajax.js"></script>
     </body>
 </html>
