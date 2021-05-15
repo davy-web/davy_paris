@@ -40,70 +40,8 @@ if (isset($_SESSION['panier'])) {
 if (isset($_POST['acheter'])) {
     sauvegarder_produits_panier($pdo_object, "panier", $prix_total);
 }
-
-require_once("include/header.php");
 ?>
 
-        <div id="content_davy">
-            <!-- style -->
-            <link rel="stylesheet" href="<?= URL ?>/include/css/style_intro_2.css">
-            <link rel="stylesheet" href="<?= URL ?>/include/css/style_page.css">
-            
-            <!-- intro - anime_scroll_relative_content_davy -->
-            <div class="block_anime_scroll_relative_content_1_davy">
-                <img class="anime_scroll_relative_content_1_2_davy anime_scroll_relative_content_1_davy" src="<?= URL ?>/images/fond-menu-2-min.png" alt="Fond menu">
-                <div class="anime_scroll_relative_content_1_1_davy anime_scroll_relative_content_1_davy container">
-                    <h1>Panier</h1>
-                    <hr class="float_right_davy anime_scroll_davy">
-                </div>
-            </div><br>
-
-            <!-- Etape -->
-            <div class="block_content_medium_davy block_center_davy text_center_davy">
-                <div class="row">
-                    <div class="col mb-3">
-                        <a title="Panier" class="bouton_2_anim_davy active_bouton_2_anim_davy" href="<?= URL ?>/panier"><span>1</span></a><br>
-                        <p>Panier</p>
-                    </div>
-                    <div class="col mb-3">
-                        <a title="Coordonnées" class="bouton_2_anim_davy" href="<?= URL ?>/coordonnees"><span>2</span></a>
-                        <p>Coordonnées</p>
-                    </div>
-                    <div class="col mb-3">
-                        <a title="Paiement" class="bouton_2_anim_davy" href="<?= URL ?>/paiement"><span>3</span></a>
-                        <p>Paiement</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Produit -->
-            <div class="container mt-5 mb-3">
-                <h2 class="h2_moyen_davy">Les produits <span class="color_red_davy serif_davy">dans le panier</span></h2>
-                <hr class="anime_scroll_davy">
-            </div>
-            <div class="container">
-                <div class="d-none d-sm-none d-md-block">
-                    <div class="row">
-                        <div class="col-md-2 flex_center_davy">
-                        </div>
-                        <div class="col-md-3 flex_center_davy">
-                            <p><strong>Produit</strong></p>
-                        </div>
-                        <div class="col-md-2 flex_center_davy">
-                            <p><strong>Quantité</strong></p>
-                        </div>
-                        <div class="col-md-2 flex_center_davy">
-                            <p><strong>Prix</strong></p>
-                        </div>
-                        <div class="col-md-2 flex_center_davy">
-                            <p><strong>Total</strong></p>
-                        </div>
-                        <div class="col-md-1 flex_center_davy">
-                            <p><strong>Retirer</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div id="content_panier_davy">
                     <?php 
                     if (isset($_SESSION['panier']['id_produit']) && count($_SESSION['panier']['id_produit']) > 0) : 
                     for ($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++) : 
@@ -151,44 +89,3 @@ require_once("include/header.php");
                         </div>
                     </div>
                     <?php endif; ?>
-                </div>
-            </div>
-
-            <!-- Vos options cadeaux -->
-            <div class="container mt-5 mb-3">
-                <h2 class="h2_moyen_davy">Vos options <span class="color_red_davy serif_davy">cadeaux</span></h2>
-                <hr class="anime_scroll_davy">
-            </div>
-            <div class="container mb-3">
-                <div class="row">
-                    <form method="post" class="color_gris_davy pe-3">
-                        <br>
-                        <input type="checkbox" id="personnaliser" name="personnaliser" value="personnaliser">
-                        <label for="personnaliser">Personnaliser</label>
-                        <br><br><br>
-                        <p class="text_center_davy"><?= $prix_total ?> €</p>
-                        <!-- bouton_anim_davy -->
-                        <div class="text_center_davy">
-                            <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer" data-text="Acheter" title="Acheter">
-                                <span>V</span>
-                                <span>a</span>
-                                <span>l</span>
-                                <span>i</span>
-                                <span>d</span>
-                                <span>e</span>
-                                <span>r</span>
-                                <input type="submit" id="acheter" name="acheter" value="Acheter" class="bouton_submit">
-                            </a><br>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- script -->
-            <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
-            <script>nav_lien_active("lien_panier");</script>
-        </div>
-        <?php nb_visit_page($pdo_object, "Panier"); ?>
-<?php
-require_once("include/footer.php");
-?>
