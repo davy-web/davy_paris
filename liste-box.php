@@ -83,7 +83,7 @@ require_once("include/header.php");
                             <strong>Filtre</strong>
                             <hr class="hr_admin_davy"><br>
                             <strong>Rechercher</strong><br><br>
-                            <input type="text" id="mot_chercher" name="mot_chercher" placeholder="Chercher" class="width_full_davy mb-2" onkeyup="ajax_davy('content_produit_davy', 'liste-box-chercher.php?chercher=', this.value)"><br><br>
+                            <input type="text" id="mot_chercher" name="mot_chercher" placeholder="Chercher" class="width_full_davy mb-2" onkeyup="ajax_davy('content_produit_davy', 'liste-box-ajax.php?chercher=', this.value)"><br><br>
                             <div class="block_accordion_davy">
                                 <!-- bouton_anim_davy -->
                                 <a id="bouton_option_filtre_davy" aria-label="Plus" class="bouton_anim_davy bouton_envoyer background_gris_davy width_full_davy" data-text="Options" title="Options">

@@ -42,6 +42,28 @@ if (isset($_POST['acheter'])) {
 }
 ?>
 
+                <div class="container">
+                    <div class="d-none d-sm-none d-md-block">
+                        <div class="row">
+                            <div class="col-md-2 flex_center_davy">
+                            </div>
+                            <div class="col-md-3 flex_center_davy">
+                                <p><strong>Produit</strong></p>
+                            </div>
+                            <div class="col-md-2 flex_center_davy">
+                                <p><strong>Quantité</strong></p>
+                            </div>
+                            <div class="col-md-2 flex_center_davy">
+                                <p><strong>Prix</strong></p>
+                            </div>
+                            <div class="col-md-2 flex_center_davy">
+                                <p><strong>Total</strong></p>
+                            </div>
+                            <div class="col-md-1 flex_center_davy">
+                                <p><strong>Retirer</strong></p>
+                            </div>
+                        </div>
+                    </div>
                     <?php 
                     if (isset($_SESSION['panier']['id_produit']) && count($_SESSION['panier']['id_produit']) > 0) : 
                     for ($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++) : 
@@ -89,3 +111,34 @@ if (isset($_POST['acheter'])) {
                         </div>
                     </div>
                     <?php endif; ?>
+                </div>
+
+                <!-- Vos options cadeaux -->
+                <div class="container mt-5 mb-3">
+                    <h2 class="h2_moyen_davy">Vos options <span class="color_red_davy serif_davy">cadeaux</span></h2>
+                    <hr class="anime_scroll_davy">
+                </div>
+                <div class="container mb-3">
+                    <div class="row">
+                        <form method="post" class="color_gris_davy pe-3">
+                            <br>
+                            <input type="checkbox" id="personnaliser" name="personnaliser" value="personnaliser">
+                            <label for="personnaliser">Personnaliser</label>
+                            <br><br><br>
+                            <p class="text_center_davy"><?= $prix_total ?> €</p>
+                            <!-- bouton_anim_davy -->
+                            <div class="text_center_davy">
+                                <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer" data-text="Acheter" title="Acheter">
+                                    <span>V</span>
+                                    <span>a</span>
+                                    <span>l</span>
+                                    <span>i</span>
+                                    <span>d</span>
+                                    <span>e</span>
+                                    <span>r</span>
+                                    <input type="submit" id="acheter" name="acheter" value="Acheter" class="bouton_submit">
+                                </a><br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
