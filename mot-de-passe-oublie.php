@@ -37,15 +37,15 @@ if(!isset($_GET['token'])) {
                     $mdpoublier_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
                     if (empty($mdpoublier_array)) {
                         $pdo_statement = $pdo_object->prepare("INSERT INTO mdpoublier (email, token, date) VALUES (:email, :token, :date)");
-                        $pdo_statement->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
-                        $pdo_statement->bindValue(':token', $token, PDO::PARAM_STR);
+                        $pdo_statement->bindValue(':email', htmlspecialchars($_POST['email']), PDO::PARAM_STR);
+                        $pdo_statement->bindValue(':token', htmlspecialchars($token), PDO::PARAM_STR);
                         $pdo_statement->bindValue(':date', date("Y-m-d"), PDO::PARAM_STR);
                         $pdo_statement->execute();
                     }
                     else {
                         $pdo_statement = $pdo_object->prepare("UPDATE mdpoublier SET token = :token, date = :date WHERE email = :email");
-                        $pdo_statement->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
-                        $pdo_statement->bindValue(':token', $token, PDO::PARAM_STR);
+                        $pdo_statement->bindValue(':email', htmlspecialchars($_POST['email']), PDO::PARAM_STR);
+                        $pdo_statement->bindValue(':token', htmlspecialchars($token), PDO::PARAM_STR);
                         $pdo_statement->bindValue(':date', date("Y-m-d"), PDO::PARAM_STR);
                         $pdo_statement->execute();
                     }
@@ -90,7 +90,7 @@ else {
                             // Enregister
                             $pdo_statement = $pdo_object->prepare("UPDATE membre SET mdp = :mdp WHERE email = :email");
                             $pdo_statement->bindValue(':mdp', password_hash($_POST['mdp'], PASSWORD_DEFAULT), PDO::PARAM_STR);
-                            $pdo_statement->bindValue(':email', $mdpoublier_array['email'], PDO::PARAM_STR);
+                            $pdo_statement->bindValue(':email', htmlspecialchars($mdpoublier_array['email']), PDO::PARAM_STR);
                             $pdo_statement->execute();
                             // Supprimer token mdpoublier
                             $pdo_statement = $pdo_object->prepare("DELETE FROM mdpoublier WHERE token = :token");

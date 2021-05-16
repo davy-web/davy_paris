@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
             $pdo_statement = $pdo_object->prepare("INSERT INTO commentaire (produit_id, membre_id, message, note) VALUES (:produit_id, :membre_id, :message, :note)");
             $pdo_statement->bindValue(':produit_id', $_GET['id'], PDO::PARAM_INT);
             $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
-            $pdo_statement->bindValue(':message', $_POST['message'], PDO::PARAM_STR);
+            $pdo_statement->bindValue(':message', htmlspecialchars($_POST['message']), PDO::PARAM_STR);
             $pdo_statement->bindValue(':note', $_POST['note'], PDO::PARAM_INT);
             $pdo_statement->execute();
             header("Location:" . URL . "/experience=" . $_GET['id']);

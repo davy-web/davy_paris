@@ -26,9 +26,9 @@ if (isset($_GET['id'])) {
                 // Enregister
                 $pdo_statement = $pdo_object->prepare("UPDATE membre SET nom = :nom, prenom = :prenom, email = :email, statut = :statut WHERE id_membre = :id_membre");
                 $pdo_statement->bindValue(':id_membre', $_GET['id'], PDO::PARAM_INT);
-                $pdo_statement->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
-                $pdo_statement->bindValue(':prenom', $_POST['prenom'], PDO::PARAM_STR);
-                $pdo_statement->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
+                $pdo_statement->bindValue(':nom', htmlspecialchars($_POST['nom']), PDO::PARAM_STR);
+                $pdo_statement->bindValue(':prenom', htmlspecialchars($_POST['prenom']), PDO::PARAM_STR);
+                $pdo_statement->bindValue(':email', htmlspecialchars($_POST['email']), PDO::PARAM_STR);
                 $pdo_statement->bindValue(':statut', $_POST['statut'], PDO::PARAM_INT);
                 $pdo_statement->execute();
                 // Redirection

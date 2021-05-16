@@ -81,7 +81,7 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
     if (isset($_SESSION['panier']) && isset($_SESSION['membre'])) {
         // création de la commande
         $pdo_statement = $pdo_object->prepare("SELECT * FROM commande WHERE membre_id = :membre_id");
-        $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_STR);
+        $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
         $pdo_statement->execute();
         $commande_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
         if (empty($commande_array)) {
@@ -94,9 +94,9 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
             $pdo_statement_2->bindValue(':id_commande', $commande_array['id_commande'], PDO::PARAM_INT);
         }
         $pdo_statement_2->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
-        $pdo_statement_2->bindValue(':prix_total', $prix_total, PDO::PARAM_STR);
+        $pdo_statement_2->bindValue(':prix_total', htmlspecialchars($prix_total), PDO::PARAM_STR);
         $pdo_statement_2->bindValue(':date', date("Y-m-d"), PDO::PARAM_STR);
-        $pdo_statement_2->bindValue(':etat', $etat, PDO::PARAM_STR);
+        $pdo_statement_2->bindValue(':etat', htmlspecialchars($etat), PDO::PARAM_STR);
         $pdo_statement_2->execute();
 
         // création des détails de la commande
@@ -122,7 +122,7 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
             $pdo_statement_3->bindValue(':commande_id', $commande_array['id_commande'], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(':produit_id', $_SESSION['panier']['id_produit'][$i], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(':quantite', $_SESSION['panier']['quantite'][$i], PDO::PARAM_INT);
-            $pdo_statement_3->bindValue(':prix', $_SESSION['panier']['prix'][$i], PDO::PARAM_INT);
+            $pdo_statement_3->bindValue(':prix', htmlspecialchars($_SESSION['panier']['prix'][$i]), PDO::PARAM_STR);
             $pdo_statement_3->execute();
         }
     }
@@ -149,7 +149,7 @@ function nb_visit_page($pdo_object, $nom_visit_page) {
             $nb_visit_page = $dashboard_array['nb_visit_page'] + 1;
             $pdo_statement_2->bindValue(':nb_visit_page', $nb_visit_page, PDO::PARAM_INT);
         }
-        $pdo_statement_2->bindValue(':nom_visit_page', $nom_visit_page, PDO::PARAM_STR);
+        $pdo_statement_2->bindValue(':nom_visit_page', htmlspecialchars($nom_visit_page), PDO::PARAM_STR);
         $pdo_statement_2->bindValue(':date_visit_page', date("Y-m-d"), PDO::PARAM_STR);
         $pdo_statement_2->execute();
     }

@@ -39,12 +39,12 @@ if (isset($_GET['id'])) {
             $pdo_statement->bindValue(':id_article', $_GET['id'], PDO::PARAM_INT);
             $pdo_statement->bindValue(':titre', $_POST['titre'], PDO::PARAM_STR);
             $pdo_statement->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':photo', $photo, PDO::PARAM_STR);
+            $pdo_statement->bindValue(':photo', htmlspecialchars($photo), PDO::PARAM_STR);
             $pdo_statement->bindValue(':titre_info', $_POST['titre_info'], PDO::PARAM_STR);
             $pdo_statement->bindValue(':description_info', $_POST['description_info'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':categorie', $_POST['categorie'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':box', $_POST['box'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':adresse', $_POST['adresse'], PDO::PARAM_STR);
+            $pdo_statement->bindValue(':categorie', htmlspecialchars($_POST['categorie']), PDO::PARAM_STR);
+            $pdo_statement->bindValue(':box', htmlspecialchars($_POST['box']), PDO::PARAM_STR);
+            $pdo_statement->bindValue(':adresse', htmlspecialchars($_POST['adresse']), PDO::PARAM_STR);
             $pdo_statement->bindValue(':map', $map, PDO::PARAM_STR);
             $pdo_statement->execute();
             

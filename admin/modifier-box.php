@@ -33,9 +33,9 @@ if (isset($_GET['id'])) {
             $pdo_statement->bindValue(':id_produit', $_GET['id'], PDO::PARAM_INT);
             $pdo_statement->bindValue(':titre', $_POST['titre'], PDO::PARAM_STR);
             $pdo_statement->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':photo', $photo, PDO::PARAM_STR);
-            $pdo_statement->bindValue(':prix', $_POST['prix'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':stock', $_POST['stock'], PDO::PARAM_STR);
+            $pdo_statement->bindValue(':photo', htmlspecialchars($photo), PDO::PARAM_STR);
+            $pdo_statement->bindValue(':prix', htmlspecialchars($_POST['prix']), PDO::PARAM_STR);
+            $pdo_statement->bindValue(':stock', $_POST['stock'], PDO::PARAM_INT);
             $pdo_statement->execute();
             
             // Enregister fichier

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 13 mai 2021 à 17:38
+-- Généré le : Dim 16 mai 2021 à 16:24
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -94,7 +94,7 @@ CREATE TABLE `commentaire` (
   `id_commentaire` int(11) NOT NULL,
   `produit_id` int(11) NOT NULL,
   `membre_id` int(11) NOT NULL,
-  `message` varchar(255) NOT NULL,
+  `message` text NOT NULL,
   `note` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -142,7 +142,7 @@ CREATE TABLE `details_commande` (
   `commande_id` int(11) NOT NULL,
   `produit_id` int(11) NOT NULL,
   `quantite` int(11) NOT NULL,
-  `prix` int(11) NOT NULL
+  `prix` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

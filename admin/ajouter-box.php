@@ -23,9 +23,9 @@ if (isset($_POST['ajouter'])) {
         $pdo_statement = $pdo_object->prepare("INSERT INTO produit (titre, description, photo, prix, stock) VALUES (:titre, :description, :photo, :prix, :stock)");
         $pdo_statement->bindValue(':titre', $_POST['titre'], PDO::PARAM_STR);
         $pdo_statement->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-        $pdo_statement->bindValue(':photo', $photo, PDO::PARAM_STR);
-        $pdo_statement->bindValue(':prix', $_POST['prix'], PDO::PARAM_STR);
-        $pdo_statement->bindValue(':stock', $_POST['stock'], PDO::PARAM_STR);
+        $pdo_statement->bindValue(':photo', htmlspecialchars($photo), PDO::PARAM_STR);
+        $pdo_statement->bindValue(':prix', htmlspecialchars($_POST['prix']), PDO::PARAM_STR);
+        $pdo_statement->bindValue(':stock', $_POST['stock'], PDO::PARAM_INT);
         $pdo_statement->execute();
         $notification = "<strong class='color_red_davy'>Enregister !</strong>";
         

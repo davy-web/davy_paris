@@ -12,15 +12,15 @@ if (isset($_POST['envoyer'])) {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             // Enregister
             $pdo_statement = $pdo_object->prepare("INSERT INTO email (nom, email, sujet, message) VALUES (:nom, :email, :sujet, :message)");
-            $pdo_statement->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':sujet', $_POST['sujet'], PDO::PARAM_STR);
-            $pdo_statement->bindValue(':message', $_POST['message'], PDO::PARAM_STR);
+            $pdo_statement->bindValue(':nom', htmlspecialchars($_POST['nom']), PDO::PARAM_STR);
+            $pdo_statement->bindValue(':email', htmlspecialchars($_POST['email']), PDO::PARAM_STR);
+            $pdo_statement->bindValue(':sujet', htmlspecialchars($_POST['sujet']), PDO::PARAM_STR);
+            $pdo_statement->bindValue(':message', htmlspecialchars($_POST['message']), PDO::PARAM_STR);
             $pdo_statement->execute();
             // Envoyer email
             $destinataire = "chendavyweb@gmail.com";
-            $object = "[Dating Paris] - " . $_POST['sujet'];
-            $message = "Nom : " . $_POST['nom'] . "\nE-mail : " . $_POST['email'] . "\n\nMessage : \n" . $_POST['message'];
+            $object = "[Dating Paris] - " . htmlspecialchars($_POST['sujet']);
+            $message = "Nom : " . htmlspecialchars($_POST['nom']) . "\nE-mail : " . htmlspecialchars($_POST['email']) . "\n\nMessage : \n" . htmlspecialchars($_POST['message']);
             $headers = "From: contact@dating-paris.code-website.com";
             if (mail($destinataire, $object, $message, $headers)) {
                 $notification = "<strong class='color_red_davy'>Envoyé !</strong>";
