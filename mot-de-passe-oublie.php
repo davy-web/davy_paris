@@ -126,6 +126,7 @@ require_once("include/header.php");
         <div id="content_davy">
             <!-- style -->
             <link rel="stylesheet" href="<?= URL ?>/include/css/style_intro_2.css">
+            <link rel="stylesheet" href="<?= URL ?>/include/css/style_page.css">
             
             <!-- intro - anime_scroll_relative_content_davy -->
             <div class="block_anime_scroll_relative_content_1_davy">
@@ -143,7 +144,7 @@ require_once("include/header.php");
             
             <!-- formulaire -->
             <div class="container mt-5">
-                <div class="row">
+                <div class="row flex_flow_davy">
                     <div class="col-md mb-3">
                         <form method="post">
                             <!-- envoyer mail pour mot de passe oublé -->
@@ -172,7 +173,11 @@ require_once("include/header.php");
                         </form>
                     </div>
                     <div class="col-md mb-3">
-                        <img src="<?= URL ?>/images/louvre-min.jpg" alt="Image contact" width="100%">
+                        <div class="cadre_image_page_davy">
+                            <img src="<?= URL ?>/images/louvre-min.jpg" class="image_page_davy" alt="louvre-min.jpg">
+                            <img src="<?= URL ?>/images/trait-rouge.png" class="trait_rouge" alt="Cadre">
+                            <img src="<?= URL ?>/images/trait-2-rouge.png" class="trait_2_rouge" alt="Cadre">
+                        </div>
                     </div>
                 </div>
             </div>

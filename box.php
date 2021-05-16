@@ -84,6 +84,7 @@ require_once("include/header.php");
                         <hr class="anime_scroll_davy">
                         <p><?= $produit_array['description'] ?></p>
                         <p class="h2_moyen_davy"><?= $produit_array['prix'] ?> €</p>
+                        <?php if ($produit_array['stock'] > 0) : ?>
                         <form method="post">
                             <input type="hidden" name="id_produit" value="<?= $produit_array['id_produit'] ?>">
                             <input type="hidden" name="photo" value="<?= $produit_array['photo'] ?>">
@@ -104,6 +105,9 @@ require_once("include/header.php");
                                 <input type="submit" id="ajouter_panier" name="ajouter_panier" value="Ajouter au panier" class="bouton_submit">
                             </a>
                         </form>
+                        <?php else : ?>
+                        <p><strong>En rupture de stock</strong></p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

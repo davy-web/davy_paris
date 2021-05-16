@@ -57,7 +57,7 @@ if (isset($_POST['connexion'])) {
                     $pdo_statement_2 = $pdo_object->prepare("UPDATE membre SET limit_connexion = :limit_connexion, limit_date = :limit_date WHERE id_membre = :id_membre");
                     $pdo_statement_2->bindValue(':limit_connexion', $membre_array['limit_connexion'] + 1, PDO::PARAM_INT);
                     $pdo_statement_2->bindValue(':id_membre', $membre_array['id_membre'], PDO::PARAM_INT);
-                    $pdo_statement_2->bindValue(':limit_date', date("Y-m-d"), PDO::PARAM_INT);
+                    $pdo_statement_2->bindValue(':limit_date', date("Y-m-d"), PDO::PARAM_STR);
                     $pdo_statement_2->execute();
                     if ($membre_array['limit_connexion'] < 10) {
                         $tentative = 10 - $membre_array['limit_connexion'];

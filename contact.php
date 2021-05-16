@@ -67,11 +67,19 @@ require_once("include/header.php");
                             <div class="row">
                                 <div class="col-md pe-md-2">
                                     <label for="nom"><strong>Nom</strong></label><br>
+                                    <?php if (isset($_SESSION['membre'])) : ?>
+                                    <input type="text" id="nom" name="nom" placeholder="Saisir votre nom" class="width_full_davy" value="<?= $_SESSION['membre']['prenom'] ?> <?= $_SESSION['membre']['nom'] ?>"><br><br>
+                                    <?php else : ?>
                                     <input type="text" id="nom" name="nom" placeholder="Saisir votre nom" class="width_full_davy"><br><br>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-md ps-md-2">
                                     <label for="email"><strong>Email</strong></label> <?= $erreur_email ?><br>
+                                    <?php if (isset($_SESSION['membre']['email'])) : ?>
+                                    <input type="email" id="email" name="email" placeholder="Saisir votre email" class="width_full_davy" value="<?= $_SESSION['membre']['email'] ?>"><br><br>
+                                    <?php else : ?>
                                     <input type="email" id="email" name="email" placeholder="Saisir votre email" class="width_full_davy"><br><br>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <label for="sujet"><strong>Sujet</strong></label><br>
