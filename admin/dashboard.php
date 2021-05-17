@@ -117,7 +117,7 @@ require_once("../include/header-admin.php");
                 <!-- script -->
                 <script src="<?= URL ?>/include/js/script_nav_lien.js"></script>
                 <script>nav_lien_active("lien_dashboard");</script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+                <script src="<?= URL ?>/include/js/script_chart.js"></script>
                 
                 <script>
                     // Statistique
