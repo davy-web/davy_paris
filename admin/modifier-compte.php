@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
                 $pdo_statement->bindValue(':statut', $_POST['statut'], PDO::PARAM_INT);
                 $pdo_statement->execute();
                 // Redirection
-                header("Location:" . URL . "/admin/modifier-comptes?id=" . $_GET['id'] . "&enregister=oui");
+                header("Location:" . URL . "/admin/modifier-compte?id=" . $_GET['id'] . "&enregister=oui");
             }
             else {
                 $erreur_email = "<strong class='color_red_davy'>Mettre une adresse email valable</strong>";
@@ -52,7 +52,7 @@ require_once("../include/header-admin.php");
 
                 <div class="block_admin_davy">
                     <h1 class="h1_moyen_davy">Modifier un membre</h1>
-                    <hr>
+                    <hr class="anime_scroll_davy">
                     <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
                     <!-- formulaire -->
                     <form method="post" enctype="multipart/form-data">

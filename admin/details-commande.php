@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     $pdo_statement->execute();
 }
 else {
-    header("Location:" . URL . "/admin/commande");
+    header("Location:" . URL . "/admin/gestion-commandes");
 }
 
 require_once("../include/header-admin.php");
@@ -20,7 +20,7 @@ require_once("../include/header-admin.php");
 
                 <div class="block_admin_davy">
                     <h1 class="h1_moyen_davy">Détails de la commande</h1>
-                    <hr>
+                    <hr class="anime_scroll_davy">
                     <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
                     <div class="d-none d-sm-none d-md-block">
                         <div class="row">
@@ -69,7 +69,7 @@ require_once("../include/header-admin.php");
                     <?php endwhile; ?>
                     <?php endif; ?>
                     <!-- bouton_anim_davy -->
-                    <a href="<?= URL ?>/admin/commande" aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Retour" title="Retour">
+                    <a href="<?= URL ?>/admin/gestion-commandes" aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Retour" title="Retour">
                         <span>V</span>
                         <span>a</span>
                         <span>l</span>

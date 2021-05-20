@@ -73,11 +73,11 @@ if (isset($_POST['deconnexion'])) {
                 <div class="panel_davy">
                     <a href="<?= URL ?>/admin/gestion-box" title="Gestion Box"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve" class="icon_admin"><circle fill="currentColor" cx="250" cy="250" r="65"/></svg> <span class="lien_panel_davy">Gestion</span></a>
                     <a href="<?= URL ?>/admin/ajouter-box" title="Ajouter Box"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve" class="icon_admin"><circle fill="currentColor" cx="250" cy="250" r="65"/></svg> <span class="lien_panel_davy">Ajouter</span></a>
-                    <a href="<?= URL ?>/admin/commande" title="Commande"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve" class="icon_admin"><circle fill="currentColor" cx="250" cy="250" r="65"/></svg> <span class="lien_panel_davy">Commande</span></a>
+                    <a href="<?= URL ?>/admin/gestion-commandes" title="Commande"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve" class="icon_admin"><circle fill="currentColor" cx="250" cy="250" r="65"/></svg> <span class="lien_panel_davy">Commande</span></a>
                 </div>
                 <!-- Mail -->
                 <div class="block_accordion_davy">
-                    <a href="<?= URL ?>/admin/mail" title="Mail">
+                    <a href="<?= URL ?>/admin/gestion-mails" title="Mail">
                         <button class="accordion_davy"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open" class="icon_admin svg-inline--fa fa-envelope-open fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V200.724a48 48 0 0 1 18.387-37.776c24.913-19.529 45.501-35.365 164.2-121.511C199.412 29.17 232.797-.347 256 .003c23.198-.354 56.596 29.172 73.413 41.433 118.687 86.137 139.303 101.995 164.2 121.512A48 48 0 0 1 512 200.724V464zm-65.666-196.605c-2.563-3.728-7.7-4.595-11.339-1.907-22.845 16.873-55.462 40.705-105.582 77.079-16.825 12.266-50.21 41.781-73.413 41.43-23.211.344-56.559-29.143-73.413-41.43-50.114-36.37-82.734-60.204-105.582-77.079-3.639-2.688-8.776-1.821-11.339 1.907l-9.072 13.196a7.998 7.998 0 0 0 1.839 10.967c22.887 16.899 55.454 40.69 105.303 76.868 20.274 14.781 56.524 47.813 92.264 47.573 35.724.242 71.961-32.771 92.263-47.573 49.85-36.179 82.418-59.97 105.303-76.868a7.998 7.998 0 0 0 1.839-10.967l-9.071-13.196z"></path></svg> <span class="lien_panel_davy">Mail</span></button>
                     </a>
                 </div>
@@ -127,12 +127,12 @@ if (isset($_POST['deconnexion'])) {
                         <br>
                         <p class="texte_menu_mobile_davy lien_gestion_box">Box</p>
                     </a>
-                    <a href="<?= URL ?>/admin/commande" class="menu_mobile_davy lien_commande" title="Commande">
+                    <a href="<?= URL ?>/admin/gestion-commandes" class="menu_mobile_davy lien_commande" title="Commande">
                         <svg version="1.1" id="Calque_1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon_menu_mobile_davy" x="0px" y="0px" viewBox="0 0 576 512" style="enable-background:new 0 0 576 512;" xml:space="preserve"><path fill="currentColor" d="M504.7,320H211.6l6.5,32h268.4c15.4,0,26.8,14.3,23.4,29.3l-5.5,24.3c18.7,9.1,31.6,28.2,31.6,50.4 c0,31.2-25.5,56.4-56.8,56c-29.8-0.4-54.4-24.6-55.2-54.4c-0.4-16.3,6.1-31,16.8-41.5H231.2c10.4,10.2,16.8,24.3,16.8,40 c0,31.8-26.5,57.4-58.7,55.9c-28.5-1.3-51.8-24.4-53.3-52.9c-1.2-22,10.4-41.5,28.1-51.6L93.9,64H24C10.7,64,0,53.3,0,40V24 C0,10.7,10.7,0,24,0h102.5c11.4,0,21.2,8,23.5,19.2l9.2,44.8H552c15.4,0,26.8,14.3,23.4,29.3l-47.3,208 C525.6,312.2,515.9,320,504.7,320z"/></svg>
                         <br>
                         <p class="texte_menu_mobile_davy lien_commande">Commande</p>
                     </a>
-                    <a href="<?= URL ?>/admin/mail" class="menu_mobile_davy lien_mail" title="Mail">
+                    <a href="<?= URL ?>/admin/gestion-mails" class="menu_mobile_davy lien_mail" title="Mail">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open" class="icon_menu_mobile_davy svg-inline--fa fa-envelope-open fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V200.724a48 48 0 0 1 18.387-37.776c24.913-19.529 45.501-35.365 164.2-121.511C199.412 29.17 232.797-.347 256 .003c23.198-.354 56.596 29.172 73.413 41.433 118.687 86.137 139.303 101.995 164.2 121.512A48 48 0 0 1 512 200.724V464zm-65.666-196.605c-2.563-3.728-7.7-4.595-11.339-1.907-22.845 16.873-55.462 40.705-105.582 77.079-16.825 12.266-50.21 41.781-73.413 41.43-23.211.344-56.559-29.143-73.413-41.43-50.114-36.37-82.734-60.204-105.582-77.079-3.639-2.688-8.776-1.821-11.339 1.907l-9.072 13.196a7.998 7.998 0 0 0 1.839 10.967c22.887 16.899 55.454 40.69 105.303 76.868 20.274 14.781 56.524 47.813 92.264 47.573 35.724.242 71.961-32.771 92.263-47.573 49.85-36.179 82.418-59.97 105.303-76.868a7.998 7.998 0 0 0 1.839-10.967l-9.071-13.196z"></path></svg>
                         <br>
                         <p class="texte_menu_mobile_davy lien_mail">Mail</p>
@@ -162,9 +162,9 @@ if (isset($_POST['deconnexion'])) {
                     <hr class="hr_admin_davy">
                     <a href="<?= URL ?>/admin/ajouter-box" title="Ajouter Box" class="d-inline-block width_full_davy lien_ajouter_box">Ajouter Box</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/commande" title="Commande" class="d-inline-block width_full_davy lien_commande">Commande</a>
+                    <a href="<?= URL ?>/admin/gestion-commandes" title="Commande" class="d-inline-block width_full_davy lien_commande">Commande</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/admin/mail" title="Mail" class="d-inline-block width_full_davy lien_mail">Mail</a>
+                    <a href="<?= URL ?>/admin/gestion-mails" title="Mail" class="d-inline-block width_full_davy lien_mail">Mail</a>
                     <hr class="hr_admin_davy">
                     <a href="<?= URL ?>/admin/gestion-comptes" title="Comptes" class="d-inline-block width_full_davy lien_gestion_comptes">Comptes</a>
                 </div>

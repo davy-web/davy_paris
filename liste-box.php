@@ -71,7 +71,7 @@ require_once("include/header.php");
                 <a href="<?= URL ?>" title="Accueil">Accueil > </a> <a href="<?= URL ?>/liste-box" title="Liste Box">Liste Box</a>
             </div>
             
-            <!-- Description de la Box -->
+            <!-- Liste -->
             <div class="container mt-5 mb-3">
                 <h2 class="h2_moyen_davy">Liste <span class="color_red_davy serif_davy">des Box</span></h2>
                 <hr class="anime_scroll_davy">

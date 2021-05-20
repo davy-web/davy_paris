@@ -22,7 +22,7 @@ require_once("../include/header-admin.php");
 
                 <div class="block_admin_davy">
                     <h1 class="h1_moyen_davy">Liste des articles</h1>
-                    <hr>
+                    <hr class="anime_scroll_davy">
                     <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
                     <div class="table_responsive_davy">
                         <table>

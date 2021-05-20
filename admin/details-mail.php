@@ -12,11 +12,11 @@ if (isset($_GET['id'])) {
     $pdo_statement->execute();
     $email_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
     if (!$email_array) {
-        header("Location:" . URL . "/admin/mail");
+        header("Location:" . URL . "/admin/gestion-mails");
     }
 }
 else {
-    header("Location:" . URL . "/admin/mail");
+    header("Location:" . URL . "/admin/gestion-mails");
 }
 
 require_once("../include/header-admin.php");
@@ -24,7 +24,7 @@ require_once("../include/header-admin.php");
 
                 <div class="block_admin_davy">
                     <h1 class="h1_moyen_davy">Détails du mail</h1>
-                    <hr>
+                    <hr class="anime_scroll_davy">
                     <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
                     <!-- formulaire -->
                     <form method="post" enctype="multipart/form-data">
@@ -47,7 +47,7 @@ require_once("../include/header-admin.php");
                             </div>
                         </div>
                         <!-- bouton_anim_davy -->
-                        <a href="<?= URL ?>/admin/mail" aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Retour" title="Retour">
+                        <a href="<?= URL ?>/admin/gestion-mails" aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Retour" title="Retour">
                             <span>V</span>
                             <span>a</span>
                             <span>l</span>

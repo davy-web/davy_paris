@@ -57,7 +57,7 @@ require_once("../include/header-admin.php");
                     <div class="col-md">
                         <div class="block_admin_davy my-3">
                             <h2 class="h2_moyen_davy">Mail</h2>
-                            <hr>
+                            <hr class="anime_scroll_davy">
                             <p><strong><?= $pdo_statement_mail->rowCount() ?> message(s)</strong></p>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ require_once("../include/header-admin.php");
                     <div class="col-md">
                         <div class="block_admin_davy my-3">
                             <h2 class="h2_moyen_davy">Commande</h2>
-                            <hr>
+                            <hr class="anime_scroll_davy">
                             <p><strong><?= $pdo_statement_commande->rowCount() ?> commande(s)</strong></p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ require_once("../include/header-admin.php");
                     <div class="col-md">
                         <div class="block_admin_davy my-3">
                             <h2 class="h2_moyen_davy">Visite</h2>
-                            <hr>
+                            <hr class="anime_scroll_davy">
                             <p><strong><?= $nb_visite ?> vue(s) : Accueil</strong></p>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ require_once("../include/header-admin.php");
                 <!-- Statistique -->
                 <div class="block_admin_davy my-3">
                     <h2 class="h2_moyen_davy">Statistique</h2>
-                    <hr>
+                    <hr class="anime_scroll_davy">
                     <p><strong>Nombre de visite sur la page d'accueil</strong></p>
                     <canvas id="graph_davy"></canvas>
                 </div>
@@ -92,7 +92,7 @@ require_once("../include/header-admin.php");
                     <div class="col-md">
                         <div class="block_admin_davy my-3">
                             <h2 class="h2_moyen_davy">Sécurité</h2>
-                            <hr>
+                            <hr class="anime_scroll_davy">
                             <p><strong><?= $nb_connexion ?> échec(s) de connexion pour aujourd'hui</strong></p>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ require_once("../include/header-admin.php");
                     <div class="col-md">
                         <div class="block_admin_davy my-3">
                             <h2 class="h2_moyen_davy">Utilisateur</h2>
-                            <hr>
+                            <hr class="anime_scroll_davy">
                             <p><strong><?= $pdo_statement_membre->rowCount() ?> personne(s)</strong></p>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ require_once("../include/header-admin.php");
                 <!-- Statistique Pages -->
                 <div class="block_admin_davy my-3">
                     <h2 class="h2_moyen_davy">Pages</h2>
-                    <hr>
+                    <hr class="anime_scroll_davy">
                     <p><strong>Nombre de visite</strong></p>
                     <canvas id="graph_visite_davy"></canvas>
                 </div>

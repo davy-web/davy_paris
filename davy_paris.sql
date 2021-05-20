@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : Dim 16 mai 2021 à 16:24
+-- Généré le : jeu. 20 mai 2021 à 16:16
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -69,6 +69,25 @@ INSERT INTO `article` (`id_article`, `titre`, `description`, `photo`, `titre_inf
 (22, 'Parisi Tour', 'Capitale mythique, Paris suscite toujours autant l\'émerveillement par son patrimoine architectural et culturel d\'exception. Pour ajouter au charme de la découverte, Parisi Tour vous embarque en 2CV, la plus emblématique des voitures françaises, le temps d\'une excursion à travers la Ville-Lumière en compagnie d\'un chauffeur-guide des plus truculents.', 'parisi-tour.jpg', 'Programme', 'Un tour \"Paris ! Paris !\" : 45 minutes de découverte de Paris - 45 min', 'Découverte', 'Aventure', 'Paris (75018)', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167818.24823680703!2d2.2069777982120997!3d48.85899999147505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1619914509922!5m2!1sfr!2sfr\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>'),
 (23, 'Marin d\'eau douce', 'Découvrez différemment la sublime ville de Paris ! Marin d\'eau douce vous propose des bateaux électriques et sans permis faciles à piloter, pour une balade unique à Paris sur le canal de l\'Ourcq. Aux commandes du bateau, vous vous relaxerez et découvrirez Paris comme vous ne l\'avez jamais vu. Une croisière conviviale et respectueuse de l\'environnement', 'marin-deau-douce.jpg', 'Programme', '- 1 bouteille de champagne\r\n- 1 heure de navigation sur un bateau électrique sur le bassin de la Villette', 'Bateau', 'Aventure', 'Paris (75012)', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167818.24823680703!2d2.2069777982120997!3d48.85899999147505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1619914509922!5m2!1sfr!2sfr\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>'),
 (24, 'VR & CO', 'VR & Co, c\'est un espace de 140 m2 au cœur de Paris dédié à la réalité virtuelle sous toutes ses formes. Seul ou en équipe, venez vivre des sensations très spéciales : exploration, escalade, escape games, courses, jeux de tir, plongée sous-marine ou vol au-dessus de Paris... il y a de quoi surprendre et satisfaire tout le monde !', 'vr-co.jpg', 'Programme', '40 minutes d\'expériences en réalité virtuelle (sans limite du nombre de jeux) accompagnés d\'un Game Master', 'Virtuelle', 'Aventure', 'Paris (75005)', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167818.24823680703!2d2.2069777982120997!3d48.85899999147505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1619914509922!5m2!1sfr!2sfr\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article_partenaire`
+--
+
+CREATE TABLE `article_partenaire` (
+  `id_article_partenaire` int(11) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `photo` varchar(255) NOT NULL,
+  `titre_info` varchar(255) NOT NULL,
+  `description_info` text NOT NULL,
+  `categorie` varchar(255) NOT NULL,
+  `box` varchar(255) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `map` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -251,6 +270,12 @@ ALTER TABLE `article`
   ADD PRIMARY KEY (`id_article`);
 
 --
+-- Index pour la table `article_partenaire`
+--
+ALTER TABLE `article_partenaire`
+  ADD PRIMARY KEY (`id_article_partenaire`);
+
+--
 -- Index pour la table `commande`
 --
 ALTER TABLE `commande`
@@ -313,6 +338,12 @@ ALTER TABLE `produit`
 --
 ALTER TABLE `article`
   MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT pour la table `article_partenaire`
+--
+ALTER TABLE `article_partenaire`
+  MODIFY `id_article_partenaire` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `commande`

@@ -9,6 +9,15 @@ function membre_connecte() {
         return false;
     }
 }
+function partenaire_connecte() {
+    if (isset($_SESSION['membre']) && $_SESSION['membre']['statut'] == 3) {
+        return true;
+    }
+    else {
+        header("Location:" . URL . "/connexion");
+        return false;
+    }
+}
 function admin_connecte() {
     if (isset($_SESSION['membre']) && $_SESSION['membre']['statut'] == 2) {
         return true;
