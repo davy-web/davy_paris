@@ -64,6 +64,7 @@ if (isset($_POST['deconnexion'])) {
                 <div class="panel_davy">
                     <a href="<?= URL ?>/admin/gestion-experiences" title="Gestion expériences"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve" class="icon_admin"><circle fill="currentColor" cx="250" cy="250" r="65"/></svg> <span class="lien_panel_davy">Gestion</span></a>
                     <a href="<?= URL ?>/admin/ajouter-experience" title="Ajouter expérience"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve" class="icon_admin"><circle fill="currentColor" cx="250" cy="250" r="65"/></svg> <span class="lien_panel_davy">Ajouter</span></a>
+                    <a href="<?= URL ?>/admin/gestion-commentaires" title="Gestion commentaires"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve" class="icon_admin"><circle fill="currentColor" cx="250" cy="250" r="65"/></svg> <span class="lien_panel_davy">Commentaire</span></a>
                 </div>
                 <!-- Box -->
                 <div class="block_accordion_davy">

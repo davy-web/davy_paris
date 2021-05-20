@@ -17,6 +17,53 @@ if (isset($_POST['deconnexion'])) {
     deconnexion();
 }
 
+// Modififier mot de passe
+$erreur_mdp_old = "";
+$erreur_mdp = "";
+$erreur_mdp_confirm = "";
+
+if (isset($_SESSION['membre'])) {
+    if (isset($_POST['modifier'])) {
+        // Champs rempli
+        if (!empty($_POST['mdp_old']) && !empty($_POST['mdp']) && !empty($_POST['mdp_confirm'])) {
+            // Email 
+            $pdo_statement = $pdo_object->prepare("SELECT * FROM membre WHERE email = :email");
+            $pdo_statement->bindValue(':email', $_SESSION['membre']['email'], PDO::PARAM_STR);
+            $pdo_statement->execute();
+            $membre_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
+            if (!empty($membre_array)) {
+                // Ancian mot de passe 
+                if (password_verify($_POST['mdp_old'], $membre_array['mdp'])) {
+                    // Mdp longueur
+                    if (strlen($_POST['mdp']) >= 8) {
+                        // Mdp confirmation
+                        if ($_POST['mdp'] === $_POST['mdp_confirm']) {
+                            // Enregister
+                            $pdo_statement = $pdo_object->prepare("UPDATE membre SET mdp = :mdp WHERE email = :email");
+                            $pdo_statement->bindValue(':mdp', password_hash($_POST['mdp'], PASSWORD_DEFAULT), PDO::PARAM_STR);
+                            $pdo_statement->bindValue(':email', $_SESSION['membre']['email'], PDO::PARAM_STR);
+                            $pdo_statement->execute();
+                            $notification = "<strong class='color_red_davy'>Le mot de passe est modifié</strong>";
+                        }
+                        else {
+                            $erreur_mdp_confirm = "<strong class='color_red_davy'>Les mots de passe saisis ne sont pas identiques</strong>";
+                        }
+                    }
+                    else {
+                        $erreur_mdp = "<strong class='color_red_davy'>Le mot de passe doit comporter au minimum 8 caractères</strong>";
+                    }
+                }
+                else {
+                    $erreur_mdp_old = "<strong class='color_red_davy'>Ancien mot de passe non valide</strong>";
+                }
+            }
+        }
+        else {
+            $erreur = "<strong class='color_red_davy'>Veuillez remplir tous les champs</strong>";
+        }
+    }
+}
+
 require_once("include/header.php");
 ?>
 
@@ -33,26 +80,27 @@ require_once("include/header.php");
                     <hr class="float_right_davy anime_scroll_davy">
                 </div>
             </div><br>
+            
+            <?php if (isset($_SESSION['membre'])) : ?>
+            <form method="post">
+                <!-- bouton_anim_davy -->
+                <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Déconnexion" title="Déconnexion">
+                    <span>V</span>
+                    <span>a</span>
+                    <span>l</span>
+                    <span>i</span>
+                    <span>d</span>
+                    <span>e</span>
+                    <span>r</span>
+                    <input type="submit" id="deconnexion" name="deconnexion" value="Déconnexion" class="bouton_submit">
+                </a><br>
+            </form>
+            <?php endif; ?>
 
             <!-- Produit -->
-            <div class="container mt-5 mb-3">
+            <div class="container mt-3 mb-3">
                 <h2 class="h2_moyen_davy">Les produits <span class="color_red_davy serif_davy">commandés</span></h2>
                 <hr class="anime_scroll_davy">
-                <?php if (isset($_SESSION['membre'])) : ?>
-                <form method="post">
-                    <!-- bouton_anim_davy -->
-                    <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Déconnexion" title="Déconnexion">
-                        <span>V</span>
-                        <span>a</span>
-                        <span>l</span>
-                        <span>i</span>
-                        <span>d</span>
-                        <span>e</span>
-                        <span>r</span>
-                        <input type="submit" id="deconnexion" name="deconnexion" value="Déconnexion" class="bouton_submit">
-                    </a><br>
-                </form>
-                <?php endif; ?>
             </div>
             <div class="container">
                 <div class="d-none d-sm-none d-md-block">
@@ -115,6 +163,50 @@ require_once("include/header.php");
                     </div>
                 </div>
                 <?php endif; ?>
+            </div><br>
+            
+            <!-- Modification de mot de passe -->
+            <div class="container mt-5 mb-3">
+                <h2 class="h2_moyen_davy">Modification <span class="color_red_davy serif_davy">de mot de passe</span></h2>
+                <hr class="anime_scroll_davy">
+            </div>
+            
+            <!-- notification -->
+            <div class="block_content_medium_davy block_center_davy text_center_davy">
+                <p class="color_red_davy"><?= $notification ?><?= $erreur ?></p>
+            </div>
+
+            <div class="container mt-5 mb-3">
+                <div class="row">
+                    <div class="col-md mb-3">
+                        <form method="post">
+                            <label for="mdp_old"><strong>Ancien mot de passe</strong></label> <?= $erreur_mdp_old ?><br>
+                            <input type="password" id="mdp_old" name="mdp_old" placeholder="Saisir votre ancien mot de passe" class="width_full_davy"><br><br>
+                            <label for="mdp"><strong>Mot de passe</strong></label> <?= $erreur_mdp ?><br>
+                            <input type="password" id="mdp" name="mdp" placeholder="Saisir votre mot de passe" class="width_full_davy"><br><br>
+                            <label for="mdp_confirm"><strong>Confirmation du mot de passe</strong></label> <?= $erreur_mdp_confirm ?><br>
+                            <input type="password" id="mdp_confirm" name="mdp_confirm" placeholder="Confirmer votre mot de passe" class="width_full_davy"><br><br>
+                            <!-- bouton_anim_davy -->
+                            <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy width_full_davy" data-text="Modifier" title="Modifier">
+                                <span>V</span>
+                                <span>a</span>
+                                <span>l</span>
+                                <span>i</span>
+                                <span>d</span>
+                                <span>e</span>
+                                <span>r</span>
+                                <input type="submit" id="modifier" name="modifier" value="Modifier" class="bouton_submit">
+                            </a><br>
+                        </form>
+                    </div>
+                    <div class="col-md mb-3">
+                        <div class="cadre_image_page_davy">
+                            <img src="<?= URL ?>/images/louvre-min.jpg" class="image_page_davy" alt="louvre-min.jpg">
+                            <img src="<?= URL ?>/images/trait-rouge.png" class="trait_rouge" alt="Cadre">
+                            <img src="<?= URL ?>/images/trait-2-rouge.png" class="trait_2_rouge" alt="Cadre">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- script -->
