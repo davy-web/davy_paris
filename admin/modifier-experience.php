@@ -10,12 +10,19 @@ if(isset($_GET['enregister']) && $_GET['enregister'] == "oui") {
     $notification = "<strong class='color_red_davy'>Enregister !</strong>";
 }
 if (isset($_GET['id'])) {
+    // Article
     $pdo_statement = $pdo_object->prepare("SELECT * FROM article WHERE id_article = :id_article");
     $pdo_statement->bindValue(':id_article', $_GET['id'], PDO::PARAM_INT);
     $pdo_statement->execute();
     $article_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
+    // Produit
     $pdo_statement_2 = $pdo_object->prepare("SELECT * FROM produit");
     $pdo_statement_2->execute();
+    // Membre
+    $pdo_statement_3 = $pdo_object->prepare("SELECT * FROM membre WHERE id_membre = :id_membre");
+    $pdo_statement_3->bindValue(':id_membre', $article_array['membre_id'], PDO::PARAM_INT);
+    $pdo_statement_3->execute();
+    $membre_array = $pdo_statement_3->fetch(PDO::FETCH_ASSOC);
     
     if (!$article_array) {
         header("Location:" . URL . "/admin/gestion-articles");
@@ -35,7 +42,7 @@ if (isset($_GET['id'])) {
             if ($map == '') {
                 $map = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167818.24823680703!2d2.2069777982120997!3d48.85899999147505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1619914509922!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
             }
-            $pdo_statement = $pdo_object->prepare("UPDATE article SET titre = :titre, description = :description, photo = :photo, titre_info = :titre_info, description_info = :description_info, categorie = :categorie, box = :box, adresse = :adresse, map = :map WHERE id_article = :id_article");
+            $pdo_statement = $pdo_object->prepare("UPDATE article SET titre = :titre, description = :description, photo = :photo, titre_info = :titre_info, description_info = :description_info, categorie = :categorie, box = :box, adresse = :adresse, map = :map, etat = :etat WHERE id_article = :id_article");
             $pdo_statement->bindValue(':id_article', $_GET['id'], PDO::PARAM_INT);
             $pdo_statement->bindValue(':titre', $_POST['titre'], PDO::PARAM_STR);
             $pdo_statement->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
@@ -46,6 +53,7 @@ if (isset($_GET['id'])) {
             $pdo_statement->bindValue(':box', htmlspecialchars($_POST['box']), PDO::PARAM_STR);
             $pdo_statement->bindValue(':adresse', htmlspecialchars($_POST['adresse']), PDO::PARAM_STR);
             $pdo_statement->bindValue(':map', $map, PDO::PARAM_STR);
+            $pdo_statement->bindValue(':etat', $_POST['etat'], PDO::PARAM_INT);
             $pdo_statement->execute();
             
             // Enregister fichier
@@ -137,6 +145,17 @@ require_once("../include/header-admin.php");
                                 <!--input type="text" id="box" name="box" placeholder="Box" class="width_full_davy"><br><br-->
                                 <label for="adresse"><strong>Adresse</strong></label><br>
                                 <input type="text" id="adresse" name="adresse" placeholder="Adresse" class="width_full_davy" value="<?= $article_array['adresse'] ?>"><br><br>
+                                <label for="etat"><strong>Etat</strong></label><br>
+                                <select id="etat" name="etat" class="width_full_davy">
+                                    <option value="<?= $article_array['etat'] ?>">
+                                        <?php if ($article_array['etat'] == 0) {echo "Brouillon";} ?>
+                                        <?php if ($article_array['etat'] == 1) {echo "Publié";} ?>
+                                    </option>
+                                    <option value="0">Brouillon</option>
+                                    <option value="1">Publié</option>
+                                </select><br><br>
+                                <label for="membre"><strong>Auteur</strong></label><br>
+                                <input type="text" id="membre" name="membre" placeholder="Auteur" class="width_full_davy" value="<?= $membre_array['prenom'] ?>"><br><br>
                             </div>
                         </div>
                         <!-- bouton_anim_davy -->

@@ -12,11 +12,6 @@ else {
     header("Location:" . URL . "/connexion");
 }
 
-// Déconnexion
-if (isset($_POST['deconnexion'])) {
-    deconnexion();
-}
-
 // Modififier mot de passe
 $erreur_mdp_old = "";
 $erreur_mdp = "";
@@ -62,6 +57,11 @@ if (isset($_SESSION['membre'])) {
             $erreur = "<strong class='color_red_davy'>Veuillez remplir tous les champs</strong>";
         }
     }
+}
+
+// Déconnexion
+if (isset($_POST['deconnexion'])) {
+    deconnexion();
 }
 
 require_once("include/header.php");

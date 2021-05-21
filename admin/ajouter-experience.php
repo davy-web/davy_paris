@@ -26,7 +26,7 @@ if (isset($_POST['ajouter'])) {
         if ($map == '') {
             $map = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167818.24823680703!2d2.2069777982120997!3d48.85899999147505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1619914509922!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
         }
-        $pdo_statement = $pdo_object->prepare("INSERT INTO article (titre, description, photo, titre_info, description_info, categorie, box, adresse, map) VALUES (:titre, :description, :photo, :titre_info, :description_info, :categorie, :box, :adresse, :map)");
+        $pdo_statement = $pdo_object->prepare("INSERT INTO article (titre, description, photo, titre_info, description_info, categorie, box, adresse, map, etat, membre_id) VALUES (:titre, :description, :photo, :titre_info, :description_info, :categorie, :box, :adresse, :map, :etat, :membre_id)");
         $pdo_statement->bindValue(':titre', $_POST['titre'], PDO::PARAM_STR);
         $pdo_statement->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
         $pdo_statement->bindValue(':photo', htmlspecialchars($photo), PDO::PARAM_STR);
@@ -36,6 +36,8 @@ if (isset($_POST['ajouter'])) {
         $pdo_statement->bindValue(':box', htmlspecialchars($_POST['box']), PDO::PARAM_STR);
         $pdo_statement->bindValue(':adresse', htmlspecialchars($_POST['adresse']), PDO::PARAM_STR);
         $pdo_statement->bindValue(':map', $map, PDO::PARAM_STR);
+        $pdo_statement->bindValue(':etat', 1, PDO::PARAM_INT);
+        $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
         $pdo_statement->execute();
 
         // Enregister fichier

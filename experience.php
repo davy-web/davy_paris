@@ -5,8 +5,9 @@ require_once("include/fonctions.php");
 // Fiche article
 if (isset($_GET['id'])) {
     // Articles
-    $pdo_statement = $pdo_object->prepare("SELECT * FROM article WHERE id_article = :id_article");
+    $pdo_statement = $pdo_object->prepare("SELECT * FROM article WHERE id_article = :id_article AND etat = :etat");
     $pdo_statement->bindValue(':id_article', $_GET['id'], PDO::PARAM_INT);
+    $pdo_statement->bindValue(':etat', 1, PDO::PARAM_INT);
     $pdo_statement->execute();
     $article_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
     if (!$article_array) {
@@ -28,9 +29,10 @@ if (isset($_GET['id'])) {
         }
     }
     // Articles similaires
-    $pdo_statement_3 = $pdo_object->prepare("SELECT * FROM article WHERE box = :box AND id_article != :id_article ORDER BY RAND() LIMIT 4");
+    $pdo_statement_3 = $pdo_object->prepare("SELECT * FROM article WHERE box = :box AND id_article != :id_article AND etat = :etat ORDER BY RAND() LIMIT 4");
     $pdo_statement_3->bindValue(':box', $article_array['box'], PDO::PARAM_STR);
     $pdo_statement_3->bindValue(':id_article', $_GET['id'], PDO::PARAM_INT);
+    $pdo_statement_3->bindValue(':etat', 1, PDO::PARAM_INT);
     $pdo_statement_3->execute();
     // Produit lier
     $pdo_statement_4 = $pdo_object->prepare("SELECT * FROM produit WHERE titre = :titre");

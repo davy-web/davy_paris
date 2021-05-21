@@ -45,11 +45,14 @@ if (isset($_POST['connexion'])) {
                     $_SESSION['membre']['email'] = $membre_array['email'];
                     $_SESSION['membre']['statut'] = $membre_array['statut'];
                     // Redirection
+                    if($_SESSION['membre']['statut'] == 1) {
+                        header("Location:" . URL . "/profil");
+                    }
                     if($_SESSION['membre']['statut'] == 2) {
                         header("Location:" . URL . "/admin/dashboard");
                     }
-                    else {
-                        header("Location:" . URL . "/profil");
+                    if($_SESSION['membre']['statut'] == 3) {
+                        header("Location:" . URL . "/partenaire");
                     }
                 }
                 else {

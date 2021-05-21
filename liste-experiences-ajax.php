@@ -4,7 +4,8 @@ require_once("include/fonctions.php");
 
 // Pagination
 $element_par_page = 12;
-$pdo_statement = $pdo_object->prepare("SELECT * FROM article");
+$pdo_statement = $pdo_object->prepare("SELECT * FROM article WHERE etat = :etat");
+$pdo_statement->bindValue(':etat', 1, PDO::PARAM_INT);
 $pdo_statement->execute();
 $nb_total_elements = $pdo_statement->rowCount();
 $nb_pages = ceil($nb_total_elements / $element_par_page);
@@ -18,14 +19,15 @@ else {
     $page_actuelle = 1;
 }
 $premiere_element = ($page_actuelle - 1) * $element_par_page;
-$query_elements = "SELECT * FROM article ORDER BY id_article DESC LIMIT " . $premiere_element . ", " . $element_par_page;
+$query_elements = "SELECT * FROM article WHERE etat = 1 ORDER BY id_article DESC LIMIT " . $premiere_element . ", " . $element_par_page;
 
 // Liste article
 $pdo_statement = $pdo_object->prepare($query_elements);
 $pdo_statement->execute();
 
 // Liste article chercher
-$pdo_statement_2 = $pdo_object->prepare("SELECT * FROM article");
+$pdo_statement_2 = $pdo_object->prepare("SELECT * FROM article WHERE etat = :etat");
+$pdo_statement_2->bindValue(':etat', 1, PDO::PARAM_INT);
 $pdo_statement_2->execute();
 
 // Chercher
