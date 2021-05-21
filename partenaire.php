@@ -119,6 +119,7 @@ require_once("include/header.php");
                 </div>
             </div><br>
 
+            <!-- déconnexion -->
             <?php if (isset($_SESSION['membre'])) : ?>
             <form method="post">
                 <!-- bouton_anim_davy -->
@@ -135,7 +136,7 @@ require_once("include/header.php");
             </form>
             <?php endif; ?>
             
-            <!-- Partenaire -->
+            <!-- partenaire -->
             <div class="container mt-3 mb-3">
                 <h2 class="h2_moyen_davy">Bienvenue <span class="color_red_davy serif_davy"><?= $_SESSION['membre']['prenom'] ?></span></h2>
                 <hr class="anime_scroll_davy">
@@ -188,69 +189,66 @@ require_once("include/header.php");
                 </div>
             </div>
             
-            <!-- ajouter -->
-            <div id="content_partenaire_davy">
-                <!-- ajouter un article -->
-                <div class="container mt-5 mb-3">
-                    <h2 class="h2_moyen_davy">Ajouter <span class="color_red_davy serif_davy">un article</span></h2>
-                    <hr class="anime_scroll_davy">
-                </div>
-                <div class="container mb-3">
-                    <div class="row">
-                        <div class="col">
-                            <!-- formulaire -->
-                            <form method="post" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <label for="titre"><strong>Titre</strong></label><br>
-                                        <input type="text" id="titre" name="titre" placeholder="Titre" class="width_full_davy"><br><br>
-                                        <label for="description"><strong>Description</strong></label><br>
-                                        <textarea id="description" tabindex="5" rows="9" name="description" placeholder="Description" class="width_full_davy"></textarea><br><br>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="photo"><strong>Photo</strong></label><br>
-                                        <input type="file" accept="image/*" id="photo" name="photo" placeholder="Photo" class="width_full_davy">
-                                        <label for="photo"><img src="<?= URL ?>/images/icon-file.svg" alt="icon" class="icon_admin"> Choisir un fichier...</label>
-                                    </div>
+            <!-- ajouter un article -->
+            <div class="container mt-5 mb-3">
+                <h2 class="h2_moyen_davy">Ajouter <span class="color_red_davy serif_davy">un article</span></h2>
+                <hr class="anime_scroll_davy">
+            </div>
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="col">
+                        <!-- formulaire -->
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="titre"><strong>Titre</strong></label><br>
+                                    <input type="text" id="titre" name="titre" placeholder="Titre" class="width_full_davy"><br><br>
+                                    <label for="description"><strong>Description</strong></label><br>
+                                    <textarea id="description" tabindex="5" rows="9" name="description" placeholder="Description" class="width_full_davy"></textarea><br><br>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <label for="titre_info"><strong>Deuxième titre</strong></label><br>
-                                        <input type="text" id="titre_info" name="titre_info" placeholder="Deuxième titre" class="width_full_davy"><br><br>
-                                        <label for="description_info"><strong>Deuxième description</strong></label><br>
-                                        <textarea id="description_info" tabindex="5" rows="9" name="description_info" placeholder="Description" class="width_full_davy"></textarea><br><br>
-                                        <label for="map"><strong>Google Map</strong></label><br>
-                                        <textarea id="map" tabindex="5" rows="9" name="map" placeholder="Google Map" class="width_full_davy"></textarea><br><br>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="categorie"><strong>Categorie</strong></label><br>
-                                        <input type="text" id="categorie" name="categorie" placeholder="Categorie" class="width_full_davy"><br><br>
-                                        <label for="box"><strong>Box</strong></label><br>
-                                        <select id="box" name="box" class="width_full_davy">
-                                            <option value="">Sélectionner ...</option>
-                                            <?php if ($pdo_statement_2->rowCount() > 0) : ?>
-                                            <?php while ($produit_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC)) : ?>
-                                            <option value="<?= $produit_array['titre'] ?>"><?= $produit_array['titre'] ?></option>
-                                            <?php endwhile; ?>
-                                            <?php endif; ?>
-                                        </select><br><br>
-                                        <label for="adresse"><strong>Adresse</strong></label><br>
-                                        <input type="text" id="adresse" name="adresse" placeholder="Adresse" class="width_full_davy"><br><br>
-                                    </div>
+                                <div class="col-md-4">
+                                    <label for="photo"><strong>Photo</strong></label><br>
+                                    <input type="file" accept="image/*" id="photo" name="photo" placeholder="Photo" class="width_full_davy">
+                                    <label for="photo"><img src="<?= URL ?>/images/icon-file.svg" alt="icon" class="icon_admin"> Choisir un fichier...</label>
                                 </div>
-                                <!-- bouton_anim_davy -->
-                                <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Ajouter" title="Ajouter">
-                                    <span>V</span>
-                                    <span>a</span>
-                                    <span>l</span>
-                                    <span>i</span>
-                                    <span>d</span>
-                                    <span>e</span>
-                                    <span>r</span>
-                                    <input type="submit" id="ajouter" name="ajouter" value="Ajouter" class="bouton_submit">
-                                </a><br>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="titre_info"><strong>Deuxième titre</strong></label><br>
+                                    <input type="text" id="titre_info" name="titre_info" placeholder="Deuxième titre" class="width_full_davy"><br><br>
+                                    <label for="description_info"><strong>Deuxième description</strong></label><br>
+                                    <textarea id="description_info" tabindex="5" rows="9" name="description_info" placeholder="Description" class="width_full_davy"></textarea><br><br>
+                                    <label for="map"><strong>Google Map</strong></label><br>
+                                    <textarea id="map" tabindex="5" rows="9" name="map" placeholder="Google Map" class="width_full_davy"></textarea><br><br>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="categorie"><strong>Categorie</strong></label><br>
+                                    <input type="text" id="categorie" name="categorie" placeholder="Categorie" class="width_full_davy"><br><br>
+                                    <label for="box"><strong>Box</strong></label><br>
+                                    <select id="box" name="box" class="width_full_davy">
+                                        <option value="">Sélectionner ...</option>
+                                        <?php if ($pdo_statement_2->rowCount() > 0) : ?>
+                                        <?php while ($produit_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC)) : ?>
+                                        <option value="<?= $produit_array['titre'] ?>"><?= $produit_array['titre'] ?></option>
+                                        <?php endwhile; ?>
+                                        <?php endif; ?>
+                                    </select><br><br>
+                                    <label for="adresse"><strong>Adresse</strong></label><br>
+                                    <input type="text" id="adresse" name="adresse" placeholder="Adresse" class="width_full_davy"><br><br>
+                                </div>
+                            </div>
+                            <!-- bouton_anim_davy -->
+                            <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Ajouter" title="Ajouter">
+                                <span>V</span>
+                                <span>a</span>
+                                <span>l</span>
+                                <span>i</span>
+                                <span>d</span>
+                                <span>e</span>
+                                <span>r</span>
+                                <input type="submit" id="ajouter" name="ajouter" value="Ajouter" class="bouton_submit">
+                            </a><br>
+                        </form>
                     </div>
                 </div>
             </div>
