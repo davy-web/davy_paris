@@ -89,8 +89,9 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
     // sauvegarder le panier
     if (isset($_SESSION['panier']) && isset($_SESSION['membre'])) {
         // création de la commande
-        $pdo_statement = $pdo_object->prepare("SELECT * FROM commande WHERE membre_id = :membre_id");
+        $pdo_statement = $pdo_object->prepare("SELECT * FROM commande WHERE membre_id = :membre_id AND etat = :etat");
         $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+        $pdo_statement->bindValue(':etat', htmlspecialchars($etat), PDO::PARAM_STR);
         $pdo_statement->execute();
         $commande_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
         if (empty($commande_array)) {
@@ -109,8 +110,9 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
         $pdo_statement_2->execute();
 
         // création des détails de la commande
-        $pdo_statement = $pdo_object->prepare("SELECT * FROM commande WHERE membre_id = :membre_id");
+        $pdo_statement = $pdo_object->prepare("SELECT * FROM commande WHERE membre_id = :membre_id AND etat = :etat");
         $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_STR);
+        $pdo_statement->bindValue(':etat', htmlspecialchars($etat), PDO::PARAM_STR);
         $pdo_statement->execute();
         $commande_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
         for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++) {

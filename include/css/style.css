@@ -47,7 +47,7 @@ label {
     display: inline-block;
     margin-bottom: 12px;
 }
-input, textarea, select {
+input, textarea, select, .input_davy {
     color: #2c2739;
     border: 1px solid #d8e2ef;
     font-size: 14px;

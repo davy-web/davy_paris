@@ -39,6 +39,17 @@ if (isset($_SESSION['panier'])) {
 // Acheter
 if (isset($_POST['acheter'])) {
     sauvegarder_produits_panier($pdo_object, "panier", $prix_total);
+    header("Location:" . URL . "/paiement");
+}
+
+// Panier sauvegarder
+if (isset($_SESSION['membre'])) {
+    sauvegarder_produits_panier($pdo_object, "panier", $prix_total);
+}
+
+// Message Paiement
+if (isset($_GET['erreur']) && $_GET['erreur'] == "vide") {
+    $erreur = "Le panier est vide, paiement refusé";
 }
 
 require_once("include/header.php");
@@ -66,7 +77,7 @@ require_once("include/header.php");
                         <p>Panier</p>
                     </div>
                     <div class="col mb-3">
-                        <a title="Coordonnées" class="bouton_2_anim_davy" href="<?= URL ?>/coordonnees"><span>2</span></a>
+                        <a title="Coordonnées" class="bouton_2_anim_davy" href="#"><span>2</span></a>
                         <p>Coordonnées</p>
                     </div>
                     <div class="col mb-3">
@@ -80,6 +91,7 @@ require_once("include/header.php");
             <div class="container mt-5 mb-3">
                 <h2 class="h2_moyen_davy">Les produits <span class="color_red_davy serif_davy">dans le panier</span></h2>
                 <hr class="anime_scroll_davy">
+                <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
             </div>
             <div id="content_panier_davy">
                 <div class="container">
