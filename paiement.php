@@ -65,7 +65,7 @@ require_once("include/header.php");
 
             <!-- stripe -->
             <div class="container mt-5 mb-3">
-                <h2 class="h2_moyen_davy">Carte de crédit</h2>
+                <h2 class="h2_moyen_davy">Carte <span class="color_red_davy serif_davy">de crédit</span></h2>
                 <hr class="anime_scroll_davy">
                 <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
             </div>
