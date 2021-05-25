@@ -44,6 +44,8 @@ if (isset($_POST['connexion'])) {
                     $_SESSION['membre']['prenom'] = $membre_array['prenom'];
                     $_SESSION['membre']['email'] = $membre_array['email'];
                     $_SESSION['membre']['statut'] = $membre_array['statut'];
+                    // Panier
+                    maj_session_produits_panier($pdo_object, "panier");
                     // Redirection
                     if($_SESSION['membre']['statut'] == 1) {
                         header("Location:" . URL . "/profil");

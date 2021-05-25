@@ -102,6 +102,10 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
             // mettre à jour
             $pdo_statement_2 = $pdo_object->prepare("UPDATE commande SET membre_id = :membre_id, prix_total = :prix_total, date = :date, etat = :etat WHERE id_commande = :id_commande");
             $pdo_statement_2->bindValue(':id_commande', $commande_array['id_commande'], PDO::PARAM_INT);
+            // Supprimer old details_commande
+            $pdo_statement_details_commande = $pdo_object->prepare("DELETE FROM details_commande WHERE commande_id = :commande_id");
+            $pdo_statement_details_commande->bindValue(":commande_id", $commande_array['id_commande'], PDO::PARAM_INT);
+            $pdo_statement_details_commande->execute();
         }
         $pdo_statement_2->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
         $pdo_statement_2->bindValue(':prix_total', htmlspecialchars($prix_total), PDO::PARAM_STR);
@@ -115,7 +119,7 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
         $pdo_statement->bindValue(':etat', htmlspecialchars($etat), PDO::PARAM_STR);
         $pdo_statement->execute();
         $commande_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
-        for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++) {
+        for ($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++) {
             $pdo_statement_2 = $pdo_object->prepare("SELECT * FROM details_commande WHERE commande_id = :commande_id AND produit_id = :produit_id");
             $pdo_statement_2->bindValue(':commande_id', $commande_array['id_commande'], PDO::PARAM_INT);
             $pdo_statement_2->bindValue(':produit_id', $_SESSION['panier']['id_produit'][$i], PDO::PARAM_INT);
@@ -135,6 +139,35 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
             $pdo_statement_3->bindValue(':quantite', $_SESSION['panier']['quantite'][$i], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(':prix', htmlspecialchars($_SESSION['panier']['prix'][$i]), PDO::PARAM_STR);
             $pdo_statement_3->execute();
+        }
+    }
+}
+function maj_session_produits_panier($pdo_object, $etat) {
+    // sauvegarder le panier
+    if (isset($_SESSION['membre'])) {
+        // commande
+        $pdo_statement = $pdo_object->prepare("SELECT * FROM commande WHERE membre_id = :membre_id AND etat = :etat");
+        $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_STR);
+        $pdo_statement->bindValue(':etat', htmlspecialchars($etat), PDO::PARAM_STR);
+        $pdo_statement->execute();
+        $commande_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
+        if ($commande_array) {
+            // details_commande
+            $pdo_statement_2 = $pdo_object->prepare("SELECT * FROM details_commande WHERE commande_id = :commande_id");
+            $pdo_statement_2->bindValue(':commande_id', $commande_array['id_commande'], PDO::PARAM_INT);
+            $pdo_statement_2->execute();
+            while ($details_commande_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC)) {
+                if ($details_commande_array) {
+                    // Produit
+                    $pdo_statement_3 = $pdo_object->prepare("SELECT * FROM produit WHERE id_produit = :id_produit");
+                    $pdo_statement_3->bindValue(':id_produit', $details_commande_array['produit_id'], PDO::PARAM_INT);
+                    $pdo_statement_3->execute();
+                    $produit_array = $pdo_statement_3->fetch(PDO::FETCH_ASSOC);
+                    if ($produit_array) {
+                        ajouter_produit_panier($produit_array['id_produit'], $produit_array['titre'], $produit_array['photo'], $produit_array['prix'], $details_commande_array['quantite']);
+                    }
+                }
+            }
         }
     }
 }

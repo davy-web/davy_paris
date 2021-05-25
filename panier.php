@@ -41,12 +41,10 @@ if (isset($_POST['acheter'])) {
     sauvegarder_produits_panier($pdo_object, "panier", $prix_total);
     header("Location:" . URL . "/paiement");
 }
-
 // Panier sauvegarder
 if (isset($_SESSION['membre'])) {
     sauvegarder_produits_panier($pdo_object, "panier", $prix_total);
 }
-
 // Message Paiement
 if (isset($_GET['erreur']) && $_GET['erreur'] == "vide") {
     $erreur = "Le panier est vide, paiement refusé";
