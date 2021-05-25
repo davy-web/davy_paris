@@ -92,7 +92,7 @@ require_once("include/header.php");
             
             <!-- Nos Box de voyages -->
             <div class="container mt-5 mb-3">
-                <h2>Nos box <span class="color_red_davy serif_davy">de voyages</span></h2>
+                <h2>Nos différents <span class="color_red_davy serif_davy">box</span></h2>
                 <hr class="anime_scroll_davy">
             </div>
             <div class="container">

@@ -53,7 +53,7 @@ require_once("include/header.php");
                         <p>Panier</p>
                     </div>
                     <div class="col mb-3">
-                        <a title="Coordonnées" class="bouton_2_anim_davy" href="#"><span>2</span></a>
+                        <a title="Coordonnées" class="bouton_2_anim_davy" href="<?= URL ?>/paiement"><span>2</span></a>
                         <p>Coordonnées</p>
                     </div>
                     <div class="col mb-3">
