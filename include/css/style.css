@@ -55,6 +55,9 @@ input, textarea, select, .input_davy {
     padding: 8px 16px;
     border-radius: 16px;
 }
+select {
+    text-align: center;
+}
 textarea {
     overflow: auto;
     resize: vertical;

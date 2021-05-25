@@ -37,9 +37,10 @@ if (isset($_SESSION['membre'])) {
     
         if ($info[43] == "succeeded") {
             // Valider
-            $pdo_statement_2 = $pdo_object->prepare("UPDATE commande SET etat = :etat WHERE id_commande = :id_commande");
+            $pdo_statement_2 = $pdo_object->prepare("UPDATE commande SET etat = :etat, date = :date WHERE id_commande = :id_commande");
             $pdo_statement_2->bindValue(":id_commande", $commande_array['id_commande'], PDO::PARAM_INT);
             $pdo_statement_2->bindValue(':etat', "payer", PDO::PARAM_STR);
+            $pdo_statement_2->bindValue(':date', date("Y-m-d"), PDO::PARAM_STR);
             $pdo_statement_2->execute();
             unset($_SESSION["panier"]);
             header("Location:" . URL . "/paiement?validation=oui");

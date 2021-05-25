@@ -4,8 +4,9 @@ require_once("include/fonctions.php");
 
 // Détails commande
 if (isset($_SESSION['membre'])) {
-    $pdo_statement = $pdo_object->prepare("SELECT * FROM commande WHERE membre_id = :membre_id");
+    $pdo_statement = $pdo_object->prepare("SELECT * FROM commande WHERE membre_id = :membre_id AND etat = :etat");
     $pdo_statement->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+    $pdo_statement->bindValue(':etat', "payer", PDO::PARAM_STR);
     $pdo_statement->execute();
 }
 else {
@@ -107,7 +108,7 @@ require_once("include/header.php");
                     <div class="row">
                         <div class="col-md-2 flex_center_davy">
                         </div>
-                        <div class="col-md-4 flex_center_davy">
+                        <div class="col-md-2 flex_center_davy">
                             <p><strong>Produit</strong></p>
                         </div>
                         <div class="col-md-2 flex_center_davy">
@@ -118,6 +119,9 @@ require_once("include/header.php");
                         </div>
                         <div class="col-md-2 flex_center_davy">
                             <p><strong>Total</strong></p>
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><strong>Etat</strong></p>
                         </div>
                     </div>
                 </div>
@@ -134,25 +138,43 @@ require_once("include/header.php");
                 $pdo_statement_2->bindValue(':id_produit', $details_commande_array['produit_id'], PDO::PARAM_INT);
                 $pdo_statement_2->execute();
                 $produit_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC);
+                // Date
+                $date1 = strtotime(date('Y-m-d'));
+                $date2 = strtotime($commande_array['date']) + (365 * 24 * 60 * 60);
+                $temps_restant = ($date2 - $date1) / (24 * 60 * 60);
+                if ($temps_restant <= 0) {
+                    $etat = "Date expirée";
+                }
+                if ($temps_restant > 0) {
+                    $etat = "Reste = " . $temps_restant . " jours";
+                }
+                if ($commande_array['etat'] == "utiliser") {
+                    $etat = "Utilisé";
+                }
                 ?>
                 <hr class="hr_admin_davy">
-                <div class="row">
-                    <div class="col-md-2 flex_center_davy">
-                        <img src="<?= URL ?>/images/<?= $produit_array['photo'] ?>" class="width_full_davy border_radius_davy" alt="<?= $produit_array['photo'] ?>">
+                <a href="<?= URL ?>/box=<?= $produit_array['id_produit'] ?>" title="<?= $produit_array['titre'] ?>">
+                    <div class="row">
+                        <div class="col-md-2 flex_center_davy">
+                            <img src="<?= URL ?>/images/<?= $produit_array['photo'] ?>" class="width_full_davy border_radius_davy" alt="<?= $produit_array['photo'] ?>">
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><span class="d-sm-inline-block d-md-none"><strong>Produit :</strong></span> <?= $produit_array['titre'] ?></p>
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><span class="d-sm-inline-block d-md-none"><strong>Quantité :</strong></span> <?= $details_commande_array['quantite'] ?></p>
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><span class="d-sm-inline-block d-md-none"><strong>Prix :</strong></span> <?= $produit_array['prix'] ?> €</p>
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><span class="d-sm-inline-block d-md-none"><strong>Total :</strong></span> <?= $produit_array['prix'] * $details_commande_array['quantite'] ?> €</p>
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><span class="d-sm-inline-block d-md-none"><strong>Etat :</strong></span> <?= $etat ?></p>
+                        </div>
                     </div>
-                    <div class="col-md-4 flex_center_davy">
-                        <p><span class="d-sm-inline-block d-md-none"><strong>Produit :</strong></span> <?= $produit_array['titre'] ?></p>
-                    </div>
-                    <div class="col-md-2 flex_center_davy">
-                        <p><span class="d-sm-inline-block d-md-none"><strong>Quantité :</strong></span> <?= $details_commande_array['quantite'] ?></p>
-                    </div>
-                    <div class="col-md-2 flex_center_davy">
-                        <p><span class="d-sm-inline-block d-md-none"><strong>Prix :</strong></span> <?= $produit_array['prix'] ?> €</p>
-                    </div>
-                    <div class="col-md-2 flex_center_davy">
-                        <p><span class="d-sm-inline-block d-md-none"><strong>Total :</strong></span> <?= $produit_array['prix'] * $details_commande_array['quantite'] ?> €</p>
-                    </div>
-                </div>
+                </a>
                 <?php endwhile; ?>
                 <?php endwhile; ?>
                 <?php else : ?>
