@@ -39,7 +39,7 @@
                 <div class="nav_block_pc_davy container">
                     <div class="nav_gauche_pc_davy">
                         <a href="<?= URL ?>" title="Accueil">
-                            <img class="nav_icon_logo_pc_davy" src="<?= URL ?>/images/logo-dating-paris-min.png" alt="Logo">
+                            <img class="nav_icon_logo_pc_davy" src="<?= URL ?>/images/logo-anim.gif" alt="Logo">
                         </a>
                     </div>
                     <div class="nav_centre_pc_davy">
