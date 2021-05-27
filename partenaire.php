@@ -98,7 +98,48 @@ if (isset($_POST['ajouter'])) {
 
 // Code client
 if (isset($_POST['code_client'])) {
-    
+    $pdo_statement = $pdo_object->prepare("SELECT * FROM details_commande WHERE code = :code_1 AND code != :code_2 AND code != :code_3");
+    $pdo_statement->bindValue(":code_1", htmlspecialchars($_POST['code']), PDO::PARAM_STR);
+    $pdo_statement->bindValue(":code_2", "0", PDO::PARAM_STR);
+    $pdo_statement->bindValue(":code_3", "1", PDO::PARAM_STR);
+    $pdo_statement->execute();
+    $details_commande_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
+    if ($details_commande_array) {
+        // code
+        $quantite = $details_commande_array['quantite'] - 1;
+        if ($quantite >= 1) {
+            $code = rand(100000000000, 999999999999) . $commande_array['id_commande'];
+        }
+        else {
+            $code = "1";
+        }
+        // modifier code
+        $pdo_statement_2 = $pdo_object->prepare("UPDATE details_commande SET quantite = :quantite, code = :code WHERE code = :code_1 AND code != :code_2 AND code != :code_3");
+        $pdo_statement_2->bindValue(":quantite", $quantite, PDO::PARAM_INT);
+        $pdo_statement_2->bindValue(":code", $code, PDO::PARAM_STR);
+        $pdo_statement_2->bindValue(":code_1", htmlspecialchars($_POST['code']), PDO::PARAM_STR);
+        $pdo_statement_2->bindValue(":code_2", "0", PDO::PARAM_STR);
+        $pdo_statement_2->bindValue(":code_3", "1", PDO::PARAM_STR);
+        $pdo_statement_2->execute();
+        // commande
+        $pdo_statement_commande = $pdo_object->prepare("SELECT * FROM commande WHERE id_commande = :id_commande");
+        $pdo_statement_commande->bindValue(":id_commande", $details_commande_array['commande_id'], PDO::PARAM_INT);
+        $pdo_statement_commande->execute();
+        $commande_array = $pdo_statement_commande->fetch(PDO::FETCH_ASSOC);
+        // ajoute code partenaire
+        if ($commande_array) {
+            $pdo_statement_3 = $pdo_object->prepare("INSERT INTO partenaire (entreprise_id, client_id, prix, date) VALUES (:entreprise_id, :client_id, :prix, :date)");
+            $pdo_statement_3->bindValue(":entreprise_id", $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+            $pdo_statement_3->bindValue(":client_id", $commande_array['membre_id'], PDO::PARAM_INT);
+            $pdo_statement_3->bindValue(":prix", $details_commande_array['prix'], PDO::PARAM_INT);
+            $pdo_statement_3->bindValue(":date", date("Y-m-d"), PDO::PARAM_STR);
+            $pdo_statement_3->execute();
+            $notification = "<strong class='color_red_davy'>Le code est valide</strong>";
+        }
+    }
+    else {
+        $erreur = "<strong class='color_red_davy'>Le code n'est pas valide</strong>";
+    }
 }
 
 // Déconnexion
@@ -143,6 +184,7 @@ require_once("include/header.php");
             
             <!-- code client -->
             <div class="container mt-5 mb-3">
+                <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
                 <h2 class="h2_moyen_davy">Code <span class="color_red_davy serif_davy">client</span></h2>
                 <hr class="anime_scroll_davy">
             </div>
@@ -176,7 +218,6 @@ require_once("include/header.php");
             <div class="container mb-3">
                 <div class="row">
                     <div class="col">
-                        <p class="color_red_davy"><?= $erreur ?><?= $notification ?></p>
                         <div class="table_responsive_davy">
                             <table>
                                 <thead>
