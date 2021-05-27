@@ -34,14 +34,28 @@ if (isset($_SESSION['membre'])) {
         
         // echo '<pre>'; print_r($charge->values()); echo '</pre>';
         $info = $charge->values();
-    
+        
+        // Valider
         if ($info[43] == "succeeded") {
-            // Valider
+            // Commande
             $pdo_statement_2 = $pdo_object->prepare("UPDATE commande SET etat = :etat, date = :date WHERE id_commande = :id_commande");
             $pdo_statement_2->bindValue(":id_commande", $commande_array['id_commande'], PDO::PARAM_INT);
             $pdo_statement_2->bindValue(':etat', "payer", PDO::PARAM_STR);
             $pdo_statement_2->bindValue(':date', date("Y-m-d"), PDO::PARAM_STR);
             $pdo_statement_2->execute();
+            // Code
+            $code = rand(100000000000, 999999999999) . $commande_array['id_commande'];
+            // Details commande
+            $pdo_statement_details = $pdo_object->prepare("SELECT * FROM details_commande WHERE commande_id = :commande_id");
+            $pdo_statement_details->bindValue(':commande_id', $commande_array['id_commande'], PDO::PARAM_INT);
+            $pdo_statement_details->execute();
+            while ($details_commande_array = $pdo_statement_details->fetch(PDO::FETCH_ASSOC)) {
+                $pdo_statement_3 = $pdo_object->prepare("UPDATE details_commande SET code = :code WHERE id_details_commande = :id_details_commande");
+                $pdo_statement_3->bindValue(':id_details_commande', $details_commande_array['id_details_commande'], PDO::PARAM_INT);
+                $pdo_statement_3->bindValue(':code', $code, PDO::PARAM_STR);
+                $pdo_statement_3->execute();
+            }
+            // Efface panier
             unset($_SESSION["panier"]);
             header("Location:" . URL . "/paiement?validation=oui");
         }

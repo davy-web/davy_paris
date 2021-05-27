@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 20 mai 2021 à 19:59
+-- Généré le : jeu. 27 mai 2021 à 01:42
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -144,7 +144,8 @@ CREATE TABLE `details_commande` (
   `commande_id` int(11) NOT NULL,
   `produit_id` int(11) NOT NULL,
   `quantite` int(11) NOT NULL,
-  `prix` float NOT NULL
+  `prix` float NOT NULL,
+  `code` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -216,6 +217,20 @@ CREATE TABLE `membre` (
 
 INSERT INTO `membre` (`id_membre`, `nom`, `prenom`, `email`, `mdp`, `statut`, `limit_connexion`, `limit_date`) VALUES
 (1, 'Chen', 'Davy', 'chendavyweb@gmail.com', '$2y$10$PJa9QxOUnhVHXBO0xrMgpu1Uz0Qg5uOPsquKOftJ/iKgK09nphI9u', 2, 0, '2021-05-12');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `partenaire`
+--
+
+CREATE TABLE `partenaire` (
+  `id_partenaire` int(11) NOT NULL,
+  `entreprise_id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `prix` int(11) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -301,6 +316,12 @@ ALTER TABLE `membre`
   ADD PRIMARY KEY (`id_membre`);
 
 --
+-- Index pour la table `partenaire`
+--
+ALTER TABLE `partenaire`
+  ADD PRIMARY KEY (`id_partenaire`);
+
+--
 -- Index pour la table `produit`
 --
 ALTER TABLE `produit`
@@ -363,6 +384,12 @@ ALTER TABLE `mdpoublier`
 --
 ALTER TABLE `membre`
   MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `partenaire`
+--
+ALTER TABLE `partenaire`
+  MODIFY `id_partenaire` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `produit`

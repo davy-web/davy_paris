@@ -127,17 +127,18 @@ function sauvegarder_produits_panier($pdo_object, $etat, $prix_total) {
             $details_commande_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC);
             if (empty($details_commande_array)) {
                 // ajouter
-                $pdo_statement_3 = $pdo_object->prepare("INSERT INTO details_commande (commande_id, produit_id, quantite, prix) VALUES (:commande_id, :produit_id, :quantite, :prix)");
+                $pdo_statement_3 = $pdo_object->prepare("INSERT INTO details_commande (commande_id, produit_id, quantite, prix, code) VALUES (:commande_id, :produit_id, :quantite, :prix, :code)");
             }
             else {
                 // mettre à jour
-                $pdo_statement_3 = $pdo_object->prepare("UPDATE details_commande SET commande_id = :commande_id, produit_id = :produit_id, quantite = :quantite, prix = :prix WHERE id_details_commande = :id_details_commande");
+                $pdo_statement_3 = $pdo_object->prepare("UPDATE details_commande SET commande_id = :commande_id, produit_id = :produit_id, quantite = :quantite, prix = :prix, code = :code WHERE id_details_commande = :id_details_commande");
                 $pdo_statement_3->bindValue(':id_details_commande', $details_commande_array['id_details_commande'], PDO::PARAM_INT);
             }
             $pdo_statement_3->bindValue(':commande_id', $commande_array['id_commande'], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(':produit_id', $_SESSION['panier']['id_produit'][$i], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(':quantite', $_SESSION['panier']['quantite'][$i], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(':prix', htmlspecialchars($_SESSION['panier']['prix'][$i]), PDO::PARAM_STR);
+            $pdo_statement_3->bindValue(':code', "0", PDO::PARAM_STR);
             $pdo_statement_3->execute();
         }
     }

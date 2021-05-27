@@ -26,7 +26,7 @@ require_once("../include/header-admin.php");
                         <div class="row">
                             <div class="col-md-2 flex_center_davy">
                             </div>
-                            <div class="col-md-4 flex_center_davy">
+                            <div class="col-md-2 flex_center_davy">
                                 <p><strong>Produit</strong></p>
                             </div>
                             <div class="col-md-2 flex_center_davy">
@@ -37,6 +37,9 @@ require_once("../include/header-admin.php");
                             </div>
                             <div class="col-md-2 flex_center_davy">
                                 <p><strong>Total</strong></p>
+                            </div>
+                            <div class="col-md-2 flex_center_davy">
+                                <p><strong>Code</strong></p>
                             </div>
                         </div>
                     </div>
@@ -53,7 +56,7 @@ require_once("../include/header-admin.php");
                         <div class="col-md-2 flex_center_davy">
                             <img src="<?= URL ?>/images/<?= $produit_array['photo'] ?>" class="width_full_davy border_radius_davy" alt="<?= $produit_array['photo'] ?>">
                         </div>
-                        <div class="col-md-4 flex_center_davy">
+                        <div class="col-md-2 flex_center_davy">
                             <p><span class="d-sm-inline-block d-md-none"><strong>Produit :</strong></span> <?= $produit_array['titre'] ?></p>
                         </div>
                         <div class="col-md-2 flex_center_davy">
@@ -64,6 +67,9 @@ require_once("../include/header-admin.php");
                         </div>
                         <div class="col-md-2 flex_center_davy">
                             <p><span class="d-sm-inline-block d-md-none"><strong>Total :</strong></span> <?= $produit_array['prix'] * $details_commande_array['quantite'] ?> €</p>
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><span class="d-sm-inline-block d-md-none"><strong>Code :</strong></span> <?= $details_commande_array['code'] ?></p>
                         </div>
                     </div>
                     <?php endwhile; ?>

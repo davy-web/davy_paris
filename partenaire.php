@@ -96,6 +96,11 @@ if (isset($_POST['ajouter'])) {
     }
 }
 
+// Code client
+if (isset($_POST['code_client'])) {
+    
+}
+
 // Déconnexion
 if (isset($_POST['deconnexion'])) {
     deconnexion();
@@ -135,6 +140,33 @@ require_once("include/header.php");
                 </a><br>
             </form>
             <?php endif; ?>
+            
+            <!-- code client -->
+            <div class="container mt-5 mb-3">
+                <h2 class="h2_moyen_davy">Code <span class="color_red_davy serif_davy">client</span></h2>
+                <hr class="anime_scroll_davy">
+            </div>
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="col">
+                        <!-- formulaire -->
+                        <form method="post">
+                            <input type="text" id="code" name="code" placeholder="Rentrer le code client pour recevoir l'argent" class="width_full_davy"><br><br>
+                            <!-- bouton_anim_davy -->
+                            <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Code client" title="Code client">
+                                <span>V</span>
+                                <span>a</span>
+                                <span>l</span>
+                                <span>i</span>
+                                <span>d</span>
+                                <span>e</span>
+                                <span>r</span>
+                                <input type="submit" id="code_client" name="code_client" value="Code client" class="bouton_submit">
+                            </a><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
             
             <!-- partenaire -->
             <div class="container mt-3 mb-3">

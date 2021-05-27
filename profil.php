@@ -111,14 +111,17 @@ require_once("include/header.php");
                         <div class="col-md-2 flex_center_davy">
                             <p><strong>Produit</strong></p>
                         </div>
-                        <div class="col-md-2 flex_center_davy">
+                        <div class="col-md-1 flex_center_davy">
                             <p><strong>Quantité</strong></p>
                         </div>
-                        <div class="col-md-2 flex_center_davy">
+                        <div class="col-md-1 flex_center_davy">
                             <p><strong>Prix</strong></p>
                         </div>
                         <div class="col-md-2 flex_center_davy">
                             <p><strong>Total</strong></p>
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><strong>Code</strong></p>
                         </div>
                         <div class="col-md-2 flex_center_davy">
                             <p><strong>Etat</strong></p>
@@ -161,14 +164,17 @@ require_once("include/header.php");
                         <div class="col-md-2 flex_center_davy">
                             <p><span class="d-sm-inline-block d-md-none"><strong>Produit :</strong></span> <?= $produit_array['titre'] ?></p>
                         </div>
-                        <div class="col-md-2 flex_center_davy">
+                        <div class="col-md-1 flex_center_davy">
                             <p><span class="d-sm-inline-block d-md-none"><strong>Quantité :</strong></span> <?= $details_commande_array['quantite'] ?></p>
                         </div>
-                        <div class="col-md-2 flex_center_davy">
+                        <div class="col-md-1 flex_center_davy">
                             <p><span class="d-sm-inline-block d-md-none"><strong>Prix :</strong></span> <?= $produit_array['prix'] ?> €</p>
                         </div>
                         <div class="col-md-2 flex_center_davy">
                             <p><span class="d-sm-inline-block d-md-none"><strong>Total :</strong></span> <?= $produit_array['prix'] * $details_commande_array['quantite'] ?> €</p>
+                        </div>
+                        <div class="col-md-2 flex_center_davy">
+                            <p><span class="d-sm-inline-block d-md-none"><strong>Code :</strong></span> <?= $details_commande_array['code'] ?></p>
                         </div>
                         <div class="col-md-2 flex_center_davy">
                             <p><span class="d-sm-inline-block d-md-none"><strong>Etat :</strong></span> <?= $etat ?></p>
