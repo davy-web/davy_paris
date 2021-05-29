@@ -171,7 +171,14 @@ require_once("include/header.php");
                     <?php endif; ?>
                 </div>
             </div>
-            <?php if (isset($_SESSION['membre'])) : ?>
+            <?php
+            if (isset($_SESSION['membre'])) :
+            $pdo_statement_commentaire = $pdo_object->prepare("SELECT * FROM partenaire WHERE produit_id = :produit_id AND client_id = :client_id");
+            $pdo_statement_commentaire->bindValue(':produit_id', $_GET['id'], PDO::PARAM_INT);
+            $pdo_statement_commentaire->bindValue(':client_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+            $pdo_statement_commentaire->execute();
+            if (isset($_SESSION['membre']) && $pdo_statement_commentaire->rowCount() > 0) :
+            ?>
             <div class="container mt-5 mb-3">
                 <div class="row">
                     <form method="post">
@@ -199,6 +206,7 @@ require_once("include/header.php");
                     </form>
                 </div>
             </div>
+            <?php endif; ?>
             <?php endif; ?>
             
             <!-- Vous aimerez aussi -->

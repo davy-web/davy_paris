@@ -108,7 +108,7 @@ if (isset($_POST['code_client'])) {
         // code
         $quantite = $details_commande_array['quantite'] - 1;
         if ($quantite >= 1) {
-            $code = rand(100000000000, 999999999999) . $commande_array['id_commande'];
+            $code = rand(100000000000, 999999999999) . $details_commande_array['commande_id'];
         }
         else {
             $code = "1";
@@ -128,9 +128,11 @@ if (isset($_POST['code_client'])) {
         $commande_array = $pdo_statement_commande->fetch(PDO::FETCH_ASSOC);
         // ajoute code partenaire
         if ($commande_array) {
-            $pdo_statement_3 = $pdo_object->prepare("INSERT INTO partenaire (entreprise_id, client_id, prix, date) VALUES (:entreprise_id, :client_id, :prix, :date)");
+            $pdo_statement_3 = $pdo_object->prepare("INSERT INTO partenaire (entreprise_id, client_id, details_commande_id, produit_id, prix, date) VALUES (:entreprise_id, :client_id, :details_commande_id, :produit_id, :prix, :date)");
             $pdo_statement_3->bindValue(":entreprise_id", $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(":client_id", $commande_array['membre_id'], PDO::PARAM_INT);
+            $pdo_statement_3->bindValue(":details_commande_id", $details_commande_array['id_details_commande'], PDO::PARAM_INT);
+            $pdo_statement_3->bindValue(":produit_id", $details_commande_array['produit_id'], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(":prix", $details_commande_array['prix'], PDO::PARAM_INT);
             $pdo_statement_3->bindValue(":date", date("Y-m-d"), PDO::PARAM_STR);
             $pdo_statement_3->execute();

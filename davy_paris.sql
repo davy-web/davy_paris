@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 27 mai 2021 à 01:42
+-- Généré le : sam. 29 mai 2021 à 13:42
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -228,6 +228,8 @@ CREATE TABLE `partenaire` (
   `id_partenaire` int(11) NOT NULL,
   `entreprise_id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL,
+  `details_commande_id` int(11) NOT NULL,
+  `produit_id` int(11) NOT NULL,
   `prix` int(11) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
