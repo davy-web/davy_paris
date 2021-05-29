@@ -61,11 +61,34 @@ function find_davy($str1, $str2) {
                                         <img src="<?= URL ?>/images/cadre-2-min.png" class="image_cadre_1_davy" alt="Cadre">
                                     </div>
                                     <p class="texte_cadre_davy">
+                                        <!-- Note -->
+                                        <?php
+                                        if (isset($_SESSION['membre'])) {
+                                            $note = 0;
+                                            $pdo_statement_note = $pdo_object->prepare("SELECT * FROM commentaire WHERE produit_id = :produit_id AND membre_id = :membre_id");
+                                            $pdo_statement_note->bindValue(':produit_id', $article_chercher_array['id_article'], PDO::PARAM_INT);
+                                            $pdo_statement_note->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+                                            $pdo_statement_note->execute();
+                                            if ($pdo_statement_note->rowCount() > 0) {
+                                                while ($note_array = $pdo_statement_note->fetch(PDO::FETCH_ASSOC)) {
+                                                    $note = $note + $note_array['note'];
+                                                }
+                                                $note = round($note / $pdo_statement_note->rowCount());
+                                            }
+                                            else {
+                                                $note = 4;
+                                            }
+                                        }
+                                        else {
+                                            $note = 4;
+                                        }
+                                        ?>
+                                        <?php for ($i = 0; $i < $note; $i++) : ?>
                                         <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                        <?php endfor; ?>
+                                        <?php for ($i = 0; $i < (5 - $note); $i++) : ?>
                                         <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                        <?php endfor; ?>
                                         <br>
                                         <strong><?= $article_chercher_array['titre'] ?></strong><br>
                                         <?= $article_chercher_array['categorie'] ?><br><br>
@@ -86,11 +109,34 @@ function find_davy($str1, $str2) {
                                         <img src="<?= URL ?>/images/cadre-2-min.png" class="image_cadre_1_davy" alt="Cadre">
                                     </div>
                                     <p class="texte_cadre_davy">
+                                        <!-- Note -->
+                                        <?php
+                                        if (isset($_SESSION['membre'])) {
+                                            $note = 0;
+                                            $pdo_statement_note = $pdo_object->prepare("SELECT * FROM commentaire WHERE produit_id = :produit_id AND membre_id = :membre_id");
+                                            $pdo_statement_note->bindValue(':produit_id', $article_chercher_array['id_article'], PDO::PARAM_INT);
+                                            $pdo_statement_note->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+                                            $pdo_statement_note->execute();
+                                            if ($pdo_statement_note->rowCount() > 0) {
+                                                while ($note_array = $pdo_statement_note->fetch(PDO::FETCH_ASSOC)) {
+                                                    $note = $note + $note_array['note'];
+                                                }
+                                                $note = round($note / $pdo_statement_note->rowCount());
+                                            }
+                                            else {
+                                                $note = 4;
+                                            }
+                                        }
+                                        else {
+                                            $note = 4;
+                                        }
+                                        ?>
+                                        <?php for ($i = 0; $i < $note; $i++) : ?>
                                         <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                        <?php endfor; ?>
+                                        <?php for ($i = 0; $i < (5 - $note); $i++) : ?>
                                         <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                        <?php endfor; ?>
                                         <br>
                                         <strong><?= $article_chercher_array['titre'] ?></strong><br>
                                         <?= $article_chercher_array['categorie'] ?><br><br>
@@ -111,11 +157,34 @@ function find_davy($str1, $str2) {
                                         <img src="<?= URL ?>/images/cadre-2-min.png" class="image_cadre_1_davy" alt="Cadre">
                                     </div>
                                     <p class="texte_cadre_davy">
+                                        <!-- Note -->
+                                        <?php
+                                        if (isset($_SESSION['membre'])) {
+                                            $note = 0;
+                                            $pdo_statement_note = $pdo_object->prepare("SELECT * FROM commentaire WHERE produit_id = :produit_id AND membre_id = :membre_id");
+                                            $pdo_statement_note->bindValue(':produit_id', $article_array['id_article'], PDO::PARAM_INT);
+                                            $pdo_statement_note->bindValue(':membre_id', $_SESSION['membre']['id_membre'], PDO::PARAM_INT);
+                                            $pdo_statement_note->execute();
+                                            if ($pdo_statement_note->rowCount() > 0) {
+                                                while ($note_array = $pdo_statement_note->fetch(PDO::FETCH_ASSOC)) {
+                                                    $note = $note + $note_array['note'];
+                                                }
+                                                $note = round($note / $pdo_statement_note->rowCount());
+                                            }
+                                            else {
+                                                $note = 4;
+                                            }
+                                        }
+                                        else {
+                                            $note = 4;
+                                        }
+                                        ?>
+                                        <?php for ($i = 0; $i < $note; $i++) : ?>
                                         <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
-                                        <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                        <?php endfor; ?>
+                                        <?php for ($i = 0; $i < (5 - $note); $i++) : ?>
                                         <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                        <?php endfor; ?>
                                         <br>
                                         <strong><?= $article_array['titre'] ?></strong><br>
                                         <?= $article_array['categorie'] ?><br><br>
