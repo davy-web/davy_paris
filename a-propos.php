@@ -24,8 +24,7 @@ require_once("include/header.php");
                     <div class="col-md mb-3">
                         <h1 class="h2_moyen_davy">Présentation <span class="color_red_davy serif_davy">de Dating Paris</span></h1>
                         <hr class="anime_scroll_davy">
-                        <p>Après un voyage de noces autour du monde, riche en expériences et petits moments magiques, ils décident de partager leur amour de la découverte afin d’offrir une parenthèse enchantée, d’abord à leurs proches, puis à qui le désire.<br>
-                        C’est ainsi que la société Dating Paris voit le jour.</p><br>
+                        <p>Après avoir réalisé des dates à Paris, riche en petits moments et de magies. Je décide de partager mes découvertes afin d’offrir mon expérience pour des couples et à qui le désire. C’est ainsi que le site web Dating Paris voit le jour.</p><br>
                     </div>
                     <div class="col-md mb-3">
                         <div class="cadre_image_page_davy">
