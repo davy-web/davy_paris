@@ -53,8 +53,8 @@ require_once("include/header.php");
                 <p>Après un voyage de noces autour du monde, riche en expériences et petits moments magiques, ils décident de partager leur amour de la découverte afin d’offrir une parenthèse enchantée, d’abord à leurs proches, puis à qui le désire.<br>C’est ainsi que la société Dating Paris voit le jour.</p>
             </div>
             
-            <!-- Les activités -->
-            <div class="slider_davy mt-5">
+            <!-- Les récents activités -->
+            <div class="slider_davy">
                 <div class="slider slider-nav">
                     <?php $i = 1; ?>
                     <?php while ($article_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC)) : ?>
@@ -90,9 +90,9 @@ require_once("include/header.php");
                 </div>
             </div><br><br>
             
-            <!-- Nos Box de voyages -->
+            <!-- Nos différents box -->
             <div class="container mt-5 mb-3">
-                <h2>Nos différents <span class="color_red_davy serif_davy">box</span></h2>
+                <h2>Nos <span class="color_red_davy serif_davy">différents box</span></h2>
                 <hr class="anime_scroll_davy">
             </div>
             <div class="container">
@@ -125,7 +125,7 @@ require_once("include/header.php");
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="text_center_davy">
+            <div class="text_center_davy mb-5">
                 <!-- bouton_anim_davy -->
                 <a aria-label="Voyage" class="bouton_anim_davy block_center_davy" data-text="Voir nos Box" href="<?= URL ?>/liste-box" title="Box voyage">
                     <span>V</span>
@@ -137,8 +137,12 @@ require_once("include/header.php");
                 </a>
             </div><br>
             
-            <!-- Photos d'activités -->
-            <div class="my-5">
+            <!-- Top activités -->
+            <div class="container text_center_davy mt-5 mb-3">
+                <h2>Notre <span class="color_red_davy serif_davy">sélection</span></h2>
+                <hr class="block_center_davy anime_scroll_davy">
+            </div>
+            <div class="mb-5">
                 <div class="slider slider-for-2">
                     <?php $i = 0; ?>
                     <?php while ($article_photo_array = $pdo_statement_3->fetch(PDO::FETCH_ASSOC)) : ?>
