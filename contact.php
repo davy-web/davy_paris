@@ -101,7 +101,7 @@ require_once("include/header.php");
                     </div>
                     <div class="col-md mb-3">
                         <div class="cadre_image_page_davy">
-                            <img src="<?= URL ?>/images/louvre-min.jpg" class="image_page_davy" alt="louvre-min.jpg">
+                            <img src="<?= URL ?>/images/photo-contact-min.jpg" class="image_page_davy" alt="contact">
                             <img src="<?= URL ?>/images/trait-rouge.png" class="trait_rouge" alt="Cadre">
                             <img src="<?= URL ?>/images/trait-2-rouge.png" class="trait_2_rouge" alt="Cadre">
                         </div>

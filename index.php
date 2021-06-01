@@ -30,11 +30,11 @@ require_once("include/header.php");
                 <img class="anime_scroll_relative_content_1_3_davy anime_scroll_relative_content_1_davy" src="<?= URL ?>/images/couple-min.png" alt="Couple">
                 <img class="anime_scroll_relative_content_1_2_davy anime_scroll_relative_content_1_davy" src="<?= URL ?>/images/dating-paris-min.png" alt="Dating Paris">
                 <div class="anime_scroll_relative_content_1_1_davy anime_scroll_relative_content_1_davy container">
-                    <h1>Box de voyage</h1>
-                    <p>Offrir un moment intime</p>
+                    <h1>Séjour en amoureux</h1>
+                    <p>Offrez une magnifique expérience</p>
                     <p>
                         <!-- bouton_anim_davy -->
-                        <a aria-label="Voyage" class="bouton_anim_davy float_right_davy" data-text="Personnaliser" href="#" title="Box voyage">
+                        <a aria-label="Voyage" class="bouton_anim_davy float_right_davy" data-text="Voir Produits" href="<?= URL ?>/liste-box" title="Box voyage">
                             <span>V</span>
                             <span>o</span>
                             <span>y</span>

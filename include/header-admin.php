@@ -167,6 +167,20 @@ if (isset($_POST['deconnexion'])) {
                     <a href="<?= URL ?>/admin/gestion-mails" title="Mail" class="d-inline-block width_full_davy lien_mail">Mail</a>
                     <hr class="hr_admin_davy">
                     <a href="<?= URL ?>/admin/gestion-comptes" title="Comptes" class="d-inline-block width_full_davy lien_gestion_comptes">Comptes</a>
+                    <hr class="hr_admin_davy">
+                    <form method="post" id="bouton_deconnecter_davy">
+                        <!-- bouton_anim_davy -->
+                        <a aria-label="Quitter" class="bouton_anim_davy bouton_envoyer block_center_davy width_full_davy" data-text="Déconnecter" title="Déconnecter">
+                            <span>Q</span>
+                            <span>u</span>
+                            <span>i</span>
+                            <span>t</span>
+                            <span>t</span>
+                            <span>e</span>
+                            <span>r</span>
+                            <input type="submit" id="deconnexion" name="deconnexion" value="Déconnecter" class="bouton_submit">
+                        </a>
+                    </form>
                 </div>
             </div>
             <div class="main_admin_davy">

@@ -154,9 +154,9 @@ require_once("include/header.php");
                             <?php endif; ?>
                             <!-- changer de mot de passe -->
                             <?php if(isset($_GET['token'])) : ?>
-                            <label for="mdp"><strong>Mot de passe</strong></label> <?= $erreur_mdp ?><br>
+                            <label for="mdp"><strong>Nouveau mot de passe</strong></label> <?= $erreur_mdp ?><br>
                             <input type="password" id="mdp" name="mdp" placeholder="Saisir votre mot de passe" class="width_full_davy"><br><br>
-                            <label for="mdp_confirm"><strong>Confirmation du mot de passe</strong></label> <?= $erreur_mdp_confirm ?><br>
+                            <label for="mdp_confirm"><strong>Confirmation du nouveau mot de passe</strong></label> <?= $erreur_mdp_confirm ?><br>
                             <input type="password" id="mdp_confirm" name="mdp_confirm" placeholder="Confirmer votre mot de passe" class="width_full_davy"><br><br>
                             <?php endif; ?>
                             <!-- bouton_anim_davy -->
@@ -174,7 +174,7 @@ require_once("include/header.php");
                     </div>
                     <div class="col-md mb-3">
                         <div class="cadre_image_page_davy">
-                            <img src="<?= URL ?>/images/louvre-min.jpg" class="image_page_davy" alt="louvre-min.jpg">
+                            <img src="<?= URL ?>/images/photo-inscription-min.jpg" class="image_page_davy" alt="oublier">
                             <img src="<?= URL ?>/images/trait-rouge.png" class="trait_rouge" alt="Cadre">
                             <img src="<?= URL ?>/images/trait-2-rouge.png" class="trait_2_rouge" alt="Cadre">
                         </div>

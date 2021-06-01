@@ -24,12 +24,11 @@ require_once("include/header.php");
                     <div class="col-md mb-3">
                         <h1 class="h2_moyen_davy">Solutions <span class="color_red_davy serif_davy">pour entreprises</span></h1>
                         <hr class="anime_scroll_davy">
-                        <p>Après un voyage de noces autour du monde, riche en expériences et petits moments magiques, ils décident de partager leur amour de la découverte afin d’offrir une parenthèse enchantée, d’abord à leurs proches, puis à qui le désire.<br>
-                        C’est ainsi que la société Dating Paris voit le jour.</p><br>
+                        <p>Cuius acerbitati uxor grave accesserat incentivum, germanitate Augusti turgida supra modum, quam Hannibaliano regi fratris filio antehac Constantinus iunxerat pater, Megaera quaedam mortalis, inflammatrix saevientis adsidua, humani cruoris avida nihil mitius quam maritus; qui paulatim eruditiores facti processu temporis ad nocendum per clandestinos versutosque rumigerulos conpertis leviter addere quaedam male suetos falsa et placentia sibi discentes, adfectati regni vel artium nefandarum calumnias insontibus adfligebant.</p><br>
                     </div>
                     <div class="col-md mb-3">
                         <div class="cadre_image_page_davy">
-                            <img src="<?= URL ?>/images/louvre-min.jpg" class="image_page_davy" alt="louvre-min.jpg">
+                            <img src="<?= URL ?>/images/photo-a-propos-min.jpg" class="image_page_davy" alt="entreprise">
                             <img src="<?= URL ?>/images/trait-rouge.png" class="trait_rouge" alt="Cadre">
                             <img src="<?= URL ?>/images/trait-2-rouge.png" class="trait_2_rouge" alt="Cadre">
                         </div>
@@ -44,7 +43,9 @@ require_once("include/header.php");
             </div>
             <div class="container mb-3">
                 <div class="row">
-                    <p>Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur aut secretiora quaedam se nosse confingit.</p>
+                    <p>Hac ex causa conlaticia stipe Valerius humatur ille Publicola et subsidiis amicorum mariti inops cum liberis uxor alitur Reguli et dotatur ex aerario filia Scipionis, cum nobilitas florem adultae virginis diuturnum absentia pauperis erubesceret patris.</p>
+                    <p>Cumque pertinacius ut legum gnarus accusatorem flagitaret atque sollemnia, doctus id Caesar libertatemque superbiam ratus tamquam obtrectatorem audacem excarnificari praecepit, qui ita evisceratus ut cruciatibus membra deessent, inplorans caelo iustitiam, torvum renidens fundato pectore mansit inmobilis nec se incusare nec quemquam alium passus et tandem nec confessus nec confutatus cum abiecto consorte poenali est morte multatus. et ducebatur intrepidus temporum iniquitati insultans, imitatus Zenonem illum veterem Stoicum qui ut mentiretur quaedam laceratus diutius, avulsam sedibus linguam suam cum cruento sputamine in oculos interrogantis Cyprii regis inpegit.</p>
+                    <p>Alii nullo quaerente vultus severitate adsimulata patrimonia sua in inmensum extollunt, cultorum ut puta feracium multiplicantes annuos fructus, quae a primo ad ultimum solem se abunde iactitant possidere, ignorantes profecto maiores suos, per quos ita magnitudo Romana porrigitur, non divitiis eluxisse sed per bella saevissima, nec opibus nec victu nec indumentorum vilitate gregariis militibus discrepantes opposita cuncta superasse virtute.</p>
                 </div>
             </div>
         </div>

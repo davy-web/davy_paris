@@ -42,7 +42,14 @@ require_once("include/header.php");
                     <h3 class="color_red_davy">Article 5 : Cookies</h3>
                     <p class="mb-5">L’Utilisateur est informé que lors de ses visites sur le site, un cookie peut s’installer automatiquement sur son logiciel de navigation.<br><br>En naviguant sur le site, il les accepte.<br><br>Un cookie est un élément qui ne permet pas d’identifier l’Utilisateur mais sert à enregistrer des informations relatives à la navigation de celui-ci sur le site Internet. L’Utilisateur pourra désactiver ce cookie par l’intermédiaire des paramètres figurant au sein de son logiciel de navigation.</p>
                     <h3 class="color_red_davy">Article 6 : Propriété intellectuelle</h3>
-                    <p class="mb-5">Les illustrations viennent du site Freepik <a href="https://fr.freepik.com/" title="https://fr.freepik.com/">(fr.freepik.com)</a></p>
+                    <p>Les illustrations viennent du site Freepik <a href="https://fr.freepik.com/" title="https://fr.freepik.com/">(fr.freepik.com)</a></p>
+                    <p class="mb-5">
+                        <a href="https://fr.freepik.com/photos-gratuite/heureux-couple-ayant-du-vin-vue-tour-eiffel_13555416.htm" tilte="Freepik">https://fr.freepik.com/photos-gratuite/heureux-couple-ayant-du-vin-vue-tour-eiffel_13555416.htm</a><br>
+                        <a href="https://fr.freepik.com/photos-gratuite/photo-exterieure-jolie-femme-voyageur-dans-verres-tenant-carte-pont-ville_10978925.htm" tilte="Freepik">https://fr.freepik.com/photos-gratuite/photo-exterieure-jolie-femme-voyageur-dans-verres-tenant-carte-pont-ville_10978925.htm</a><br>
+                        <a href="https://fr.freepik.com/photos-gratuite/voyageuse-heureuse-tenue-elegante-passer-vacances-france_10978912.htm" tilte="Freepik">https://fr.freepik.com/photos-gratuite/voyageuse-heureuse-tenue-elegante-passer-vacances-france_10978912.htm</a><br>
+                        <a href="https://fr.freepik.com/photos-gratuite/enchanteur-touriste-explorant-france-carte_10978919.htm" tilte="Freepik">https://fr.freepik.com/photos-gratuite/enchanteur-touriste-explorant-france-carte_10978919.htm</a><br>
+                        
+                    </p>
                 </div>
             </div>
         </div>
