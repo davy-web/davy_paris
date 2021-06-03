@@ -215,7 +215,7 @@ require_once("include/header.php");
                             <label for="mdp_confirm"><strong>Confirmation du mot de passe</strong></label> <?= $erreur_mdp_confirm ?><br>
                             <input type="password" id="mdp_confirm" name="mdp_confirm" placeholder="Confirmer votre mot de passe" class="width_full_davy"><br><br>
                             <!-- bouton_anim_davy -->
-                            <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy width_full_davy" data-text="Modifier" title="Modifier">
+                            <a aria-label="Valider" class="bouton_anim_davy bouton_envoyer block_center_davy" data-text="Modifier" title="Modifier">
                                 <span>V</span>
                                 <span>a</span>
                                 <span>l</span>
