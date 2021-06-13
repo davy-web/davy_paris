@@ -45,7 +45,7 @@
                     <div class="nav_centre_pc_davy">
                         <a href="<?= URL ?>/a-propos" class="menu_lien_pc_davy lien_a_propos" title="À propos">À propos</a>
                         <a href="<?= URL ?>/liste-experiences" class="menu_lien_pc_davy lien_liste_experiences" title="Des Idées">Idées d'activités</a>
-                        <a href="<?= URL ?>/liste-box" class="menu_lien_pc_davy lien_liste_box" title="Nox Box">Nox Box</a>
+                        <a href="<?= URL ?>/liste-box" class="menu_lien_pc_davy lien_liste_box" title="Nox Box">Nos Box</a>
                         <a href="<?= URL ?>/contact" class="menu_lien_pc_davy lien_contact" title="Contact">Contact</a>
                     </div>
                     <div class="nav_droite_pc_davy">
@@ -98,7 +98,7 @@
                     <hr class="hr_admin_davy">
                     <a href="<?= URL ?>/liste-experiences" title="Des Idées" class="d-inline-block width_full_davy lien_liste_experiences">Idées d'activités</a>
                     <hr class="hr_admin_davy">
-                    <a href="<?= URL ?>/liste-box" title="Nox Box" class="d-inline-block width_full_davy lien_liste_box">Nox Box</a>
+                    <a href="<?= URL ?>/liste-box" title="Nox Box" class="d-inline-block width_full_davy lien_liste_box">Nos Box</a>
                     <hr class="hr_admin_davy">
                     <a href="<?= URL ?>/contact" title="Contact" class="d-inline-block width_full_davy lien_contact">Contact</a>
                     <hr class="hr_admin_davy">

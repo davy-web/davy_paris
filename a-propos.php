@@ -38,12 +38,21 @@ require_once("include/header.php");
 
             <!-- Informations complémentaires -->
             <div class="container mt-5 mb-3">
-                <h2 class="h2_moyen_davy">Trouver <span class="color_red_davy serif_davy">une box</span></h2>
+                <h2 class="h2_moyen_davy">Le <span class="color_red_davy serif_davy">fonctionnement</span></h2>
                 <hr class="anime_scroll_davy">
             </div>
             <div class="container mb-3">
                 <div class="row">
-                    <p>Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur aut secretiora quaedam se nosse confingit.</p>
+                    <p>Le concept est on ne peut plus simple : vous choisissez le coffret que vous souhaitez offrir à vos proches, et ces derniers n’ont plus qu’à choisir dans le guide ou sur le site de Wonderbox l’activité qu’ils souhaitent tester, et à réserver directement la date en contactant le partenaire. Ils n’ont rien d’autre à payer !</p>
+                </div>
+            </div>
+            <div class="container mt-5 mb-3">
+                <h2 class="h2_moyen_davy">L'<span class="color_red_davy serif_davy">offre</span></h2>
+                <hr class="anime_scroll_davy">
+            </div>
+            <div class="container mb-3">
+                <div class="row">
+                    <p>Avec nos coffrets, difficile de ne pas trouver votre bonheur ! La marque propose des activités de bien-être, de gastronomie, de sport et d’aventure, de loisirs variés, et bien entendu des séjours aux durées et thèmes variables.</p>
                 </div>
             </div>
 
