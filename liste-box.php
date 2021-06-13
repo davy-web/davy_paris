@@ -94,20 +94,6 @@ require_once("include/header.php");
                                 </a><br><br>
                             </div>
                             <div class="panel_davy desactive_accordion">
-                                <strong>Nombre de nuits</strong><br><br>
-                                <input type="checkbox" id="1_nuit" name="1_nuit" value="1 Nuit">
-                                <label for="1_nuit">1 Nuit</label><br>
-                                <input type="checkbox" id="2_nuits" name="2_nuits" value="2 Nuits">
-                                <label for="2_nuits">2 Nuits</label><br>
-                                <input type="checkbox" id="3_nuits" name="3_nuits" value="3 Nuits">
-                                <label for="3_nuits">3 Nuits</label><br><br>
-                                <strong>Prix</strong><br><br>
-                                <input type="checkbox" id="de_50_a_100" name="de_50_a_100" value="De 50 à 100 €">
-                                <label for="de_50_a_100">De 50 à 100 €</label><br>
-                                <input type="checkbox" id="de_100_a_200" name="de_100_a_200" value="De 100 à 200 €">
-                                <label for="de_100_a_200">De 100 à 200 €</label><br>
-                                <input type="checkbox" id="plus_de_200" name="plus_de_200" value="Plus de 200 €">
-                                <label for="plus_de_200">Plus de 200 €</label><br><br>
                                 <strong>Catégorie</strong><br><br>
                                 <input type="checkbox" id="gastronomie" name="gastronomie" value="Gastronomie">
                                 <label for="gastronomie">Gastronomie</label><br>
@@ -117,15 +103,59 @@ require_once("include/header.php");
                                 <label for="bien_etre">Bien-être</label><br>
                                 <input type="checkbox" id="loisirs" name="loisirs" value="Loisirs">
                                 <label for="loisirs">Loisirs</label><br><br>
-                                <strong>Type d’hébergement</strong><br><br>
-                                <input type="checkbox" id="chambre_hotes" name="chambre_hotes" value="Chambre d’hôtes">
-                                <label for="chambre_hotes">Chambre d’hôtes</label><br>
-                                <input type="checkbox" id="hotel_3" name="hotel_3" value="Hotel 3*">
-                                <label for="hotel_3">Hôtel 3*</label><br>
-                                <input type="checkbox" id="B_B" name="B_B" value="B&B">
-                                <label for="B_B">B&B</label><br>
-                                <input type="checkbox" id="hotel_4" name="hotel_4" value="Hotel 4*">
-                                <label for="hotel_4">Hôtel 4*</label><br>
+                                <strong>Prix</strong><br><br>
+                                <input type="checkbox" id="de_50_a_100" name="de_50_a_100" value="De 50 à 100 €">
+                                <label for="de_50_a_100">De 45 à 65 €</label><br>
+                                <input type="checkbox" id="de_100_a_200" name="de_100_a_200" value="De 100 à 200 €">
+                                <label for="de_100_a_200">De 65 à 85 €</label><br>
+                                <input type="checkbox" id="plus_de_200" name="plus_de_200" value="Plus de 200 €">
+                                <label for="plus_de_200">Plus de 85 €</label><br><br>
+                                <strong>Notes des clients</strong><br><br>
+                                <input type="checkbox" id="1_note" name="1_note" value="1">
+                                <label for="1_note">
+                                    <?php for ($i = 0; $i < 1; $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                    <?php for ($i = 0; $i < (5 - 1); $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                </label><br>
+                                <input type="checkbox" id="2_notes" name="2_notes" value="2">
+                                <label for="2_note">
+                                    <?php for ($i = 0; $i < 2; $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                    <?php for ($i = 0; $i < (5 - 2); $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                </label><br>
+                                <input type="checkbox" id="3_notes" name="3_notes" value="3">
+                                <label for="3_note">
+                                    <?php for ($i = 0; $i < 3; $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                    <?php for ($i = 0; $i < (5 - 3); $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                </label><br>
+                                <input type="checkbox" id="4_notes" name="4_notes" value="4">
+                                <label for="4_note">
+                                    <?php for ($i = 0; $i < 4; $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                    <?php for ($i = 0; $i < (5 - 4); $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                </label><br>
+                                <input type="checkbox" id="5_notes" name="5_notes" value="5">
+                                <label for="5_note">
+                                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                    <?php for ($i = 0; $i < (5 - 5); $i++) : ?>
+                                    <img src="<?= URL ?>/images/icon-coeur-vide-min.png" class="image_cadre_note_davy" alt="Icon coeur">
+                                    <?php endfor; ?>
+                                </label><br>
                             </div>
                             <hr class="hr_admin_davy"><br>
                             <!-- bouton_anim_davy -->
