@@ -104,12 +104,12 @@ require_once("include/header.php");
                                 <input type="checkbox" id="loisirs" name="loisirs" value="Loisirs">
                                 <label for="loisirs">Loisirs</label><br><br>
                                 <strong>Prix</strong><br><br>
-                                <input type="checkbox" id="de_50_a_100" name="de_50_a_100" value="De 50 à 100 €">
-                                <label for="de_50_a_100">De 45 à 65 €</label><br>
-                                <input type="checkbox" id="de_100_a_200" name="de_100_a_200" value="De 100 à 200 €">
-                                <label for="de_100_a_200">De 65 à 85 €</label><br>
-                                <input type="checkbox" id="plus_de_200" name="plus_de_200" value="Plus de 200 €">
-                                <label for="plus_de_200">Plus de 85 €</label><br><br>
+                                <input type="checkbox" id="de_45_a_65" name="de_45_a_65" value="de_45_a_65">
+                                <label for="de_45_a_65">De 45 à 65 €</label><br>
+                                <input type="checkbox" id="de_65_a_85" name="de_65_a_85" value="de_65_a_85">
+                                <label for="de_65_a_85">De 65 à 85 €</label><br>
+                                <input type="checkbox" id="plus_de_85" name="plus_de_85" value="plus_de_85">
+                                <label for="plus_de_85">Plus de 85 €</label><br><br>
                                 <strong>Notes des clients</strong><br><br>
                                 <input type="checkbox" id="1_note" name="1_note" value="1">
                                 <label for="1_note">
@@ -175,7 +175,7 @@ require_once("include/header.php");
                         <div id="content_produit_davy" class="row">
                         <?php if (isset($_POST['chercher'])) : ?>
                             <?php while ($produit_chercher_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC)) : ?>
-                            <?php if ((!empty($_POST['gastronomie']) && ((find_davy($produit_chercher_array["titre"], $_POST['gastronomie']) == 1))) || (!empty($_POST['aventure']) && ((find_davy($produit_chercher_array["titre"], $_POST['aventure']) == 1))) || (!empty($_POST['bien_etre']) && ((find_davy($produit_chercher_array["titre"], $_POST['bien_etre']) == 1))) || (!empty($_POST['loisirs']) && ((find_davy($produit_chercher_array["titre"], $_POST['loisirs']) == 1))) || (!empty($_POST['mot_chercher']) && ((find_davy($produit_chercher_array["titre"], $_POST['mot_chercher']) == 1) || (find_davy($produit_chercher_array["description"], $_POST['mot_chercher']) == 1)))) : ?>
+                            <?php if ((!empty($_POST['plus_de_85']) && ($produit_chercher_array["prix"] >= 85)) || (!empty($_POST['de_65_a_85']) && ($produit_chercher_array["prix"] >= 65 && $produit_chercher_array["prix"] <= 85)) || (!empty($_POST['de_45_a_65']) && ($produit_chercher_array["prix"] >= 45 && $produit_chercher_array["prix"] <= 65)) || (!empty($_POST['gastronomie']) && ((find_davy($produit_chercher_array["titre"], $_POST['gastronomie']) == 1))) || (!empty($_POST['aventure']) && ((find_davy($produit_chercher_array["titre"], $_POST['aventure']) == 1))) || (!empty($_POST['bien_etre']) && ((find_davy($produit_chercher_array["titre"], $_POST['bien_etre']) == 1))) || (!empty($_POST['loisirs']) && ((find_davy($produit_chercher_array["titre"], $_POST['loisirs']) == 1))) || (!empty($_POST['mot_chercher']) && ((find_davy($produit_chercher_array["titre"], $_POST['mot_chercher']) == 1) || (find_davy($produit_chercher_array["description"], $_POST['mot_chercher']) == 1)))) : ?>
                             <div class="col-lg-4 col-md-6 mb-3">
                                 <div class="cadre_davy">
                                     <div class="image_cadre_davy">
@@ -200,7 +200,7 @@ require_once("include/header.php");
                             <?php endwhile; ?>
                         <?php elseif (isset($_GET['chercher']) && $_GET['chercher'] != "") : ?>
                             <?php while ($produit_chercher_array = $pdo_statement_2->fetch(PDO::FETCH_ASSOC)) : ?>
-                            <?php if ((!empty($_POST['gastronomie']) && ((find_davy($produit_chercher_array["titre"], $_POST['gastronomie']) == 1))) || (!empty($_POST['aventure']) && ((find_davy($produit_chercher_array["titre"], $_POST['aventure']) == 1))) || (!empty($_POST['bien_etre']) && ((find_davy($produit_chercher_array["titre"], $_POST['bien_etre']) == 1))) || (!empty($_POST['loisirs']) && ((find_davy($produit_chercher_array["titre"], $_POST['loisirs']) == 1))) || (!empty($_GET['chercher']) && ((find_davy($produit_chercher_array["titre"], $_GET['chercher']) == 1) || (find_davy($produit_chercher_array["description"], $_GET['chercher']) == 1)))) : ?>
+                            <?php if ((!empty($_POST['plus_de_85']) && ($produit_chercher_array["prix"] >= 85)) || (!empty($_POST['de_65_a_85']) && ($produit_chercher_array["prix"] >= 65 && $produit_chercher_array["prix"] <= 85)) || (!empty($_POST['de_45_a_65']) && ($produit_chercher_array["prix"] >= 45 && $produit_chercher_array["prix"] <= 65)) || (!empty($_POST['gastronomie']) && ((find_davy($produit_chercher_array["titre"], $_POST['gastronomie']) == 1))) || (!empty($_POST['aventure']) && ((find_davy($produit_chercher_array["titre"], $_POST['aventure']) == 1))) || (!empty($_POST['bien_etre']) && ((find_davy($produit_chercher_array["titre"], $_POST['bien_etre']) == 1))) || (!empty($_POST['loisirs']) && ((find_davy($produit_chercher_array["titre"], $_POST['loisirs']) == 1))) || (!empty($_GET['chercher']) && ((find_davy($produit_chercher_array["titre"], $_GET['chercher']) == 1) || (find_davy($produit_chercher_array["description"], $_GET['chercher']) == 1)))) : ?>
                             <div class="col-lg-4 col-md-6 mb-3">
                                 <div class="cadre_davy">
                                     <div class="image_cadre_davy">
